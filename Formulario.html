@@ -17,7 +17,7 @@
         font-size: 16px;
         font-weight: 400;
         line-height: 25px;
-        column-count: 2;
+        column-count: 3;
     }
 
     .container {
@@ -66,7 +66,6 @@
 
     .form-radio-checkbox label {
         line-height: 2rem;
-
         display: flex;
         align-items: center;
     }
@@ -102,23 +101,33 @@
     <div class="cabecalho">
         <div class="">
             Dados do Paciente<br>
-            Data
-            Sexo
-            
             <div class="container">
                 <form class="form">
+                    <label for="data">Data:</label>
+                    <input type="text" class="form-control" placeholder="dd/mm/aaaa" data-mask="00/00/0000"
+                        maxlength="10" autocomplete="off">
+                    <div class="radio">Sexo:
+                        <input name="radios" type="radio" id="radio-button-1">
+                        <label for="radio-button-1">Feminino</label>
+                        <input name="radios" type="radio" id="radio-button-2">
+                        <label for="radio-button-2">Masculino</label>
+                    </div>
                     <div class="form-group">
+
                         <label for="nome">Nome do Hospital</label>
                         <input type="text" id="nome" name="nome" placeholder="Digite o nome do Hospital" required />
                         <label for="nome">Nome</label>
                         <input type="text" id="nome" name="nome" placeholder="Digite o nome do paciente" required />
                         <label for="idade">Idade</label>
-                        <input type="text" id="idade" name="idade" placeholder="Digite a idade do paciente" required/>
+                        <input type="text" id="idade" name="idade" placeholder="Digite a idade do paciente" required />
                     </div>
-                    Fone
-                    RG/CPF Paciente<br>
-                    Acompanhante
-                    idade<br>
+                    Fone: <input type="text" class="form-control phone-mask" placeholder="Ex.: 0000-0000">
+                    RG/CPF Paciente: <input type="text" class="form-control cpf-mask"
+                        placeholder="Ex.: 000.000.000-00"><br>
+                    <label for="nome">Acompanhante:</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite o nome do paciente" required />
+                    <label for="idade">Idade</label>
+                    <input type="text" id="idade" name="idade" placeholder="Digite a idade do paciente" required /><br>
                     Local da Ocorrência
             </div><br>
 
