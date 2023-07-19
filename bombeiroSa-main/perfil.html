@@ -144,9 +144,16 @@
         display: flex;
         align-items: center;
     }
+
     .radio-group input[type="radio"] {
         margin-right: 5px;
     }
+
+    a{
+        color: white;
+        text-decoration: none;
+    }
+
 </style>
 
 <body>
@@ -155,121 +162,11 @@
             <div>Matrícula:</div>
         </div>
         <div class="button-group">
-            <button class="button">Nova Ficha</button>
+            <button class="button"><a href="ficha.html">Nova Ficha</a></button>
             <button class="button">Histórico de Ficha</button>
             <button class="button">Pesquisar</button>
         </div>
     </div>
-    <form>
-        <div class="ddp">Dados Iniciais
-            <div class="container">
-                <div class="cabecalho">
-                    <form class="form">
-                        <div class="form-group">
-                            <div class="box">
-                                <label for="data">Data:</label>
-                                <input type="text" class="form-control" placeholder="dd/mm/aaaa" data-mask="00/00/0000"
-                                    maxlength="10" autocomplete="off">
-                            </div>
-                            <div class="radio">Sexo:
-                                <input name="radios" type="radio" id="radio-button-1">
-                                <label for="radio-button-1">Feminino</label>
-                                <input name="radios" type="radio" id="radio-button-2">
-                                <label for="radio-button-2">Masculino</label>
-                            </div>
-                            <div class="box">
-                                <label for="nome-hospital">Nome do Hospital</label>
-                                <input type="text" id="nome-hospital" name="nome-hospital"
-                                    placeholder="Digite o nome do Hospital" required />
-                            </div>
-                            <div>
-                                <label for="nome-paciente">Nome</label>
-                                <input type="text" id="nome-paciente" name="nome-paciente"
-                                    placeholder="Digite o nome do paciente" required />
-                            </div>
-                            <div>
-                                <label for="idade">Idade</label>
-                                <input type="text" id="idade" name="idade" placeholder="Digite a idade do paciente"
-                                    required />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            Fone: <input type="text" class="form-control phone-mask" placeholder="Ex.: 0000-0000">
-                            RG/CPF Paciente: <input type="text" class="form-control cpf-mask"
-                                placeholder="Ex.: 000.000.000-00"><br>
-                            <label for="nome-acompanhante">Acompanhante:</label>
-                            <input type="text" id="nome-acompanhante" name="nome-acompanhante"
-                                placeholder="Digite o nome do acompanhante" required />
-                            <label for="idade-acompanhante">Idade</label>
-                            <input type="text" id="idade-acompanhante" name="idade-acompanhante"
-                                placeholder="Digite a idade do acompanhante" required />
-                        </div>
-                        Local da Ocorrência
-                </div><br>
-
-                <div class="">
-                    Dados Ambulância<br>
-                    N° USD.
-                    CÓD. IR<br>
-                    N° OCORR.
-                    CÓD. PS<br>
-                    DESP<br>
-                    H. CH.<br>
-                    KM FINAL<br>
-                    CÓD. SIA/SUS
-                </div>
-            </div><br>
-
-            <div>TIPO DE OCORRÊNCIA (PRÉ-HOSPITALAR) <br>
-                <div class="causas">
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                    <label for="vehicle1">CAUSADO POR ANIMAIS</label><br>
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                    <label for="vehicle1">COM MEIO DE TRANSPORTE</label><br>
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                    <label for="vehicle1">DESMORONAMENTO/DESLIZAMENTO</label><br>
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                    <label for="vehicle1">EMERGÊNCIA MÉDICA</label><br>
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                    <label for="vehicle1">QUEDA DE ALTURA 2M</label><br>
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                    <label for="vehicle1">TENTATIVA DE SUICÍDIO</label><br>
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                    <label for="vehicle1">QUEDA PRÓPRIA ALTURA</label><br>
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                    <label for="vehicle1">AFOGAMENTO</label><br>
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                    <label for="vehicle1">AGRESSÃO</label><br>
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                    <label for="vehicle1">ATROPELAMENTO</label><br>
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                    <label for="vehicle1">CHOQUE ELÉTRICO</label><br>
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                    <label for="vehicle1">DESABAMENTO</label><br>
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                    <label for="vehicle1">DOMÉSTICO</label><br>
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                    <label for="vehicle1">ESPORTICO</label><br>
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                    <label for="vehicle1">INTOXICAÇÃO</label><br>
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                    <label for="vehicle1">QUEDA DE BICICLETA</label><br>
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                    <label for="vehicle1">QUEDA MOTO</label><br>
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                    <label for="vehicle1">QUEDA NÍVEL 2M</label><br>
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                    <label for="vehicle1">TRABALHO</label><br>
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                    <label for="vehicle1">TRANSFERÊNCIA</label><br>
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                    <label for="vehicle1">OUTRO</label>
-                </div>
-            </div><br>
-
-            <div>AVALIAÇÃO DO PACIENTE (GLASGOW)</div>
-        </div>
-    </form>
 </body>
 
 </html>
