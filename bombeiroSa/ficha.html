@@ -30,6 +30,7 @@
         background-color: #e74c3c;
         color: #fff;
         padding: 10px 20px;
+        margin-top: 20px;
         border: none;
         border-radius: 4px;
         font-size: 16px;
@@ -102,7 +103,7 @@
 
     .form-group input,
     .form select {
-        width: 90%;
+        width: 50%;
         border-radius: 5px;
         padding: 8px;
         border-color: rgba(218, 75, 44, 1);
@@ -194,6 +195,14 @@
         column-count: 2;
     }
 
+    .c3 {
+        column-count: 6;
+    }
+
+    .c2 {
+        column-count: 2;
+    }
+
     .table {
         display: flex;
         flex-direction: column;
@@ -228,8 +237,21 @@
         column-count: 4;
     }
 
+    .glas {
+        max-width: 10%;
+        margin: 2px 3px;
+    }
+
     input.form-controll {
-        width: 40px;
+        width: 35%;
+    }
+
+    input.sv {
+        width: 18%;
+    }
+
+    input.form-control {
+        width: 65%;
     }
 
     .titulo {
@@ -254,11 +276,36 @@
         margin: -66px;
     }
 
+    .cmpp {
+        column-count: 2;
+        column-gap: 60px;
+        margin-left: 15px;
+        font-size: 15px;
+    }
+
+    .le {
+        margin-left: 101px;
+        border-radius: 5px;
+        padding: 2px;
+        border-color: rgba(218, 75, 44, 1);
+        border: 1px solid #ced4da;
+        margin-bottom: 18px;
+    }
+
+    .lee {
+        margin-left: 101px;
+        border-radius: 5px;
+        padding: 2px;
+        border-color: rgba(218, 75, 44, 1);
+        border: 1px solid #ced4da;
+        margin-bottom: 18px;
+        width: 20%;
+    }
+
     .eee {
         height: 20px;
         margin-top: 13px;
     }
-
 </style>
 
 <body>
@@ -266,10 +313,10 @@
         <div class="imgg">
             <img src="logos.png" width="35%">
         </div>
-        <div class="button-group">
-            <button class="button"><a href="ficha.html">Ficha</a></button>
-            <button class="button"><a href="hist.html">Histórico</a></button>
-        </div>
+    </div>
+    <div class="button-group">
+        <button class="button"><a href="ficha.html">Ficha</a></button>
+        <button class="button"><a href="hist.html">Histórico</a></button>
     </div>
     <form>
 
@@ -287,55 +334,58 @@
                                 <legend>Dados Iniciais</legend>
                                 <div class="di">
                                     <div>
-                                        <label for="data">Data:</label>
+                                        <label for="data">Data:</label><br>
                                         <input type="text" class="form-control" placeholder="dd/mm/aaaa"
                                             data-mask="00/00/0000" maxlength="10" autocomplete="off">
                                     </div>
                                     <div class="duo">
                                         <div class="radio">
-                                            <label for="data">Sexo:</label>
+                                            <label for="data">Sexo:</label><br>
                                             <input name="radios" type="radio" id="radio-button-1">F
                                             <input name="radios" type="radio" id="radio-button-2">M
                                         </div>
                                     </div>
                                     <div>
-                                        <label for="nome-hospital">Nome do Hospital</label>
-                                        <input type="text" id="nome-hospital" name="nome-hospital"
+                                        <label for="nome-hospital">Nome do Hospital</label><br>
+                                        <input type="text" class="form-control" id="nome-hospital" name="nome-hospital"
                                             placeholder="Digite o nome do Hospital" required />
                                     </div>
                                     <div>
-                                        <label for="nome-paciente">Nome</label>
-                                        <input type="text" id="nome-paciente" name="nome-paciente"
+                                        <label for="nome-paciente">Nome</label><br>
+                                        <input type="text" class="form-control" id="nome-paciente" name="nome-paciente"
                                             placeholder="Digite o nome do paciente" required />
                                     </div>
                                     <div>
-                                        <label for="idade">Idade</label>
-                                        <input type="text" id="idade" name="idade"
+                                        <label for="idade">Idade</label><br>
+                                        <input type="text" class="form-control" id="idade" name="idade"
                                             placeholder="Digite a idade do paciente" required />
                                     </div>
                                     <div>
-                                        <label for="fone">Fone:</label>
+                                        <label for="fone">Fone:</label><br>
                                         <input type="text" class="form-control phone-mask" placeholder="Ex.: 0000-0000">
                                     </div>
                                     <div>
-                                        <label for="cpf">RG/CPF Paciente:</label>
+                                        <label for="cpf">RG/CPF Paciente:</label><br>
                                         <input type="text" class="form-control cpf-mask"
                                             placeholder="Ex.: 000.000.000-00">
                                     </div>
                                     <div>
-                                        <label for="nome-acompanhante">Acompanhante:</label>
-                                        <input type="text" id="nome-acompanhante" name="nome-acompanhante"
-                                            placeholder="Digite o nome do acompanhante" required />
+                                        <label for="nome-acompanhante">Acompanhante:</label><br>
+                                        <input type="text" class="form-control" id="nome-acompanhante"
+                                            name="nome-acompanhante" placeholder="Digite o nome do acompanhante"
+                                            required />
                                     </div>
                                     <div>
-                                        <label for="idade-acompanhante">Idade</label>
-                                        <input type="text" id="idade-acompanhante" name="idade-acompanhante"
-                                            placeholder="Digite a idade do acompanhante" required />
+                                        <label for="idade-acompanhante">Idade</label><br>
+                                        <input type="text" class="form-control" id="idade-acompanhante"
+                                            name="idade-acompanhante" placeholder="Digite a idade do acompanhante"
+                                            required />
                                     </div>
                                     <div>
-                                        <label for="local-ocorrencia">Local da Ocorrência</label>
-                                        <input type="text" id="local-ocorrencia" name="local-ocorrencia"
-                                            placeholder="Digite o local da ocorrência" required />
+                                        <label for="local-ocorrencia">Local da Ocorrência</label><br>
+                                        <input type="text" class="form-control" id="local-ocorrencia"
+                                            name="local-ocorrencia" placeholder="Digite o local da ocorrência"
+                                            required />
                                     </div>
                                 </div>
                             </fieldset>
@@ -344,38 +394,38 @@
 
                             <fieldset>
                                 <legend>Dados Ambulância</legend>
-                                <div class="duo">
+                                <div class="c2">
                                     <div>
-                                        <label for="vehicle">N° Usd.</label>
+                                        <label for="vehicle">N° Usd.</label><br>
                                         <input type="text1" id="n-usd" name="n-usd" placeholder="Digite" required />
                                     </div>
                                     <div>
-                                        <label for="vehicle">N° Ocorr.</label>
+                                        <label for="vehicle">N° Ocorr.</label><br>
                                         <input type="text1" id="n-ocorr" name="n-ocorr" placeholder="Digite" required />
                                     </div>
                                     <div>
-                                        <label for="vehicle">Desp</label>
+                                        <label for="vehicle">Desp</label><br>
                                         <input type="text1" id="desp" name="desp" placeholder="Digite" required />
                                     </div>
                                     <div>
-                                        <label for="vehicle">Km Final</label>
+                                        <label for="vehicle">Km Final</label><br>
                                         <input type="text1" id="km-final" name="km-final" placeholder="Digite"
                                             required />
                                     </div>
                                     <div>
-                                        <label for="vehicle1">Cód. Ir</label>
+                                        <label for="vehicle1">Cód. Ir</label><br>
                                         <input type="checkbox" class="eee" id="cod-ir" name="cod-ir" value="ir">
                                     </div>
                                     <div>
-                                        <label for="vehicle1">Cód. Ps</label>
+                                        <label for="vehicle1">Cód. Ps</label><br>
                                         <input type="checkbox" class="eee" id="cod-ps" name="cod-ps" value="ps">
                                     </div>
                                     <div>
-                                        <label for="vehicle">H. Ch.</label>
+                                        <label for="vehicle">H. Ch.</label><br>
                                         <input type="text1" id="h-ch" name="h-ch" placeholder="Digite" required />
                                     </div>
                                     <div>
-                                        <label for="vehicle">Cód. SIA/SUS </label>
+                                        <label for="vehicle">Cód. SIA/SUS </label><br>
                                         <input type="text1" id="cod-sia-sus" name="cod-sia-sus" placeholder="Digite"
                                             required />
                                     </div>
@@ -469,7 +519,7 @@
                                     </div>
                                     <div class="input-group">
                                         <span class="input-group-addon"><input type="checkbox" class="aaa"></span>
-                                        <input type="text" class="form-control" placeholder="Outros">
+                                        <input type="text" class="form-controll" placeholder="Outros">
                                     </div>
                                 </div>
                             </fieldset>
@@ -491,129 +541,151 @@
                                         </tr>
                                         <tr>
                                             <td><label for="vehicle1">Espontânea</label>
-                                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">4
+                                                <input type="checkbox" class="glas" id="vehicle1" name="vehicle1"
+                                                    value="Bike">4
                                             </td>
                                             <td><label for="vehicle1">Espontânea</label>
-                                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">4
+                                                <input type="checkbox" class="glas" id="vehicle1" name="vehicle1"
+                                                    value="Bike">4
                                             </td>
                                         </tr>
                                         <tr>
                                             <td><label for="vehicle1">Comando Verbal</label>
-                                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">3
+                                                <input type="checkbox" class="glas" id="vehicle1" name="vehicle1"
+                                                    value="Bike">3
                                             </td>
                                             <td><label for="vehicle1">Comando Verbal</label>
-                                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">3
+                                                <input type="checkbox" class="glas" id="vehicle1" name="vehicle1"
+                                                    value="Bike">3
                                             </td>
                                         </tr>
                                         <tr>
                                             <td><label for="vehicle1">ESTÍMULO DOLOROSO</label>
-                                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">2
+                                                <input type="checkbox" class="glas" id="vehicle1" name="vehicle1"
+                                                    value="Bike">2
                                             </td>
                                             <td><label for="vehicle1">ESTÍMULO DOLOROSO</label>
-                                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">2
+                                                <input type="checkbox" class="glas" id="vehicle1" name="vehicle1"
+                                                    value="Bike">2
                                             </td>
                                         </tr>
                                         <tr>
                                             <td><label for="vehicle1">NENHUMA</label>
-                                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">1
+                                                <input type="checkbox" class="glas" id="vehicle1" name="vehicle1"
+                                                    value="Bike">1
                                             </td>
                                             <td><label for="vehicle1">NENHUMA</label>
-                                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">1
+                                                <input type="checkbox" class="glas" id="vehicle1" name="vehicle1"
+                                                    value="Bike">1
                                             </td>
                                         </tr>
                                         <th rowspan="5">RESPOSTA <br> VERBAL</th>
                                         <td><label for="vehicle1">ORIENTADO</label>
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">5
+                                            <input type="checkbox" class="glas" id="vehicle1" name="vehicle1"
+                                                value="Bike">5
                                         </td>
                                         <td><label for="vehicle1">PALAVRAS E FRASE APROPRIADAS</label>
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">5
+                                            <input type="checkbox" class="glas" id="" name="vehicle1" value="Bike">5
                                         </td>
                                         </tr>
                                         <tr>
                                             <td><label for="vehicle1">CONFLISO</label>
-                                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">4
+                                                <input type="checkbox" class="glas" id="" name="vehicle1" value="Bike">4
                                             </td>
                                             <td><label for="vehicle1">PALAVRAS INAPROPRIADAS</label>
-                                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">4
+                                                <input type="checkbox" class="glas" id="" name="vehicle1" value="Bike">4
                                             </td>
                                         </tr>
                                         <tr>
                                             <td><label for="vehicle1">PALAVRAS INAPROPRIADAS</label>
-                                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">3
+                                                <input type="checkbox" class="glas" id="" name="vehicle1" value="Bike">3
                                             </td>
                                             <td><label for="vehicle1">CHORO PERSISTENTE OU GRITOS</label>
-                                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">3
+                                                <input type="checkbox" class="glas" id="" name="vehicle1" value="Bike">3
                                             </td>
                                         </tr>
                                         <tr>
                                             <td><label for="vehicle1">PALAVRAS INCOMPREENSÍVEIS</label>
-                                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">2
+                                                <input type="checkbox" class="glas" id="" name="vehicle1" value="Bike">2
                                             </td>
                                             <td><label for="vehicle1">SONS INCOMPREENSÍVEIS</label>
-                                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">2
+                                                <input type="checkbox" class="glas" id="" name="vehicle1" value="Bike">2
                                             </td>
                                         </tr>
                                         <tr>
                                             <td><label for="vehicle1">NENHUMA</label>
-                                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">1
+                                                <input type="checkbox" class="glas" id="" name="vehicle1" value="Bike">1
                                             </td>
                                             <td><label for="vehicle1">NENHUMA RESPOSTA VERBAL</label>
-                                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">1
+                                                <input type="checkbox" class="glas" id="vehicle1" name="vehicle1"
+                                                    value="Bike">1
                                             </td>
                                         </tr>
                                         <th rowspan="6">RESPOSTA <br> MOTORA</th>
                                         <td><label for="vehicle1">OBEDECE COMANDOS</label>
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">6
+                                            <input type="checkbox" class="glas" id="vehicle1" name="vehicle1"
+                                                value="Bike">6
                                         </td>
                                         <td><label for="vehicle1">OBEDECE PRONTAMENTE</label>
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">6
+                                            <input type="checkbox" class="glas" id="vehicle1" name="vehicle1"
+                                                value="Bike">6
                                         </td>
                                         </tr>
                                         <tr>
                                             <td><label for="vehicle1">LOCALIZA DOR</label>
-                                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">5
+                                                <input type="checkbox" class="glas" id="vehicle1" name="vehicle1"
+                                                    value="Bike">5
                                             </td>
                                             <td><label for="vehicle1">LOCALIZA DOR OU ESTÍMULO TATIL</label>
-                                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">5
+                                                <input type="checkbox" class="glas" id="vehicle1" name="vehicle1"
+                                                    value="Bike">5
                                             </td>
                                         </tr>
                                         <tr>
                                             <td><label for="vehicle1">MOVIMENTO DE RETIRADA</label>
-                                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">4
+                                                <input type="checkbox" class="glas" id="vehicle1" name="vehicle1"
+                                                    value="Bike">4
                                             </td>
                                             <td><label for="vehicle1">RETIRADA DO SEGMENTO ESTIMULADO</label>
-                                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">4
+                                                <input type="checkbox" class="glas" id="vehicle1" name="vehicle1"
+                                                    value="Bike">4
                                             </td>
                                         </tr>
                                         <tr>
                                             <td><label for="vehicle1">FLEXÃO ANORMAL</label>
-                                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">3
+                                                <input type="checkbox" class="glas" id="vehicle1" name="vehicle1"
+                                                    value="Bike">3
                                             </td>
                                             <td><label for="vehicle1">FLEXÃO ANORMAL (DECORTICAÇÃO)</label>
-                                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">3
+                                                <input type="checkbox" class="glas" id="vehicle1" name="vehicle1"
+                                                    value="Bike">3
                                             </td>
                                         </tr>
                                         <tr>
                                             <td><label for="vehicle1">EXTENSÃO ANORMAL</label>
-                                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">2
+                                                <input type="checkbox" class="glas" id="vehicle1" name="vehicle1"
+                                                    value="Bike">2
                                             </td>
                                             <td><label for="vehicle1">EXTENSÃO ANORMAL (DECEREBRAÇÃO)</label>
-                                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">2
+                                                <input type="checkbox" class="glas" id="vehicle1" name="vehicle1"
+                                                    value="Bike">2
                                             </td>
                                         </tr>
                                         <tr>
                                             <td><label for="vehicle1">NENHUMA</label>
-                                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">1
+                                                <input type="checkbox" class="glas" id="vehicle1" name="vehicle1"
+                                                    value="Bike">1
                                             </td>
                                             <td><label for="vehicle1">AUSÊNCIA (PARALISIA FLÁCIDA, HIPOTÔNIA)</label>
-                                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">1
+                                                <input type="checkbox" class="glas" id="vehicle1" name="vehicle1"
+                                                    value="Bike">1
                                             </td>
                                         </tr>
-                                        <th colspan="2"><label for="nome-acompanhante">TOTAL (GCS)(3-15)</label>
+                                        <th colspan="2"><label for="nome-acompanhante">TOTAL (GCS)(3-15)</label><br>
                                             <input type="text" id="nome-acompanhante" name="nome-acompanhante"
                                                 placeholder="Digite" required />
                                         </th>
-                                        <th colspan="2"><label for="nome-acompanhante">TOTAL (GCS)(3-15)</label>
+                                        <th colspan="2"><label for="nome-acompanhante">TOTAL (GCS)(3-15)</label><br>
                                             <input type="text" id="nome-acompanhante" name="nome-acompanhante"
                                                 placeholder="Digite" required />
                                         </th>
@@ -628,8 +700,8 @@
                                 <div>
                                     <div>
                                         <label for="pressao-arteral">Pressão Arterial:</label>
-                                        <input type="text" size="25" id="pressao-arteral" name="pressao-arteral"
-                                            placeholder="Digite" required />
+                                        <input type="text" class="sv" size="25" id="pressao-arteral"
+                                            name="pressao-arteral" placeholder="Digite" required />
                                         <label for="pressao-arteral"> X </label>
                                         <input type="text" class="sv" id="pressao-arteral" name="pressao-arteral"
                                             placeholder="Digite" required /> <label for="pressao-arteral"> mmHg
@@ -638,9 +710,11 @@
                                     <div>
                                         <label for="local-ocorrencia">Pulso:</label>
                                         <input type="text" class="sv" id="local-ocorrencia" name="local-ocorrencia"
-                                            placeholder="Digite" required /> <label for="local-ocorrencia"> B.C.P.M.
-                                            /
-                                            Respiração: </label>
+                                            placeholder="Digite" required /> <label for="local-ocorrencia">
+                                            B.C.P.M.</label>
+                                    </div>
+                                    <div>
+                                        <label for="local-ocorrencia">Respiração: </label>
                                         <input type="text" class="sv" id="local-ocorrencia" name="local-ocorrencia"
                                             placeholder="Digite" required /> <label for="local-ocorrencia"> M.R.M.
                                         </label>
@@ -658,121 +732,123 @@
                                         <input type="text" class="sv" id="local-ocorrencia" name="local-ocorrencia"
                                             placeholder="Digite" required />
                                         <label for="local-ocorrencia"> °C </label>
-                                        <div class="duo">
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                            <label for="vehicle1">Anormal</label>
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                            <label for="vehicle1">Normal</label>
+                                    </div>
+                                    <div class="c3">
+                                        <label for="local-ocorrencia">Perfusão:</label>
+                                        <div>
+                                            <label for="vehicle1">>2 seg.</label>
+                                            <input type="checkbox" class="glas" id="vehicle1" name="vehicle1"
+                                                value="Bike">
+                                        </div>
+                                        <div>
+                                            <label for="vehicle1">+=2 seg.</label>
+                                            <input type="checkbox" class="glas" id="vehicle1" name="vehicle1"
+                                                value="Bike">
                                         </div>
                                     </div>
-                                    <div class="dsn">
-                                        <label for="local-ocorrencia">Perfusão:</label>
-                                        <div class="duo">
-                                            <label for="vehicle1">>2 seg.</label>
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                            <label for="vehicle1">+=2 seg.</label>
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                        </div>
+                                    <div>
+                                        <input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Anormal</label>
+                                        <input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Normal</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <br>
+
+                            <fieldset>
+                                <legend>Problemas Encontrados Suspeitos</legend>
+                                <div>
+                                    <div>
+                                        <input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Psiquiátrico</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Respiratório:</label><br>
+                                        <select class="le" name="cars">
+                                            <option value="volvo">DPOC</option>
+                                            <option value="saab">Inalação Fumaça</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Diabetes:</label><br>
+                                        <select class="le" name="cars">
+                                            <option value="volvo">Hiperglicemia</option>
+                                            <option value="saab">Hipoglicemia</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Obstétrico:</label><br>
+                                        <select class="le" name="cars">
+                                            <option value="volvo">Parto Emergencial</option>
+                                            <option value="saab">Gestante</option>
+                                            <option value="saab">Hemor. Excessiva</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Transporte:</label><br>
+                                        <select class="le" name="cars">
+                                            <option value="volvo">Aéreo</option>
+                                            <option value="saab">Clínico</option>
+                                            <option value="saab">Emergencial</option>
+                                            <option value="volvo">Pós-trauma</option>
+                                            <option value="saab">Samu</option>
+                                            <option value="saab">Sem remoção</option>
+                                            <option value="saab">Outros</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="local-ocorrencia">Outros:</label><br>
+                                        <input type="text" class="lee" id="local-ocorrencia" name="local-ocorrencia"
+                                            placeholder="Digite o local da ocorrência" required />
                                     </div>
                                 </div>
                         </div>
-                        
+                        </fieldset>
+
                         <br>
 
-                        <div>
-                            <div class="titulo">Problemas Encontrados Suspeitos</div>
-                            <div class="duo">
-                                <div>
-                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                    <label for="vehicle1">Psiquiátrico</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                    <label for="vehicle1">Respiratório:</label><br>
-                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                    <label for="vehicle1">DPOC</label>
-                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                    <label for="vehicle1">Inalação Fumaça</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                    <label for="vehicle1">Diabetes:</label><br>
-                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                    <label for="vehicle1">Hiperglicemia</label>
-                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                    <label for="vehicle1">Hipoglicemia</label>
-                                </div>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><input type="checkbox"></span>
-                                    <input type="text" class="form-control" placeholder="Outros">
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                    <label for="vehicle1">Obstétrico:</label><br>
-                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                    <label for="vehicle1">Parto Emergencial</label>
-                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                    <label for="vehicle1">Gestante</label>
-                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                    <label for="vehicle1">Hemor. Excessiva</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                    <label for="vehicle1">Transporte:</label><br>
-                                    <div class="duo">
-                                        <div>
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                            <label for="vehicle1">Aéreo</label>
-                                        </div>
-                                        <div>
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                            <label for="vehicle1">Clínico</label>
-                                        </div>
-                                        <div>
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                            <label for="vehicle1">Emergencial</label>
-                                        </div>
-                                        <div>
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                            <label for="vehicle1">Pós-trauma</label>
-                                        </div>
-                                        <div>
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                            <label for="vehicle1">Samu</label>
-                                        </div>
-                                        <div>
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                            <label for="vehicle1">Sem remoção</label>
-                                        </div>
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><input type="checkbox"></span>
-                                            <input type="text" class="form-control" placeholder="Outros">
-                                        </div>
-                                    </div>
-                                </div>
+                        <fieldset>
+                            <legend>Localização dos Traumas</legend>
+                            <div></div>
+                        </fieldset>
+
+                        <br>
+
+                        <fieldset>
+                            <legend>Ferimentos</legend>
+                            <div></div>
+                        </fieldset>
+
+                        <br>
+
+                        <fieldset>
+                            <legend>Queimaduras</legend>
+                            <div></div>
+                        </fieldset>
+
+                        <br>
+
+                        <fieldset>
+                            <legend>Objetos Recolhidos</legend>
+                            <div>
+                                <textarea>
+                                <input type="text" id="nome-acompanhante" name="nome-acompanhante"
+                                    placeholder="Digite os objetos" required />
+                                </textarea>
                             </div>
-                        </div><br>
+                        </fieldset>
 
-                        <div>
-                            <div class="titulo">Localização dos Traumas</div>
-                        </div><br>
+                        <br>
 
-                        <div>
-                            <div class="titulo">Ferimentos</div>
-                        </div><br>
-
-                        <div>
-                            <div class="titulo">Queimaduras</div>
-                        </div><br>
-
-                        <div class="form-group">
-                            <div class="titulo">Objetos Recolhidos</div>
-                            <input type="text" id="nome-acompanhante" name="nome-acompanhante"
-                                placeholder="Digite os objetos" required />
-                        </div><br>
-
-                        <div>
-                            <div class="titulo">Sinais e Sintomas</div>
+                        <fieldset>
+                            <legend>Sinais e Sintomas</legend>
                             <div class="ss">
                                 <div><input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
                                     <label for="vehicle1">Abdomem sensível ou rígido</label>
@@ -930,7 +1006,9 @@
                                     <input type="text" class="form-control" placeholder="Outros">
                                 </div>
                             </div>
-                        </div><br>
+                        </fieldset>
+
+                        <br>
 
                         <div>
                             <div class="titulo">Vítima era</div>
