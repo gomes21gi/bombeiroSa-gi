@@ -314,26 +314,34 @@
         margin-top: 13px;
     }
 
-    .espacito{
+    .espacito {
         margin-right: -15px;
         margin-left: -1px;
     }
 
     fieldset {
-    display: block;
-    margin-inline-start: 2px;
-    margin-inline-end: 2px;
-    padding-block-start: 0.35em;
-    padding-inline-start: 0.75em;
-    padding-inline-end: 0.75em;
-    padding-block-end: 0.625em;
-    min-inline-size: min-content;
-    border-width: 2px;
-    border-style: solid;
-    border-radius: 5px;
-    border-color: rgba(218, 75, 44, 1);
-    border-image: initial;
-}
+        display: block;
+        margin-inline-start: 2px;
+        margin-inline-end: 2px;
+        padding-block-start: 0.35em;
+        padding-inline-start: 0.75em;
+        padding-inline-end: 0.75em;
+        padding-block-end: 0.625em;
+        min-inline-size: min-content;
+        border-width: 2px;
+        border-style: solid;
+        border-radius: 5px;
+        border-color: rgba(218, 75, 44, 1);
+        border-image: initial;
+    }
+
+    legend {
+        font-size: 18px;
+    }
+
+    .mi {
+        width: 35px;
+    }
 
 
     @import url(tiny.css) (min-width:300px);
@@ -352,12 +360,13 @@
         <button class="button"><a href="#Dadosiniciais">Dados Iniciais</a></button>
         <button class="button"><a href="#Dadosamb">Dados Ambulância</a></button>
         <button class="button"><a href="#Tipoocor">Tipo de Ocorrência</a></button>
-        <button class="button"><a href="ficha.html">Ficha</a></button>
+        <button class="button"><a href="#Glasgow">Glasgow</a></button>
+        <br><br>
+        <button class="button"><a href="#Sinaisvitais">Sinais Vitais</a></button>
+        <!-- <button class="button"><a href="ficha.html">Ficha</a></button>
         <button class="button"><a href="hist.html">Histórico</a></button>
         <button class="button"><a href="ficha.html">Ficha</a></button>
-        <button class="button"><a href="hist.html">Histórico</a></button>
-        <button class="button"><a href="ficha.html">Ficha</a></button>
-        <button class="button"><a href="hist.html">Histórico</a></button>
+        <button class="button"><a href="hist.html">Histórico</a></button> -->
     </div>
     <form>
 
@@ -372,7 +381,7 @@
                         <div class="form-group">
 
                             <fieldset>
-                                    <legend id="Anamnese">Anamnese da Emergência Médica</legend>
+                                <legend id="Anamnese">Anamnese da Emergência Médica</legend>
                                 <div class="qa">
 
                                     <div>O que aconteceu (sinais e sintomas)</div>
@@ -382,9 +391,11 @@
 
                                     <div class="duo">
                                         <div>Aconteceu outras vezes</div>
-                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                            value="Bike">
                                         <label for="nome-hospital">Sim</label>
-                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                            value="Bike">
                                         <label for="nome-hospital">Não</label>
                                     </div>
                                     <div>A quanto tempo aconteceu?</div>
@@ -394,9 +405,11 @@
 
                                     <div class="duo">
                                         <div>Possui algum problema de saúde?</div>
-                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                            value="Bike">
                                         <label for="nome-hospital">Sim</label>
-                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                            value="Bike">
                                         <label for="nome-hospital">Não</label>
                                     </div>
 
@@ -407,9 +420,11 @@
 
                                     <div class="duo">
                                         <div>Faz uso de medicação</div>
-                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                            value="Bike">
                                         <label for="nome-hospital">Sim</label>
-                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                            value="Bike">
                                         <label for="nome-hospital">Não</label>
                                     </div>
                                     <div class="duo">
@@ -424,9 +439,11 @@
 
                                     <div>
                                         <div>Alérgico a alguma coisa?</div>
-                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                            value="Bike">
                                         <label for="nome-hospital">Sim</label>
-                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                            value="Bike">
                                         <label for="nome-hospital">Não</label>
                                     </div>
 
@@ -436,9 +453,11 @@
                                     </div>
                                     <div class="duo">
                                         <div>Ingeriu alimento ou líquido ≥6 horas:</div>
-                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                            value="Bike">
                                         <label for="nome-hospital">Sim</label>
-                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                            value="Bike">
                                         <label for="nome-hospital">Não</label>
                                     </div>
                                     <div class="duo">
@@ -647,7 +666,7 @@
                             <br>
 
                             <fieldset>
-                                <legend>Avaliação do Paciente (GLASGOW)</legend>
+                                <legend id="Glasgow">Avaliação do Paciente (GLASGOW)</legend>
                                 <div class="table">
                                     <div class="row">
                                     </div>
@@ -816,7 +835,7 @@
                             <br>
 
                             <fieldset>
-                                <legend>Sinais Vitais</legend>
+                                <legend id="Sinaisvitais">Sinais Vitais</legend>
                                 <div>
                                     <div>
                                         <label for="pressao-arteral">Pressão Arterial:</label>
@@ -1386,16 +1405,19 @@
                                     <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
                                         <label for="vehicle1">Bronco-aspirando</label>
                                     </div>
-                                    <div><input type="checkbox" class="glas"id="vehicle1" name="vehicle1" value="Bike">
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
                                         <label for="vehicle1">Cefaléia</label>
                                     </div>
                                     <div>
                                         <input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
                                         <label for="vehicle1">Cianose:</label><br>
                                         <div class="duo">
-                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                                value="Bike">
                                             <label for="vehicle1">Lábios</label>
-                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                            <br>
+                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                                value="Bike">
                                             <label for="vehicle1">Extremidade</label>
                                         </div>
                                     </div>
@@ -1428,11 +1450,14 @@
                                     </div>
                                     <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
                                         <label for="vehicle1">Edma:</label><br>
-                                        <div class="duo">
-                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
-                                            <label for="vehicle1">Lábios</label>
-                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
-                                            <label for="vehicle1">Extremidade</label>
+                                        <div class="">
+                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                                value="Bike">
+                                            <label for="vehicle1">Generalizados</label>
+                                            <br>
+                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                                value="Bike">
+                                            <label for="vehicle1">Localizados</label>
                                         </div>
                                     </div>
                                     <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
@@ -1447,9 +1472,11 @@
                                     <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
                                         <label for="vehicle1">Hemorragia:</label><br>
                                         <div class="duo">
-                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                                value="Bike">
                                             <label for="vehicle1">Interna</label>
-                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                                value="Bike">
                                             <label for="vehicle1">Externa</label>
                                         </div>
                                     </div>
@@ -1477,9 +1504,11 @@
                                     <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
                                         <label for="vehicle1">Parada:</label><br>
                                         <div class="duo">
-                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                                value="Bike">
                                             <label for="vehicle1">Cardíaca</label>
-                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                                value="Bike">
                                             <label for="vehicle1">Respiratória</label>
                                         </div>
                                     </div>
@@ -1492,17 +1521,23 @@
                                     <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
                                         <label for="vehicle1">Pupilas:</label><br>
                                         <div class="duo">
-                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                                value="Bike">
                                             <label for="vehicle1">Anisocoria</label><br>
-                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                                value="Bike">
                                             <label for="vehicle1">Isocoria</label><br>
-                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                                value="Bike">
                                             <label for="vehicle1">Midriase</label><br>
-                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                                value="Bike">
                                             <label for="vehicle1">Miose</label><br>
-                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                                value="Bike">
                                             <label for="vehicle1">Reagente</label><br>
-                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                                value="Bike">
                                             <label for="vehicle1">Ñ Reagente</label>
                                         </div>
                                     </div>
@@ -1539,34 +1574,44 @@
                             <fieldset>
                                 <legend>Vítima era</legend>
                                 <div class="duo">
-                                    <div><input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                    <div><input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                            value="Bike">
                                         <label for="vehicle1">Ciclista</label>
                                     </div>
-                                    <div><input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                    <div><input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                            value="Bike">
                                         <label for="vehicle1">Condutor moto</label>
                                     </div>
-                                    <div><input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                    <div><input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                            value="Bike">
                                         <label for="vehicle1">Gestante</label>
                                     </div>
-                                    <div><input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                    <div><input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                            value="Bike">
                                         <label for="vehicle1">Pass. Ban Frente</label>
                                     </div>
-                                    <div><input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                    <div><input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                            value="Bike">
                                         <label for="vehicle1">Pass. moto</label>
                                     </div>
-                                    <div><input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                    <div><input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                            value="Bike">
                                         <label for="vehicle1">Condutor carro</label>
                                     </div>
-                                    <div><input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                    <div><input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                            value="Bike">
                                         <label for="vehicle1">Clínico</label>
                                     </div>
-                                    <div><input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                    <div><input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                            value="Bike">
                                         <label for="vehicle1">Trauma</label>
                                     </div>
-                                    <div><input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                    <div><input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                            value="Bike">
                                         <label for="vehicle1">Pass. Bco. Trás</label>
                                     </div>
-                                    <div><input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                    <div><input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                            value="Bike">
                                         <label for="vehicle1">Pedestre</label>
                                     </div>
                                 </div>
@@ -1578,15 +1623,18 @@
                                 <legend>Forma de Condução</legend>
                                 <div class="dsn">
                                     <div>
-                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                            value="Bike">
                                         <label for="vehicle1">Deitada</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                            value="Bike">
                                         <label for="vehicle1">Semi-deitada</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                            value="Bike">
                                         <label for="vehicle1">Sentada</label>
                                     </div>
                                 </div>
@@ -1598,20 +1646,201 @@
                                 <legend>Forma de Condução</legend>
                                 <div class="four">
                                     <div class="emoji">&#128577;<br>
-                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                            value="Bike">
                                         <label for="vehicle1">Crítico</label>
                                     </div>
                                     <div class="emoji">&#128534;<br>
-                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                            value="Bike">
                                         <label for="vehicle1">Instável</label>
                                     </div>
                                     <div class="emoji">&#128528;<br>
-                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                            value="Bike">
                                         <label for="vehicle1">Potencialmente instável</label>
                                     </div>
                                     <div class="emoji">&#128578;<br>
-                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                        <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1"
+                                            value="Bike">
                                         <label for="vehicle1">Deitada</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <br>
+
+                            <fieldset>
+                                <legend>Procedimentos Efetuados</legend>
+                                <div class="dsn">
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Aspiração</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Avaliação Inicial</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Avaliação Dirigida</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Avaliação Continuada</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Chave de Rautek</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Cânula de Guedel</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Desobstrução de V.A.</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Emprego do D.E.A.</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Gerenciamento de Riscos</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Limpeza de Ferimento</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Curativos</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Compressivo</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Encravamento</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Ocular</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Queimadura</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Simples</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">3 pontas</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Imobilizações</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Membro Inf. Dir.</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Membro Inf. Esq.</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Membro Sup. Dir.</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Membro Sup. Esq.</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Quadril</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Cervical</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Maca sobre rodas</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Maca rígida</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Ponte</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Retirado capacete</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">R.C.P.</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Rolamento 90°</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Rolamento 180°</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Tomada decisão</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Tratado choque</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Uso de cânula</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Uso colar</label>
+                                        <label for="vehicle1">Tam:</label>
+                                        <input class="mi" type="text" id="nome-acompanhante" name="nome-acompanhante"
+                                            placeholder="Digite o tamanho" required />
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Uso Ked</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Uso Ttf</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Ventilação suporte</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Oxigenioterapia</label>
+                                        <input class="mi" type="text" id="nome-acompanhante" name="nome-acompanhante"
+                                            placeholder="Digite" required />
+                                        <label for="vehicle1">LPM</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Reanimador</label>
+                                        <input class="mi" type="text" id="nome-acompanhante" name="nome-acompanhante"
+                                            placeholder="Digite" required />
+                                        <label for="vehicle1">LPM</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Meio auxiliares</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">CELESC</label>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Def. civil</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Polícia</label>
+                                        <div class="cmpp">
+                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                            <label for="vehicle1">Civil</label>
+                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                            <label for="vehicle1">Militar</label>
+                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                            <label for="vehicle1">PRE</label>
+                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                            <label for="vehicle1">PRF</label>
+                                        </div>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">Samu</label>
+                                        <div class="duoe">
+                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                            <label for="vehicle1">USA</label>
+                                            <input type="checkbox" class="espacito" id="vehicle1" name="vehicle1" value="Bike">
+                                            <label for="vehicle1">USB</label>
+                                        </div>
+                                    </div>
+                                    <div><input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <label for="vehicle1">CIT</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" class="glas" id="vehicle1" name="vehicle1" value="Bike">
+                                        <input class="di" type="text" id="nome-acompanhante" name="nome-acompanhante"
+                                            placeholder="Digite" required />
                                     </div>
                                 </div>
                             </fieldset>
