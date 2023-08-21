@@ -7,21 +7,24 @@
     <title>Document</title>
 </head>
 <style>
-    body{
+    body {
         margin: 0;
     }
-    .fundo{
+
+    .fundo {
         height: 100vh;
-        background-size: 100% 100%; /* Ajusta o tamanho da imagem */
+        background-size: cover;
+        /* Torna a imagem responsiva */
         background-position: center;
         display: flex;
         justify-content: center;
         align-items: center;
+        background-image: url(fundo.png);
     }
 
     .form-box {
         max-width: 300px;
-        background: #f1f7fe;
+        background: #d7e8fc;
         overflow: hidden;
         border-radius: 16px;
         color: #010101;
@@ -74,7 +77,7 @@
     .form-section {
         padding: 16px;
         font-size: .85rem;
-        background-color: #e0ecfb;
+        background-color: #c1ddff;
         box-shadow: rgb(0 0 0 / 8%) 0 -1px;
     }
 
@@ -102,7 +105,7 @@
         transition: background-color .3s ease;
     }
 
-    a{
+    a {
         color: white;
         text-decoration: none;
     }
@@ -113,22 +116,24 @@
 </style>
 
 <body>
+
     <div class="fundo">
-    <div class="form-box">
-        <form class="form">
-            <span class="title">Entrar</span>
-            <span class="subtitle">Bem vindo, necessário login </span>
-            <div class="form-container">
-                <input type="text" class="input" placeholder="Nome">
-                <input type="email" class="input" placeholder="Matrícula">
-                <input type="password" class="input" placeholder="Password">
+        <div class="form-box">
+            <form class="form">
+                <span class="title">Entrar</span>
+                <span class="subtitle">Bem vindo, necessário login </span>
+                <div class="form-container">
+                    <input type="text" class="input" placeholder="Nome">
+                    <input type="email" class="input" placeholder="Matrícula">
+                    <input type="password" class="input" placeholder="Password">
+                </div>
+                <button><a href="perfil.html">Entrar</a></button>
+            </form>
+            <div class="form-section">
+                <p>Algo de errado? <a href="">Click aqui</a> </p>
             </div>
-            <button><a href="perfil.html">Entrar</a></button>
-        </form>
-        <div class="form-section">
-            <p>Algo de errado? <a href="">Click aqui</a> </p>
         </div>
-    </div></div>
+    </div>
 </body>
 
 </html>
