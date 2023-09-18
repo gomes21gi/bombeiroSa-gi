@@ -159,12 +159,14 @@
         width: auto;
         height: 40px;
     }
+
     .search-container {
         display: none;
         justify-content: center;
         align-items: center;
         height: 50px;
-        margin-top: 20px; /* Adicionei um espaço entre os botões e a barra de pesquisa */
+        margin-top: 20px;
+        /* Adicionei um espaço entre os botões e a barra de pesquisa */
     }
 
     .search-input {
@@ -231,6 +233,29 @@
         <button class="button"><a href="ficha.html">Nova Ficha</a></button>
         <button class="button">Histórico de Ficha</button>
         <!-- Botão de Pesquisar com barra de pesquisa abaixo dos botões -->
+
+    </div>
+    <div class="ui">
+        <img src="logos.png" width="70%" />
+    </div>
+
+    <div class="button-group">
+        <div class="tab">
+            <button class="button" onclick="openCity(event, 'Nova')">Nova Ficha</button>
+            <button class="button" onclick="openCity(event, 'Historico')">Histórico de Ficha</button>
+            <button class="button" onclick="openCity(event, 'Pesquisar')">Pesquisar</button>
+        </div>
+    </div>
+
+    <!-- Tab content -->
+    <div id="Nova" class="tabcontent">
+
+    </div>
+
+    <div id="Historico" class="tabcontent">
+
+    </div>
+
         <button class="button" onclick="toggleSearch()">Pesquisar</button>
         <div class="search-container" id="searchContainer">
             <input type="text" class="search-input" placeholder="Pesquisar">
@@ -242,9 +267,6 @@
                 </svg>
             </button>
         </div>
-    </div>
-    <div class="ui">
-        <img src="logos.png" width="70%" />
     </div>
 
     <!-- JavaScript para mostrar/ocultar a barra de pesquisa -->
