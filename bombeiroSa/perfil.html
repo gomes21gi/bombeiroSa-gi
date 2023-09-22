@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Firefighters App</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
 </head>
 <style>
@@ -160,7 +161,19 @@
     .gif {
         width: auto;
         height: 40px;
+        animation: slowGif 5s linear infinite;
     }
+
+    @keyframes slowGif {
+        0% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
 
     .search-container {
         display: none;
@@ -173,7 +186,7 @@
 
     .search-input {
         max-width: 190px;
-        height: 50%;
+        height: 90%;
         outline: none;
         font-size: 14px;
         font-weight: 500;
@@ -224,41 +237,36 @@
 
 <body>
     <div class="header">
-        <div class="logged-in-user">Nome da Pessoa Logada
+        <div class="logged-in-user">
+            <div>Nome da Pessoa Logada</div>
             <div>Matrícula:</div>
         </div>
-        <a><img class="gif"
+        <a href="#">
+            <img class="gif"
                 src="https://www.imagensanimadas.com/data/media/1193/caminhao-de-bombeiro-imagem-animada-0009.gif"
-                alt="caminhao-de-bombeiro-imagem-animada-0009" /></a>
-    </div>
-    <div class="button-group">
-        <button class="button"><a href="ficha.html">Nova Ficha</a></button>
-        <button class="button">Histórico de Ficha</button>
-        <!-- Botão de Pesquisar com barra de pesquisa abaixo dos botões -->
-
-    </div>
-    <div class="ui">
-        <img src="logos.png" width="70%" />
+                alt="caminhao-de-bombeiro-imagem-animada-0009" />
+        </a>
     </div>
 
+    <!-- Botão de Pesquisar com barra de pesquisa abaixo dos botões -->
     <div class="button-group">
         <div class="tab">
-            <button class="button" onclick="openCity(event, 'Nova')">Nova Ficha</button>
+            <a href="ficha.html"><button class="button" onclick="openCity(event, 'Nova')">Nova Ficha</button></a>
             <button class="button" onclick="openCity(event, 'Historico')">Histórico de Ficha</button>
-            <button class="button" onclick="openCity(event, 'Pesquisar')">Pesquisar</button>
+            <button class="button" onclick="toggleSearch()">Pesquisar</button>
         </div>
     </div>
 
     <!-- Tab content -->
     <div id="Nova" class="tabcontent">
-
+        <!-- Conteúdo da guia Nova Ficha aqui -->
     </div>
 
     <div id="Historico" class="tabcontent">
-
+        <!-- Conteúdo da guia Histórico de Ficha aqui -->
     </div>
 
-        <button class="button" onclick="toggleSearch()">Pesquisar</button>
+    <div id="Pesquisar" class="tabcontent">
         <div class="search-container" id="searchContainer">
             <input type="text" class="search-input" placeholder="Pesquisar">
             <button class="search-button">
@@ -271,7 +279,13 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <div class="ui">
+        <img src="logos.png" width="70%" />
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 
     <!-- JavaScript para mostrar/ocultar a barra de pesquisa -->
     <script>
