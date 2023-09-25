@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20-Set-2023 às 14:15
+-- Tempo de geração: 25-Set-2023 às 14:31
 -- Versão do servidor: 8.0.21
 -- versão do PHP: 8.1.2
 
@@ -29,11 +29,12 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `anamnesegestacional` (
   `id` int NOT NULL,
+  `id_fichas` int NOT NULL,
   `periodo_gestacao` varchar(255) DEFAULT NULL,
   `faz_uso_medicacao` tinyint DEFAULT NULL,
   `nome_medico` varchar(255) DEFAULT NULL,
   `possibilidade_complicacoes` tinyint DEFAULT NULL,
-  `primeiro_filho_sim` tinyint DEFAULT NULL,
+  `primeiro_filho` tinyint DEFAULT NULL,
   `quantidade_filhos` tinyint DEFAULT NULL,
   `inicio_contracoes` time DEFAULT NULL,
   `duracao_contracoes` time DEFAULT NULL,
@@ -44,8 +45,7 @@ CREATE TABLE `anamnesegestacional` (
   `parto_realizado` tinyint DEFAULT NULL,
   `hora_nascimento` time DEFAULT NULL,
   `sexo_bebe` tinytext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `nome_bebe` varchar(255) DEFAULT NULL,
-  `id_dados_iniciais` int NOT NULL
+  `nome_bebe` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -55,7 +55,8 @@ CREATE TABLE `anamnesegestacional` (
 --
 
 CREATE TABLE `anamnese_emergencia` (
-  `id` int NOT NULL,
+  `id_anamnese_emergencia` int NOT NULL,
+  `id_fichas` int NOT NULL,
   `oq_aconteceu` text NOT NULL,
   `aconteceu_outras_vezes` tinyint(1) DEFAULT NULL,
   `quanto_tempo_aconteceu` varchar(50) DEFAULT NULL,
@@ -67,8 +68,7 @@ CREATE TABLE `anamnese_emergencia` (
   `alergico_alguma_coisa` tinyint(1) DEFAULT NULL,
   `especificacao_alergia` text,
   `ingeriu_alimento_liquido` tinyint(1) DEFAULT NULL,
-  `horas_ingeriu` time DEFAULT NULL,
-  `id_dados_iniciais` int NOT NULL
+  `horas_ingeriu` time DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -79,14 +79,14 @@ CREATE TABLE `anamnese_emergencia` (
 
 CREATE TABLE `avaliacaocinematica` (
   `id_avaliacaocinematica` int NOT NULL,
+  `id_fichas` int NOT NULL,
   `disturbio_comportamento` tinyint DEFAULT NULL,
   `encontrado_capacete` tinyint DEFAULT NULL,
   `encontrado_cinto` tinyint DEFAULT NULL,
   `para_brisas_avariado` tinyint DEFAULT NULL,
   `caminhando_cena` tinyint DEFAULT NULL,
   `painel_avariado` tinyint DEFAULT NULL,
-  `volante_torcido` tinyint DEFAULT NULL,
-  `id_dados_iniciais` int NOT NULL
+  `volante_torcido` tinyint DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -97,6 +97,7 @@ CREATE TABLE `avaliacaocinematica` (
 
 CREATE TABLE `avaliacaoglasgow` (
   `id_avaliacaoglasgow` int NOT NULL,
+  `id_fichas` int NOT NULL,
   `abertura_ocular_maiores_5` int DEFAULT NULL,
   `abertura_ocular_menores_5` int DEFAULT NULL,
   `resposta_verbal_orientado` int DEFAULT NULL,
@@ -110,8 +111,7 @@ CREATE TABLE `avaliacaoglasgow` (
   `resposta_motora_flexao_anormal` int DEFAULT NULL,
   `resposta_motora_extensao_anormal` int DEFAULT NULL,
   `resposta_motora_nenhuma` int DEFAULT NULL,
-  `total_gcs` int DEFAULT NULL,
-  `id_dados_iniciais` int NOT NULL
+  `total_gcs` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -122,6 +122,7 @@ CREATE TABLE `avaliacaoglasgow` (
 
 CREATE TABLE `dadosambulancia` (
   `id_dadosambulancia` int NOT NULL,
+  `id_fichas` int NOT NULL,
   `numero_usd` varchar(50) DEFAULT NULL,
   `numero_ocorrencia` varchar(50) DEFAULT NULL,
   `despacho` varchar(255) DEFAULT NULL,
@@ -140,6 +141,7 @@ CREATE TABLE `dadosambulancia` (
 
 CREATE TABLE `dados_iniciais` (
   `id_dados_iniciais` int NOT NULL,
+  `id_fichas` int NOT NULL,
   `data` date DEFAULT NULL,
   `sexo` char(1) DEFAULT NULL,
   `nome_hospital` varchar(255) DEFAULT NULL,
@@ -160,8 +162,8 @@ CREATE TABLE `dados_iniciais` (
 
 CREATE TABLE `decisaotransporte` (
   `id_decisaotransporte` int NOT NULL,
-  `decisao_transporte` tinyint DEFAULT NULL,
-  `id_dados_iniciais` int NOT NULL
+  `id_fichas` int NOT NULL,
+  `decisao_transporte` tinyint DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -171,7 +173,8 @@ CREATE TABLE `decisaotransporte` (
 --
 
 CREATE TABLE `equipeatendimento` (
-  `id` int NOT NULL,
+  `id_equipeatendimento` int NOT NULL,
+  `id_fichas` int NOT NULL,
   `nome_m` varchar(255) DEFAULT NULL,
   `nome_s1` varchar(255) DEFAULT NULL,
   `nome_s2` varchar(255) DEFAULT NULL,
@@ -188,11 +191,11 @@ CREATE TABLE `equipeatendimento` (
 
 CREATE TABLE `ferimentos` (
   `id_ferimentos` int NOT NULL,
+  `id_fichas` int NOT NULL,
   `local` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `lado` varchar(10) DEFAULT NULL,
   `face` varchar(10) DEFAULT NULL,
-  `tipo` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `id_dados_iniciais` int NOT NULL
+  `tipo` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -202,7 +205,7 @@ CREATE TABLE `ferimentos` (
 --
 
 CREATE TABLE `fichas` (
-  `id` int NOT NULL,
+  `id_fichas` int NOT NULL,
   `pessoa_nome` varchar(255) DEFAULT NULL,
   `matricula` varchar(50) DEFAULT NULL,
   `data_criacao` timestamp NULL DEFAULT CURRENT_TIMESTAMP
@@ -216,8 +219,8 @@ CREATE TABLE `fichas` (
 
 CREATE TABLE `formaconducao` (
   `id_formaconducao` int NOT NULL,
-  `forma_conducao` tinytext,
-  `id_dados_iniciais` int NOT NULL
+  `id_fichas` int NOT NULL,
+  `forma_conducao` tinytext
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -228,7 +231,7 @@ CREATE TABLE `formaconducao` (
 
 CREATE TABLE `historicofichas` (
   `id` int NOT NULL,
-  `ficha_id` int DEFAULT NULL,
+  `id_fichas` int DEFAULT NULL,
   `acao` varchar(100) DEFAULT NULL,
   `data_modificacao` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -241,6 +244,7 @@ CREATE TABLE `historicofichas` (
 
 CREATE TABLE `materiaisdeixadoshospital` (
   `id_materiaisdeixadoshospital` int NOT NULL,
+  `id_fichas` int NOT NULL,
   `base_estabilizacao_qt` int DEFAULT NULL,
   `ttf_qt` tinytext,
   `colar_qt` tinytext,
@@ -250,8 +254,7 @@ CREATE TABLE `materiaisdeixadoshospital` (
   `coxins_estabilizacao_qt` int DEFAULT NULL,
   `canula_qt` int DEFAULT NULL,
   `ked_qt` tinytext,
-  `maca_rigida_qt` int DEFAULT NULL,
-  `id_dados_iniciais` int NOT NULL
+  `maca_rigida_qt` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -261,7 +264,8 @@ CREATE TABLE `materiaisdeixadoshospital` (
 --
 
 CREATE TABLE `materiaisutilizadosdescartavel` (
-  `id` int NOT NULL,
+  `id_materiaisutilizadosdescartaveis` int NOT NULL,
+  `id_fichas` int NOT NULL,
   `ataduras_qt` tinyint DEFAULT NULL,
   `manta_aluminizada_qt` int DEFAULT NULL,
   `cateter_tp_oculos_qt` int DEFAULT NULL,
@@ -282,7 +286,8 @@ CREATE TABLE `materiaisutilizadosdescartavel` (
 --
 
 CREATE TABLE `objetosrecolhidos` (
-  `id` int NOT NULL,
+  `id_objetosrecolhidos` int NOT NULL,
+  `id_fichas` int NOT NULL,
   `objetos_recolhidos` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -293,7 +298,8 @@ CREATE TABLE `objetosrecolhidos` (
 --
 
 CREATE TABLE `observacoesimportantes` (
-  `id` int NOT NULL,
+  `id_observacoesimportantes` int NOT NULL,
+  `id_fichas` int NOT NULL,
   `observacoes` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -304,7 +310,8 @@ CREATE TABLE `observacoesimportantes` (
 --
 
 CREATE TABLE `problemas_suspeitos` (
-  `id` int NOT NULL,
+  `id_problemas_suspeitos` int NOT NULL,
+  `id_fichas` int NOT NULL,
   `psiquiatrico` tinyint(1) DEFAULT NULL,
   `respiratorio` varchar(50) DEFAULT NULL,
   `diabetes` varchar(50) DEFAULT NULL,
@@ -320,7 +327,8 @@ CREATE TABLE `problemas_suspeitos` (
 --
 
 CREATE TABLE `procedimentosefetuados` (
-  `id` int NOT NULL,
+  `id_procedimentosefetuados` int NOT NULL,
+  `id_fichas` int NOT NULL,
   `aspiracao` tinyint(1) DEFAULT NULL,
   `avaliacao_inicial` tinyint(1) DEFAULT NULL,
   `avaliacao_dirigida` tinyint(1) DEFAULT NULL,
@@ -339,10 +347,7 @@ CREATE TABLE `procedimentosefetuados` (
   `simples` tinyint(1) DEFAULT NULL,
   `tres_pontas` tinyint(1) DEFAULT NULL,
   `imobilizacoes` tinyint(1) DEFAULT NULL,
-  `membro_inf_dir` tinyint(1) DEFAULT NULL,
-  `membro_inf_esq` tinyint(1) DEFAULT NULL,
-  `membro_sup_dir` tinyint(1) DEFAULT NULL,
-  `membro_sup_esq` tinyint(1) DEFAULT NULL,
+  `membros` tinyint DEFAULT NULL,
   `quadril` tinyint(1) DEFAULT NULL,
   `cervical` tinyint(1) DEFAULT NULL,
   `maca_sobre_rodas` tinyint(1) DEFAULT NULL,
@@ -350,8 +355,7 @@ CREATE TABLE `procedimentosefetuados` (
   `ponte` tinyint(1) DEFAULT NULL,
   `retirado_capacete` tinyint(1) DEFAULT NULL,
   `rcp` tinyint(1) DEFAULT NULL,
-  `rolamento_90` tinyint(1) DEFAULT NULL,
-  `rolamento_180` tinyint(1) DEFAULT NULL,
+  `rolamento` tinyint DEFAULT NULL,
   `tomada_decisao` tinyint(1) DEFAULT NULL,
   `tratado_choque` tinyint(1) DEFAULT NULL,
   `uso_canula` tinyint(1) DEFAULT NULL,
@@ -364,18 +368,7 @@ CREATE TABLE `procedimentosefetuados` (
   `lpm_vent_sup` int DEFAULT NULL,
   `reanimador` varchar(255) DEFAULT NULL,
   `lpm_reanimador` int DEFAULT NULL,
-  `meio_auxiliares` tinyint(1) DEFAULT NULL,
-  `celesc` tinyint(1) DEFAULT NULL,
-  `def_civil` tinyint(1) DEFAULT NULL,
-  `policia` tinyint(1) DEFAULT NULL,
-  `civil` tinyint(1) DEFAULT NULL,
-  `militar` tinyint(1) DEFAULT NULL,
-  `pre` tinyint(1) DEFAULT NULL,
-  `prf` tinyint(1) DEFAULT NULL,
-  `samu` tinyint(1) DEFAULT NULL,
-  `usa` tinyint(1) DEFAULT NULL,
-  `usb` tinyint(1) DEFAULT NULL,
-  `cit` tinyint(1) DEFAULT NULL,
+  `meio_auxiliares` tinyint DEFAULT NULL,
   `outro_procedimento` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -386,12 +379,10 @@ CREATE TABLE `procedimentosefetuados` (
 --
 
 CREATE TABLE `queimaduras` (
-  `id` int NOT NULL,
+  `id_queimaduras` int NOT NULL,
+  `id_fichas` int NOT NULL,
   `localizacao` varchar(50) DEFAULT NULL,
-  `primeiro_grau` tinyint(1) DEFAULT NULL,
-  `segundo_grau` tinyint(1) DEFAULT NULL,
-  `terceiro_grau` tinyint(1) DEFAULT NULL,
-  `quarto_grau` tinyint(1) DEFAULT NULL
+  `grau_queimadura` tinyint DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -401,7 +392,8 @@ CREATE TABLE `queimaduras` (
 --
 
 CREATE TABLE `sinaissintomas` (
-  `id` int NOT NULL,
+  `id_sinaissintomas` int NOT NULL,
+  `id_fichas` int NOT NULL,
   `abdomem_sensivel` tinyint(1) DEFAULT NULL,
   `afundamento_de_cranio` tinyint(1) DEFAULT NULL,
   `agitacao` tinyint(1) DEFAULT NULL,
@@ -461,18 +453,16 @@ CREATE TABLE `sinaissintomas` (
 --
 
 CREATE TABLE `sinaisvitais` (
-  `id` int NOT NULL,
-  `pressao_arterial_sistolica` int DEFAULT NULL,
-  `pressao_arterial_diastolica` int DEFAULT NULL,
+  `id_sinaisvitais` int NOT NULL,
+  `id_fichas` int NOT NULL,
+  `pressao_arterial` tinytext,
   `pulso` int DEFAULT NULL,
   `respiracao` int DEFAULT NULL,
   `pulsacao_percentual` int DEFAULT NULL,
   `hgt` int DEFAULT NULL,
   `temperatura` decimal(5,2) DEFAULT NULL,
-  `perfusao_mais_2seg` tinyint(1) DEFAULT NULL,
-  `perfusao_igual_2seg` tinyint(1) DEFAULT NULL,
-  `anormal` tinyint(1) DEFAULT NULL,
-  `normal` tinyint(1) DEFAULT NULL
+  `perfusao` tinyint DEFAULT NULL,
+  `sinais` tinyint DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -482,11 +472,11 @@ CREATE TABLE `sinaisvitais` (
 --
 
 CREATE TABLE `termorecusaatendimento` (
-  `id` int NOT NULL,
-  `conteudo_termo` text,
-  `nome_assinante` varchar(255) DEFAULT NULL,
-  `rg_assinante` varchar(20) DEFAULT NULL,
-  `cpf_assinante` varchar(20) DEFAULT NULL,
+  `id_termorecusaatendimento` int NOT NULL,
+  `id_fichas` int NOT NULL,
+  `nome_paciente` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `rg_paciente` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `cpf_paciente` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `nome_testemunha_1` varchar(255) DEFAULT NULL,
   `rg_testemunha_1` varchar(20) DEFAULT NULL,
   `nome_testemunha_2` varchar(255) DEFAULT NULL,
@@ -500,7 +490,8 @@ CREATE TABLE `termorecusaatendimento` (
 --
 
 CREATE TABLE `tipo_ocorrencia` (
-  `id` int NOT NULL,
+  `id_tipo_ocorrencia` int NOT NULL,
+  `id_fichas` int NOT NULL,
   `causas` varchar(255) DEFAULT NULL,
   `outros` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -512,7 +503,7 @@ CREATE TABLE `tipo_ocorrencia` (
 --
 
 CREATE TABLE `usuarios` (
-  `id` int NOT NULL,
+  `id_usuarios` int NOT NULL,
   `nome` varchar(255) DEFAULT NULL,
   `matricula` varchar(255) DEFAULT NULL,
   `senha` varchar(255) DEFAULT NULL
@@ -526,6 +517,7 @@ CREATE TABLE `usuarios` (
 
 CREATE TABLE `vitimaera` (
   `id_vitimaera` int NOT NULL,
+  `id_fichas` int NOT NULL,
   `ciclista` tinyint(1) DEFAULT NULL,
   `condutor_moto` tinyint(1) DEFAULT NULL,
   `gestante` tinyint(1) DEFAULT NULL,
@@ -547,159 +539,173 @@ CREATE TABLE `vitimaera` (
 --
 ALTER TABLE `anamnesegestacional`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_dados_iniciais_anamnesegestacional` (`id_dados_iniciais`);
+  ADD KEY `id_fichas_anamnesegestacional` (`id_fichas`);
 
 --
 -- Índices para tabela `anamnese_emergencia`
 --
 ALTER TABLE `anamnese_emergencia`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_dados_iniciais_anamnese_emergencia` (`id_dados_iniciais`);
+  ADD PRIMARY KEY (`id_anamnese_emergencia`),
+  ADD KEY `id_fichas_anamnese_emergencia` (`id_fichas`);
 
 --
 -- Índices para tabela `avaliacaocinematica`
 --
 ALTER TABLE `avaliacaocinematica`
   ADD PRIMARY KEY (`id_avaliacaocinematica`),
-  ADD KEY `id_dados_iniciais_avaliacaocinematica` (`id_dados_iniciais`);
+  ADD KEY `id_fichas_avaliacaocinematica` (`id_fichas`);
 
 --
 -- Índices para tabela `avaliacaoglasgow`
 --
 ALTER TABLE `avaliacaoglasgow`
   ADD PRIMARY KEY (`id_avaliacaoglasgow`),
-  ADD KEY `id_dados_iniciais_avaliacaoglasgow` (`id_dados_iniciais`);
+  ADD KEY `id_fichas_avaliacaoglasgow` (`id_fichas`);
 
 --
 -- Índices para tabela `dadosambulancia`
 --
 ALTER TABLE `dadosambulancia`
-  ADD PRIMARY KEY (`id_dadosambulancia`);
+  ADD PRIMARY KEY (`id_dadosambulancia`),
+  ADD KEY `id_fichas_dadosambulancia` (`id_fichas`);
 
 --
 -- Índices para tabela `dados_iniciais`
 --
 ALTER TABLE `dados_iniciais`
-  ADD PRIMARY KEY (`id_dados_iniciais`);
+  ADD PRIMARY KEY (`id_dados_iniciais`),
+  ADD KEY `id_fichas_dados_iniciais` (`id_fichas`);
 
 --
 -- Índices para tabela `decisaotransporte`
 --
 ALTER TABLE `decisaotransporte`
   ADD PRIMARY KEY (`id_decisaotransporte`),
-  ADD KEY `id_dados_iniciais_decisaotransporte` (`id_dados_iniciais`);
+  ADD KEY `id_fichas_decisaotransporte` (`id_fichas`);
 
 --
 -- Índices para tabela `equipeatendimento`
 --
 ALTER TABLE `equipeatendimento`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_equipeatendimento`),
+  ADD KEY `id_fichas_equipeatendimento` (`id_fichas`);
 
 --
 -- Índices para tabela `ferimentos`
 --
 ALTER TABLE `ferimentos`
   ADD PRIMARY KEY (`id_ferimentos`),
-  ADD KEY `id_dados_iniciais_ferimentos` (`id_dados_iniciais`);
+  ADD KEY `id_fichas_ferimentos` (`id_fichas`);
 
 --
 -- Índices para tabela `fichas`
 --
 ALTER TABLE `fichas`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_fichas`);
 
 --
 -- Índices para tabela `formaconducao`
 --
 ALTER TABLE `formaconducao`
   ADD PRIMARY KEY (`id_formaconducao`),
-  ADD KEY `id_dados_iniciais_formaconducao` (`id_dados_iniciais`);
+  ADD KEY `id_fichas_formaconducao` (`id_fichas`);
 
 --
 -- Índices para tabela `historicofichas`
 --
 ALTER TABLE `historicofichas`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `ficha_id` (`ficha_id`);
+  ADD KEY `id_fichas_historicofichas` (`id_fichas`);
 
 --
 -- Índices para tabela `materiaisdeixadoshospital`
 --
 ALTER TABLE `materiaisdeixadoshospital`
   ADD PRIMARY KEY (`id_materiaisdeixadoshospital`),
-  ADD KEY `id_dados_iniciais_materiaisdeixadoshospital` (`id_dados_iniciais`);
+  ADD KEY `id_fichas_materiaisdeixadoshospital` (`id_fichas`);
 
 --
 -- Índices para tabela `materiaisutilizadosdescartavel`
 --
 ALTER TABLE `materiaisutilizadosdescartavel`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_materiaisutilizadosdescartaveis`),
+  ADD KEY `id_fichas_materiaisutilizadosdescartaveis` (`id_fichas`);
 
 --
 -- Índices para tabela `objetosrecolhidos`
 --
 ALTER TABLE `objetosrecolhidos`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_objetosrecolhidos`),
+  ADD KEY `id_fichas_objetosrecolhidos` (`id_fichas`);
 
 --
 -- Índices para tabela `observacoesimportantes`
 --
 ALTER TABLE `observacoesimportantes`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_observacoesimportantes`),
+  ADD KEY `id_fichas_observacoesimportantes` (`id_fichas`);
 
 --
 -- Índices para tabela `problemas_suspeitos`
 --
 ALTER TABLE `problemas_suspeitos`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_problemas_suspeitos`),
+  ADD KEY `id_fichas_problemas_suspeitos` (`id_fichas`);
 
 --
 -- Índices para tabela `procedimentosefetuados`
 --
 ALTER TABLE `procedimentosefetuados`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_procedimentosefetuados`),
+  ADD KEY `id_fichas_procedimentosefetuados` (`id_fichas`);
 
 --
 -- Índices para tabela `queimaduras`
 --
 ALTER TABLE `queimaduras`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_queimaduras`),
+  ADD KEY `id_fichas_queimaduras` (`id_fichas`);
 
 --
 -- Índices para tabela `sinaissintomas`
 --
 ALTER TABLE `sinaissintomas`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_sinaissintomas`),
+  ADD KEY `id_fichas_sinaissintomas` (`id_fichas`);
 
 --
 -- Índices para tabela `sinaisvitais`
 --
 ALTER TABLE `sinaisvitais`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_sinaisvitais`),
+  ADD KEY `id_ficha_sinaisvitais` (`id_fichas`);
 
 --
 -- Índices para tabela `termorecusaatendimento`
 --
 ALTER TABLE `termorecusaatendimento`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_termorecusaatendimento`),
+  ADD KEY `id_fichas_termorecusaatendimento` (`id_fichas`);
 
 --
 -- Índices para tabela `tipo_ocorrencia`
 --
 ALTER TABLE `tipo_ocorrencia`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_tipo_ocorrencia`),
+  ADD KEY `id_fichas_tipo_ocorrencia` (`id_fichas`);
 
 --
 -- Índices para tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_usuarios`);
 
 --
 -- Índices para tabela `vitimaera`
 --
 ALTER TABLE `vitimaera`
-  ADD PRIMARY KEY (`id_vitimaera`);
+  ADD PRIMARY KEY (`id_vitimaera`),
+  ADD KEY `id_fichas_vitimaera` (`id_fichas`);
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
@@ -715,7 +721,7 @@ ALTER TABLE `anamnesegestacional`
 -- AUTO_INCREMENT de tabela `anamnese_emergencia`
 --
 ALTER TABLE `anamnese_emergencia`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_anamnese_emergencia` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `avaliacaocinematica`
@@ -751,7 +757,7 @@ ALTER TABLE `decisaotransporte`
 -- AUTO_INCREMENT de tabela `equipeatendimento`
 --
 ALTER TABLE `equipeatendimento`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_equipeatendimento` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `ferimentos`
@@ -763,7 +769,7 @@ ALTER TABLE `ferimentos`
 -- AUTO_INCREMENT de tabela `fichas`
 --
 ALTER TABLE `fichas`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_fichas` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `formaconducao`
@@ -787,67 +793,67 @@ ALTER TABLE `materiaisdeixadoshospital`
 -- AUTO_INCREMENT de tabela `materiaisutilizadosdescartavel`
 --
 ALTER TABLE `materiaisutilizadosdescartavel`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_materiaisutilizadosdescartaveis` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `objetosrecolhidos`
 --
 ALTER TABLE `objetosrecolhidos`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_objetosrecolhidos` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `observacoesimportantes`
 --
 ALTER TABLE `observacoesimportantes`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_observacoesimportantes` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `problemas_suspeitos`
 --
 ALTER TABLE `problemas_suspeitos`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_problemas_suspeitos` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `procedimentosefetuados`
 --
 ALTER TABLE `procedimentosefetuados`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_procedimentosefetuados` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `queimaduras`
 --
 ALTER TABLE `queimaduras`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_queimaduras` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `sinaissintomas`
 --
 ALTER TABLE `sinaissintomas`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_sinaissintomas` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `sinaisvitais`
 --
 ALTER TABLE `sinaisvitais`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_sinaisvitais` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `termorecusaatendimento`
 --
 ALTER TABLE `termorecusaatendimento`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_termorecusaatendimento` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `tipo_ocorrencia`
 --
 ALTER TABLE `tipo_ocorrencia`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_tipo_ocorrencia` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_usuarios` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `vitimaera`
@@ -863,55 +869,139 @@ ALTER TABLE `vitimaera`
 -- Limitadores para a tabela `anamnesegestacional`
 --
 ALTER TABLE `anamnesegestacional`
-  ADD CONSTRAINT `id_dados_iniciais_anamnesegestacional` FOREIGN KEY (`id_dados_iniciais`) REFERENCES `dados_iniciais` (`id_dados_iniciais`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `id_fichas_anamnesegestacional` FOREIGN KEY (`id_fichas`) REFERENCES `fichas` (`id_fichas`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Limitadores para a tabela `anamnese_emergencia`
 --
 ALTER TABLE `anamnese_emergencia`
-  ADD CONSTRAINT `id_dados_iniciais_anamnese_emergencia` FOREIGN KEY (`id_dados_iniciais`) REFERENCES `dados_iniciais` (`id_dados_iniciais`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `id_fichas_anamnese_emergencia` FOREIGN KEY (`id_fichas`) REFERENCES `fichas` (`id_fichas`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Limitadores para a tabela `avaliacaocinematica`
 --
 ALTER TABLE `avaliacaocinematica`
-  ADD CONSTRAINT `id_dados_iniciais_avaliacaocinematica` FOREIGN KEY (`id_dados_iniciais`) REFERENCES `dados_iniciais` (`id_dados_iniciais`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `id_fichas_avaliacaocinematica` FOREIGN KEY (`id_fichas`) REFERENCES `fichas` (`id_fichas`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Limitadores para a tabela `avaliacaoglasgow`
 --
 ALTER TABLE `avaliacaoglasgow`
-  ADD CONSTRAINT `id_dados_iniciais_avaliacaoglasgow` FOREIGN KEY (`id_dados_iniciais`) REFERENCES `dados_iniciais` (`id_dados_iniciais`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `id_fichas_avaliacaoglasgow` FOREIGN KEY (`id_fichas`) REFERENCES `fichas` (`id_fichas`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Limitadores para a tabela `dadosambulancia`
+--
+ALTER TABLE `dadosambulancia`
+  ADD CONSTRAINT `id_fichas_dadosambulancia` FOREIGN KEY (`id_fichas`) REFERENCES `fichas` (`id_fichas`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Limitadores para a tabela `dados_iniciais`
+--
+ALTER TABLE `dados_iniciais`
+  ADD CONSTRAINT `id_fichas_dados_iniciais` FOREIGN KEY (`id_fichas`) REFERENCES `fichas` (`id_fichas`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Limitadores para a tabela `decisaotransporte`
 --
 ALTER TABLE `decisaotransporte`
-  ADD CONSTRAINT `id_dados_iniciais_decisaotransporte` FOREIGN KEY (`id_dados_iniciais`) REFERENCES `dados_iniciais` (`id_dados_iniciais`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `id_fichas_decisaotransporte` FOREIGN KEY (`id_fichas`) REFERENCES `fichas` (`id_fichas`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Limitadores para a tabela `equipeatendimento`
+--
+ALTER TABLE `equipeatendimento`
+  ADD CONSTRAINT `id_fichas_equipeatendimento` FOREIGN KEY (`id_fichas`) REFERENCES `fichas` (`id_fichas`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Limitadores para a tabela `ferimentos`
 --
 ALTER TABLE `ferimentos`
-  ADD CONSTRAINT `id_dados_iniciais_ferimentos` FOREIGN KEY (`id_dados_iniciais`) REFERENCES `dados_iniciais` (`id_dados_iniciais`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `id_fichas_ferimentos` FOREIGN KEY (`id_fichas`) REFERENCES `fichas` (`id_fichas`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Limitadores para a tabela `formaconducao`
 --
 ALTER TABLE `formaconducao`
-  ADD CONSTRAINT `id_dados_iniciais_formaconducao` FOREIGN KEY (`id_dados_iniciais`) REFERENCES `dados_iniciais` (`id_dados_iniciais`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `id_fichas_formaconducao` FOREIGN KEY (`id_fichas`) REFERENCES `fichas` (`id_fichas`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Limitadores para a tabela `historicofichas`
 --
 ALTER TABLE `historicofichas`
-  ADD CONSTRAINT `historicofichas_ibfk_1` FOREIGN KEY (`ficha_id`) REFERENCES `fichas` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `id_fichas_historicofichas` FOREIGN KEY (`id_fichas`) REFERENCES `fichas` (`id_fichas`) ON DELETE CASCADE ON UPDATE RESTRICT;
 
 --
 -- Limitadores para a tabela `materiaisdeixadoshospital`
 --
 ALTER TABLE `materiaisdeixadoshospital`
-  ADD CONSTRAINT `id_dados_iniciais_materiaisdeixadoshospital` FOREIGN KEY (`id_dados_iniciais`) REFERENCES `dados_iniciais` (`id_dados_iniciais`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `id_fichas_materiaisdeixadoshospital` FOREIGN KEY (`id_fichas`) REFERENCES `fichas` (`id_fichas`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Limitadores para a tabela `materiaisutilizadosdescartavel`
+--
+ALTER TABLE `materiaisutilizadosdescartavel`
+  ADD CONSTRAINT `id_fichas_materiaisutilizadosdescartaveis` FOREIGN KEY (`id_fichas`) REFERENCES `fichas` (`id_fichas`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Limitadores para a tabela `objetosrecolhidos`
+--
+ALTER TABLE `objetosrecolhidos`
+  ADD CONSTRAINT `id_fichas_objetosrecolhidos` FOREIGN KEY (`id_fichas`) REFERENCES `fichas` (`id_fichas`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Limitadores para a tabela `observacoesimportantes`
+--
+ALTER TABLE `observacoesimportantes`
+  ADD CONSTRAINT `id_fichas_observacoesimportantes` FOREIGN KEY (`id_fichas`) REFERENCES `fichas` (`id_fichas`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Limitadores para a tabela `problemas_suspeitos`
+--
+ALTER TABLE `problemas_suspeitos`
+  ADD CONSTRAINT `id_fichas_problemas_suspeitos` FOREIGN KEY (`id_fichas`) REFERENCES `fichas` (`id_fichas`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Limitadores para a tabela `procedimentosefetuados`
+--
+ALTER TABLE `procedimentosefetuados`
+  ADD CONSTRAINT `id_fichas_procedimentosefetuados` FOREIGN KEY (`id_fichas`) REFERENCES `fichas` (`id_fichas`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Limitadores para a tabela `queimaduras`
+--
+ALTER TABLE `queimaduras`
+  ADD CONSTRAINT `id_fichas_queimaduras` FOREIGN KEY (`id_fichas`) REFERENCES `fichas` (`id_fichas`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Limitadores para a tabela `sinaissintomas`
+--
+ALTER TABLE `sinaissintomas`
+  ADD CONSTRAINT `id_fichas_sinaissintomas` FOREIGN KEY (`id_fichas`) REFERENCES `fichas` (`id_fichas`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Limitadores para a tabela `sinaisvitais`
+--
+ALTER TABLE `sinaisvitais`
+  ADD CONSTRAINT `id_ficha_sinaisvitais` FOREIGN KEY (`id_fichas`) REFERENCES `fichas` (`id_fichas`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Limitadores para a tabela `termorecusaatendimento`
+--
+ALTER TABLE `termorecusaatendimento`
+  ADD CONSTRAINT `id_fichas_termorecusaatendimento` FOREIGN KEY (`id_fichas`) REFERENCES `fichas` (`id_fichas`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Limitadores para a tabela `tipo_ocorrencia`
+--
+ALTER TABLE `tipo_ocorrencia`
+  ADD CONSTRAINT `id_fichas_tipo_ocorrencia` FOREIGN KEY (`id_fichas`) REFERENCES `fichas` (`id_fichas`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Limitadores para a tabela `vitimaera`
+--
+ALTER TABLE `vitimaera`
+  ADD CONSTRAINT `id_fichas_vitimaera` FOREIGN KEY (`id_fichas`) REFERENCES `fichas` (`id_fichas`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
