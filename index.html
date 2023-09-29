@@ -17,12 +17,11 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin-top: -90px;
-            margin-bottom: 90px;
+            margin: 0;
         }
 
         .container {
-            max-width: 300px;
+            max-width: 350px;
             background: #F8F9FD;
             border-radius: 20px;
             padding: 20px;
@@ -31,9 +30,8 @@
         }
 
         .logo img {
-            max-width: 60%;
+            max-width: 100%;
             height: auto;
-            margin-bottom: 20px; /* Espaço entre a logo e o bloco de login */
         }
 
         .heading {
@@ -104,14 +102,15 @@
             color: white;
             text-decoration: none;
         }
+
     </style>
 </head>
 
 <body>
-    <div class="logo text-center">
-        <img src="logos.png" alt="Logo" />
-    </div>
     <div class="container">
+        <div class="logo text-center">
+            <img src="logos.png" alt="Logo" />
+        </div>
         <div class="heading">Login</div>
         <form action="" class="form">
             <input required="" class="input" type="email" name="email" id="email" placeholder="E-mail">
