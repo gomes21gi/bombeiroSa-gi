@@ -233,6 +233,36 @@
         display: flex;
         align-items: center;
     }
+
+    /* Importar tiny.css para larguras de tela até 299px */
+    @media (max-width: 299px) {
+        @import url(tiny.css);
+    }
+
+    /* Importar small.css para larguras de tela entre 300px e 699px */
+    @media (min-width: 300px) and (max-width: 699px) {
+        @import url(small.css);
+    }
+
+    /* Importar big.css para larguras de tela maiores que 699px */
+    @media (min-width: 700px) {
+        @import url(big.css);
+    }
+
+    /* Estilos para telas pequenas (exemplo: smartphones) */
+    @media (max-width: 768px) {
+        /* Estilos específicos para telas pequenas aqui */
+    }
+
+    /* Estilos para telas médias (exemplo: tablets) */
+    @media (min-width: 769px) and (max-width: 1024px) {
+        /* Estilos específicos para telas médias aqui */
+    }
+
+    /* Estilos para telas grandes (exemplo: desktops) */
+    @media (min-width: 1025px) {
+        /* Estilos específicos para telas grandes aqui */
+    }
 </style>
 
 <body>
