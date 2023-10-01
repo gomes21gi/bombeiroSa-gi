@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
-        html, body {
-            height: 100%;
-        }
-
         body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
@@ -28,13 +21,13 @@
             text-align: center;
             background: linear-gradient(28deg, rgba(255, 239, 51, 0.8463760504201681) 0%, rgba(218, 75, 44, 1) 47%, rgba(94, 0, 0, 1) 100%);
         }
-        
+
         .button-group {
             display: flex;
             flex-direction: column;
             gap: 20px;
             margin-top: 20px;
-            align-items: center;
+            align-items: center; /* Centralize verticalmente os botões */
         }
 
         .button {
@@ -46,7 +39,7 @@
             font-size: 16px;
             cursor: pointer;
             width: 100%;
-            max-width: 200px;
+            max-width: 200px; /* Defina uma largura máxima para os botões */
         }
 
         .logged-in-user {
@@ -115,6 +108,7 @@
             align-items: center;
         }
 
+        /* Estilos para telas pequenas (exemplo: smartphones) */
         @media (max-width: 768px) {
             .header {
                 padding: 20px;
@@ -135,7 +129,10 @@
             }
 
             .search-container {
-                display: none; /* Oculta a barra de pesquisa em telas menores */
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
             }
 
             .search-input {
@@ -155,6 +152,7 @@
             }
         }
 
+        /* Estilos para telas médias e maiores (exemplo: tablets, desktops) */
         @media (min-width: 769px) {
             .button-group {
                 flex-direction: row;
@@ -164,7 +162,7 @@
 
             .search-container {
                 flex-direction: row;
-                margin-left: 20px;
+                margin-left: 20px; /* Adicione um espaçamento à esquerda para a barra de pesquisa */
             }
 
             .search-input {
@@ -178,6 +176,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="header">
         <div class="logged-in-user">
@@ -191,6 +190,7 @@
         </a>
     </div>
 
+    <!-- Botão de Pesquisar com barra de pesquisa abaixo dos botões -->
     <div class="button-group">
         <div class="tab">
             <a href="ficha.html"><button class="button" onclick="openCity(event, 'Nova')">Nova Ficha</button></a>
@@ -199,6 +199,7 @@
         </div>
     </div>
 
+    <!-- Tab content -->
     <div id="Nova" class="tabcontent">
         <!-- Conteúdo da guia Nova Ficha aqui -->
     </div>
