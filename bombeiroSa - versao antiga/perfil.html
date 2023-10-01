@@ -219,22 +219,23 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 
-    <script>
-        function toggleSearch() {
-            var searchContainer = document.getElementById("searchContainer");
-            var searchInput = document.querySelector(".search-input");
-            var searchButton = document.querySelector(".search-button");
+   <script>
+    function toggleSearch() {
+        var searchContainer = document.getElementById("searchContainer");
+        var searchInput = document.querySelector(".search-input");
+        var searchButton = document.querySelector(".search-button");
 
-            if (searchContainer.style.display === "none" || searchContainer.style.display === "") {
-                searchContainer.style.display = "flex";
-                searchInput.style.width = "100%";
-                searchButton.style.display = "block";
-            } else {
-                searchContainer.style.display = "none";
-                searchInput.style.width = "0";
-                searchButton.style.display = "none";
-            }
+        if (window.getComputedStyle(searchContainer).display === "none") {
+            searchContainer.style.display = "flex";
+            searchInput.style.width = "100%";
+            searchButton.style.display = "block";
+        } else {
+            searchContainer.style.display = "none";
+            searchInput.style.width = "0";
+            searchButton.style.display = "none";
         }
+    }
     </script>
+    
 </body>
 </html>
