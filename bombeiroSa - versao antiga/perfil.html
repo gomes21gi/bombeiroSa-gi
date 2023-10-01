@@ -19,13 +19,13 @@
             padding: 20px;
             text-align: center;
             background: linear-gradient(28deg, rgba(255, 239, 51, 0.8463760504201681) 0%, rgba(218, 75, 44, 1) 47%, rgba(94, 0, 0, 1) 100%);
+            margin-bottom: 20px; /* Adicione margem inferior */
         }
 
         .button-group {
             display: flex;
-            gap: 20px;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column; /* Altere a direção para coluna */
+            align-items: center; /* Centralize horizontalmente */
         }
 
         .button {
@@ -37,17 +37,17 @@
             font-size: 16px;
             cursor: pointer;
             max-width: 200px;
-            flex-grow: 1;
+            margin: 5px 0; /* Adicione margem entre os botões */
+            width: 100%; /* Defina a largura como 100% */
         }
 
         .logged-in-user {
             color: #fff;
             font-size: 20px;
-            margin-bottom: 20px;
         }
 
         .search-container {
-            display: none;
+            display: flex;
             justify-content: center;
             align-items: center;
             height: 50px;
@@ -127,7 +127,6 @@
             }
 
             .search-container {
-                display: none;
                 flex-direction: column;
                 align-items: center;
                 gap: 10px;
@@ -155,7 +154,6 @@
             .button-group {
                 flex-direction: row;
                 justify-content: center;
-                gap: 20px;
             }
 
             .search-container {
@@ -166,10 +164,6 @@
             .search-input {
                 width: 190px;
                 max-width: 190px;
-            }
-
-            .search-button {
-                width: auto;
             }
         }
     </style>
