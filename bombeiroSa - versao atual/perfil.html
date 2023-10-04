@@ -166,7 +166,11 @@
             .search-button:hover {
                 background-color: #e74c3c;
             }
-        }
+
+            .tab{
+                margin-rigth: 20px;
+                margin-left: 20px:
+            }
 
         /* Estilos para telas médias e maiores (exemplo: tablets, desktops) */
         @media (min-width: 769px) {
@@ -209,9 +213,11 @@
 
     <!-- Remova a classe .button-group e flex-direction: column; do contêiner de botões -->
     <div class="tab">
-        <a href="ficha.html"><button class="button" onclick="openCity(event, 'Nova')">Nova Ficha</button></a>
-        <button class="button" onclick="openCity(event, 'Historico')">Histórico de Ficha</button>
-        <button class="button" onclick="toggleSearch()">Pesquisar</button>
+        <div id="tab">
+            <a href="ficha.html"><button class="button" onclick="openCity(event, 'Nova')">Nova Ficha</button></a>
+            <button class="button" onclick="openCity(event, 'Historico')">Histórico de Ficha</button>
+            <button class="button" onclick="toggleSearch()">Pesquisar</button>
+        </div>
     </div>
 
     <div id="Nova" class="tabcontent">
