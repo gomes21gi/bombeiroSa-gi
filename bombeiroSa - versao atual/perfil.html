@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +20,8 @@
             padding: 20px;
             text-align: center;
             background: linear-gradient(28deg, rgba(255, 239, 51, 0.8463760504201681) 0%, rgba(218, 75, 44, 1) 47%, rgba(94, 0, 0, 1) 100%);
-            margin-bottom: 20px; /* Adicione margem inferior */
+            margin-bottom: 20px;
+            /* Adicione margem inferior */
         }
 
         .button-group {
@@ -27,7 +29,8 @@
             gap: 20px;
             margin-top: 30px;
             justify-content: center;
-            flex-direction: column; /* Altere a direção para coluna */
+            flex-direction: column;
+            /* Altere a direção para coluna */
         }
 
         .button {
@@ -39,11 +42,13 @@
             font-size: 16px;
             cursor: pointer;
             max-width: 200px;
-            margin: 5px 0; /* Adicione margem entre os botões */
-            width: 100%; /* Defina a largura como 100% */
+            margin: 5px 0;
+            /* Adicione margem entre os botões */
+            width: 100%;
+            /* Defina a largura como 100% */
         }
 
-        .tap{
+        .tap {
             display: grid;
             justify-content: center;
             display: flex;
@@ -137,30 +142,30 @@
                 gap: 20px;
                 margin-top: 30px;
                 justify-content: center;
-    }
             }
+        }
 
-            .search-container {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            }
+        .search-container {
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
 
-            .search-input {
-                width: 100%;
-                max-width: none;
-                border-radius: 5px;
-                margin: 0;
-            }
+        .search-input {
+            width: 100%;
+            max-width: none;
+            border-radius: 5px;
+            margin: 0;
+        }
 
-            .search-button {
-                width: 100%;
-                border-radius: 5px;
-            }
+        .search-button {
+            width: 100%;
+            border-radius: 5px;
+        }
 
-            .search-button:hover {
-                background-color: #e74c3c;
-            }
+        .search-button:hover {
+            background-color: #e74c3c;
+        }
         }
 
         /* Estilos para telas médias e maiores (exemplo: tablets, desktops) */
@@ -184,6 +189,7 @@
 </head>
 
 <body>
+
     <div class="header">
         <div class="logged-in-user">
             <div>Nome da Pessoa Logada</div>
@@ -196,12 +202,11 @@
         </a>
     </div>
 
-    <div class="button-group">
-        <div class="tab">
-            <a href="ficha.html"><button class="button" onclick="openCity(event, 'Nova')">Nova Ficha</button></a>
-            <button class="button" onclick="openCity(event, 'Historico')">Histórico de Ficha</button>
-            <button class="button" onclick="toggleSearch()">Pesquisar</button>
-        </div>
+    <!-- Remova a classe .button-group e flex-direction: column; do contêiner de botões -->
+    <div class="tab">
+        <a href="ficha.html"><button class="button" onclick="openCity(event, 'Nova')">Nova Ficha</button></a>
+        <button class="button" onclick="openCity(event, 'Historico')">Histórico de Ficha</button>
+        <button class="button" onclick="toggleSearch()">Pesquisar</button>
     </div>
 
     <div id="Nova" class="tabcontent">
@@ -233,23 +238,28 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 
-   <script>
-    function toggleSearch() {
-        var searchContainer = document.getElementById("searchContainer");
-        var searchInput = document.querySelector(".search-input");
-        var searchButton = document.querySelector(".search-button");
+    <script>
+        function toggleSearch() {
+            var searchContainer = document.getElementById("searchContainer");
+            var searchInput = document.querySelector(".search-input");
+            var searchButton = document.querySelector(".search-button");
 
-        if (window.getComputedStyle(searchContainer).display === "none") {
-            searchContainer.style.display = "flex";
-            searchInput.style.width = "100%";
-            searchButton.style.display = "block";
-        } else {
-            searchContainer.style.display = "none";
-            searchInput.style.width = "0";
-            searchButton.style.display = "none";
+            if (window.getComputedStyle(searchContainer).display === "none") {
+                searchContainer.style.display = "flex";
+                searchInput.style.width = ""; // Remova a largura definida
+                searchButton.style.display = "block";
+            } else {
+                searchContainer.style.display = "none";
+                searchInput.style.width = ""; // Remova a largura definida
+                searchButton.style.display = "none";
+            }
         }
-    }
     </script>
-    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
 </body>
+
 </html>
