@@ -21,7 +21,6 @@
             text-align: center;
             background: linear-gradient(28deg, rgba(255, 239, 51, 0.8463760504201681) 0%, rgba(218, 75, 44, 1) 47%, rgba(94, 0, 0, 1) 100%);
             margin-bottom: 20px;
-            /* Adicione margem inferior */
         }
 
         .button-group {
@@ -29,8 +28,7 @@
             gap: 20px;
             margin-top: 30px;
             justify-content: center;
-            flex-direction: column;
-            /* Altere a direção para coluna */
+            /* Remova flex-direction: column; */
         }
 
         .button {
@@ -41,19 +39,10 @@
             border-radius: 4px;
             font-size: 16px;
             cursor: pointer;
-            max-width: 200px;
+            /* Remova max-width: 200px; */
             margin: 5px 0;
-            /* Adicione margem entre os botões */
-            width: 100%;
-            /* Defina a largura como 100% */
-        }
-
-        .tap {
-            display: grid;
-            justify-content: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            /* Adicione width: auto; */
+            width: auto;
         }
 
         .logged-in-user {
@@ -135,51 +124,55 @@
                 height: 30px;
             }
 
+            /* Remova flex-direction: column e align-items: center; */
             .button-group {
-                flex-direction: column;
-                align-items: center;
+                /* flex-direction: column; */
+                /* align-items: center; */
                 display: flex;
                 gap: 20px;
                 margin-top: 30px;
                 justify-content: center;
             }
-        }
 
-        .search-container {
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
+            .search-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
 
-        .search-input {
-            width: 100%;
-            max-width: none;
-            border-radius: 5px;
-            margin: 0;
-        }
+            .search-input {
+                width: 100%;
+                max-width: none;
+                border-radius: 5px;
+                margin: 0;
+            }
 
-        .search-button {
-            width: 100%;
-            border-radius: 5px;
-        }
+            .search-button {
+                width: 100%;
+                border-radius: 5px;
+            }
 
-        .search-button:hover {
-            background-color: #e74c3c;
-        }
+            .search-button:hover {
+                background-color: #e74c3c;
+            }
         }
 
         /* Estilos para telas médias e maiores (exemplo: tablets, desktops) */
         @media (min-width: 769px) {
+            /* Adicione align-items: center; */
             .button-group {
                 flex-direction: row;
                 justify-content: center;
+                align-items: center;
             }
 
+            /* Adicione margin-left: 20px; */
             .search-container {
                 flex-direction: row;
                 margin-left: 20px;
             }
 
+            /* Adicione width: 190px; e max-width: 190px; */
             .search-input {
                 width: 190px;
                 max-width: 190px;
