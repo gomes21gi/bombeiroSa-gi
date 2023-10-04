@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25-Set-2023 às 14:31
+-- Tempo de geração: 04-Out-2023 às 13:10
 -- Versão do servidor: 8.0.21
 -- versão do PHP: 8.1.2
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `firefighters`
+-- Banco de dados: `firefighters-gi`
 --
 
 -- --------------------------------------------------------
@@ -58,7 +58,7 @@ CREATE TABLE `anamnese_emergencia` (
   `id_anamnese_emergencia` int NOT NULL,
   `id_fichas` int NOT NULL,
   `oq_aconteceu` text NOT NULL,
-  `aconteceu_outras_vezes` tinyint(1) DEFAULT NULL,
+  `aconteceu_outras_vezes` tinyint DEFAULT NULL,
   `quanto_tempo_aconteceu` varchar(50) DEFAULT NULL,
   `possui_problema_saude` tinyint(1) DEFAULT NULL,
   `quais_problemas_saude` text,
@@ -127,8 +127,8 @@ CREATE TABLE `dadosambulancia` (
   `numero_ocorrencia` varchar(50) DEFAULT NULL,
   `despacho` varchar(255) DEFAULT NULL,
   `km_final` varchar(50) DEFAULT NULL,
-  `codigo_ir` tinyint(1) DEFAULT NULL,
-  `codigo_ps` tinyint(1) DEFAULT NULL,
+  `codigo_ir` tinyint DEFAULT NULL,
+  `codigo_ps` tinyint DEFAULT NULL,
   `hora_chegada` varchar(50) DEFAULT NULL,
   `codigo_sia_sus` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -506,6 +506,7 @@ CREATE TABLE `usuarios` (
   `id_usuarios` int NOT NULL,
   `nome` varchar(255) DEFAULT NULL,
   `matricula` varchar(255) DEFAULT NULL,
+  `email` int NOT NULL,
   `senha` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
