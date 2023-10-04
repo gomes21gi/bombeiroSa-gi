@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +20,8 @@
             padding: 20px;
             text-align: center;
             background: linear-gradient(28deg, rgba(255, 239, 51, 0.8463760504201681) 0%, rgba(218, 75, 44, 1) 47%, rgba(94, 0, 0, 1) 100%);
-            margin-bottom: 20px; /* Adicione margem inferior */
+            margin-bottom: 20px;
+            /* Adicione margem inferior */
         }
 
         .button-group {
@@ -28,7 +30,8 @@
             margin-top: 30px;
             margin-left: ;
             justify-content: center;
-            flex-direction: column; /* Altere a direção para coluna */
+            flex-direction: column;
+            /* Altere a direção para coluna */
         }
 
         .button {
@@ -40,11 +43,13 @@
             font-size: 16px;
             cursor: pointer;
             max-width: 200px;
-            margin: 5px 0; /* Adicione margem entre os botões */
-            width: 100%; /* Defina a largura como 100% */
+            margin: 5px 0;
+            /* Adicione margem entre os botões */
+            width: 100%;
+            /* Defina a largura como 100% */
         }
 
-        .tap{
+        .tap {
             display: griid;
             justify-content: center;
         }
@@ -135,33 +140,33 @@
                 gap: 20px;
                 margin-top: 30px;
                 justify-content: center;
-    }
-            }
-
-            .search-container {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            }
-
-            .search-input {
-                width: 100%;
-                max-width: none;
-                border-radius: 5px;
-                margin: 0;
-            }
-
-            .search-button {
-                width: 100%;
-                border-radius: 5px;
-            }
-
-            .search-button:hover {
-                background-color: #e74c3c;
             }
         }
 
-        /* Estilos para telas médias e maiores (exemplo: tablets, desktops) */
+        .search-container {
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: none;
+            border-radius: 5px;
+            margin: 0;
+        }
+
+        .search-button {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .search-button:hover {
+            background-color: #e74c3c;
+        }
+        }
+
+        Estilos para telas médias e maiores (exemplo: tablets, desktops)
         @media (min-width: 769px) {
             .button-group {
                 flex-direction: row;
@@ -176,6 +181,19 @@
             .search-input {
                 width: 190px;
                 max-width: 190px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .button-container {
+                display: flex;
+                justify-content: center;
+                margin-top: 30px;
+            }
+
+            .btn-container {
+                margin: 0 10px; /* Espaçamento entre os botões */
+                max-width: 200px; /* Largura máxima dos botões */
             }
         }
     </style>
@@ -194,13 +212,15 @@
         </a>
     </div>
 
-    <div class="button-group">
+    <div class="button-container">
         <div class="tab">
-            <a href="ficha.html"><button class="button" onclick="openCity(event, 'Nova')">Nova Ficha</button></a>
-            <button class="button" onclick="openCity(event, 'Historico')">Histórico de Ficha</button>
-            <button class="button" onclick="toggleSearch()">Pesquisar</button>
+            <a href="ficha.html"><button class="button btn-container" onclick="openCity(event, 'Nova')">Nova
+                    Ficha</button></a>
+            <button class="button btn-container" onclick="openCity(event, 'Historico')">Histórico de Ficha</button>
+            <button class="button btn-container" onclick="toggleSearch()">Pesquisar</button>
         </div>
     </div>
+
 
     <div id="Nova" class="tabcontent">
         <!-- Conteúdo da guia Nova Ficha aqui -->
@@ -231,23 +251,24 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 
-   <script>
-    function toggleSearch() {
-        var searchContainer = document.getElementById("searchContainer");
-        var searchInput = document.querySelector(".search-input");
-        var searchButton = document.querySelector(".search-button");
+    <script>
+        function toggleSearch() {
+            var searchContainer = document.getElementById("searchContainer");
+            var searchInput = document.querySelector(".search-input");
+            var searchButton = document.querySelector(".search-button");
 
-        if (window.getComputedStyle(searchContainer).display === "none") {
-            searchContainer.style.display = "flex";
-            searchInput.style.width = "100%";
-            searchButton.style.display = "block";
-        } else {
-            searchContainer.style.display = "none";
-            searchInput.style.width = "0";
-            searchButton.style.display = "none";
+            if (window.getComputedStyle(searchContainer).display === "none") {
+                searchContainer.style.display = "flex";
+                searchInput.style.width = "100%";
+                searchButton.style.display = "block";
+            } else {
+                searchContainer.style.display = "none";
+                searchInput.style.width = "0";
+                searchButton.style.display = "none";
+            }
         }
-    }
     </script>
-    
+
 </body>
+
 </html>
