@@ -84,109 +84,6 @@
 .radio-input label:nth-child(3):has(input:checked) ~ .selection {
   transform: translateX(calc(var(--container_width) * 2/3));
 }
-/*         .button-group {
-            /* Remova a classe .button-group e flex-direction: column; do contêiner de botões */
-            display: flex;
-            gap: 20px;
-            margin-top: 30px;
-            justify-content: center;
-        }
-
-        .custom-button {
-            background-color: #e74c3c;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            width: auto; /* Defina a largura como automática */
-            margin: 5px; /* Adicione margem aos botões */
-        }
-
-        .logged-in-user {
-            color: #fff;
-            font-size: 20px;
-        }     
-
-        .button {
-            background-color: #e74c3c;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            /* Remova max-width: 200px; */
-            margin: 5px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            /* Adicione width: auto; */
-            width: auto;
-        }
-
-        .search-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 50px;
-            margin-top: 20px;
-        }
-
-        .search-input {
-            max-width: 100%;
-            height: 90%;
-            outline: none;
-            font-size: 14px;
-            font-weight: 500;
-            background-color: #e74d3cec;
-            caret-color: #f7f7f8;
-            color: #fff;
-            padding: 7px 10px;
-            border: 2px solid transparent;
-            border-top-left-radius: 7px;
-            border-bottom-left-radius: 7px;
-            margin-right: 1px;
-            transition: all .2s ease;
-        }
-
-        .search-input:hover {
-            border: 2px solid rgba(255, 255, 255, 0.16);
-        }
-
-        .search-input:focus {
-            border: 2px solid #a970ff;
-            background-color: #e74c3c;
-        }
-
-        .search-button {
-            border: none;
-            cursor: pointer;
-            background-color: #e74c3c;
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
-            border-top-right-radius: 7px;
-            border-bottom-right-radius: 7px;
-            height: 86%;
-            width: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .search-button:hover {
-            background-color: white;
-        }
-
-        .tab{
-            margin-rigth: 40px;
-            margin-left: 40px:
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        } */
-
         .ui {
             opacity: 0.1;
             justify-content: center;
@@ -285,52 +182,22 @@
         </a>
     </div>
 
-    <div class="radio-input">
-  <label>
-  <input type="radio" id="value-1" name="value-radio" value="value-1">
-  <span>Nova Ficha</span>
-  </label>
-  <label>
-    <input type="radio" id="value-2" name="value-radio" value="value-2">
-  <span>Histórico</span>
-  </label>
-  <label>
-    <input type="radio" id="value-3" name="value-radio" value="value-3">
-  <span>Pesquisar</span>
-  </label>
-  <span class="selection"></span>
-</div>
-    
-<!--     <!-- Remova a classe .button-group e flex-direction: column; do contêiner de botões -->
-    <div class="tab">
-        <div class="button">
-            <a href="ficha.html"><button class="button" onclick="openCity(event, 'Nova')">Nova Ficha</button></a>
-            <button class="button" onclick="openCity(event, 'Historico')">Histórico de Ficha</button>
-            <button class="button" onclick="toggleSearch()">Pesquisar</button>
-        </div>
+        <div class="radio-input">
+      <label>
+      <input type="radio" id="value-1" name="value-radio" value="value-1">
+      <span>Nova Ficha</span>
+      </label>
+      <label>
+        <input type="radio" id="value-2" name="value-radio" value="value-2">
+      <span>Histórico</span>
+      </label>
+      <label>
+        <input type="radio" id="value-3" name="value-radio" value="value-3">
+      <span>Pesquisar</span>
+      </label>
+      <span class="selection"></span>
     </div>
-
-    <div id="Nova" class="tabcontent">
-        <!-- Conteúdo da guia Nova Ficha aqui -->
-    </div>
-
-    <div id="Historico" class="tabcontent">
-        <!-- Conteúdo da guia Histórico de Ficha aqui -->
-    </div>
-
-    <div id="Pesquisar" class="tabcontent">
-        <div class="search-container" id="search-container">
-            <input type="text" class="search-input" placeholder="Pesquisar">
-            <button class="search-button">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22">
-                    <path
-                        d="M18.031 16.6168L22.3137 20.8995L20.8995 22.3137L16.6168 18.031C15.0769 19.263 13.124 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2C15.968 2 20 6.032 20 11C20 13.124 19.263 15.0769 18.031 16.6168ZM16.0247 15.8748C17.2475 14.6146 18 12.8956 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18C12.8956 18 14.6146 17.2475 15.8748 16.0247L16.0247 15.8748Z"
-                        fill="#efeff1"></path>
-                </svg>
-            </button>
-        </div>
-    </div>
- -->
+        
     <div class="ui">
         <img src="logos.png" width="70%" />
     </div>
@@ -355,20 +222,20 @@
                 searchButton.style.display = "none";
             }
         }
-    </script>
-        function toggleSearch() {
-          var searchInput = document.querySelector(".search-input");
-          var searchButton = document.querySelector(".search-button");
+    // </script>
+    //     function toggleSearch() {
+    //       var searchInput = document.querySelector(".search-input");
+    //       var searchButton = document.querySelector(".search-button");
         
-          if (searchInput.style.width === "") {
-            searchInput.style.width = ""; // Remove the defined width
-            searchButton.style.display = "block";
-          } else {
-            searchInput.style.width = ""; // Remove the defined width
-            searchButton.style.display = "none";
-          }
-        }
-    </script>
+    //       if (searchInput.style.width === "") {
+    //         searchInput.style.width = ""; // Remove the defined width
+    //         searchButton.style.display = "block";
+    //       } else {
+    //         searchInput.style.width = ""; // Remove the defined width
+    //         searchButton.style.display = "none";
+    //       }
+    //     }
+    // </script>
 <!--     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script> -->
