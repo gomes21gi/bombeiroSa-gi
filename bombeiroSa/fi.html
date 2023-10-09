@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+
+</head>
+<style>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+body     {
+        place-content: center;
+        overflow-x: hidden;
+        grid-template-columns: repeat(auto-fit, min(100%, 30rem));
+        place-items: start;
+        gap: 1rem;
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+        font-family: Arial, sans-serif;
+        color: black;
+        background-color: rgba(160, 161, 161, 0.055);
+        align-items: center;
+        min-height: auto;
+    }
+
+    .header {
+        background: linear-gradient(28deg, rgba(255, 239, 51, 0.8463760504201681) 0%, rgba(218, 75, 44, 1) 47%, rgba(94, 0, 0, 1) 100%);
+        color: rgba(160, 161, 161, 0.055);
+        text-align: center;
+    }
+
+    .maredes-group {
+        display: flex;
+    }
+
+    .maredes-label {
+        display: flex;
+        align-items: center;
+        padding: 0 5px 0 5px;
+        margin-bottom: 0.5em;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        transition: background-color 0.2s, border-color 0.2s;
+        margin: 3px 5px 3px 5px;
+
+    }
+
+    .maredes-label:hover {
+        background-color: #e6e6e6;
+    }
+
+    .maredes-input {}
+
+    .maredes-input:checked+.maredes-label {
+        background-color: #ffc3c3;
+        border-color: #ff1111;
+    }
+
+    .maredes-input:focus+.maredes-label {
+        outline: 2px solid #ff1111;
+    }
+
+    .maredes-inner-circle {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        border: 2px solid #888;
+        border-radius: 50%;
+        margin-right: 0.5em;
+        transition: border-color 0.2s;
+        position: relative;
+    }
+
+    .maredes-label:hover .maredes-inner-circle {
+        border-color: #555;
+    }
+
+    .maredes-input:checked+.maredes-label .maredes-inner-circle {
+        border-color: #ff1111;
+    }
+
+    .maredes-input:checked+.maredes-label .maredes-inner-circle::after {
+        content: '';
+        display: block;
+        width: 0.5em;
+        height: 0.5em;
+        background-color: #ff1111;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+
+
+    :root {
+        --primary: #e72214;
+        --secondary: #ff5252;
+        --tertiary: black;
+        --background: #eee;
+        --highlight: #ffda79;
+        /* Theme color */
+        --theme: var(--primary);
+    }
+
+    /* Core styles/functionality */
+    .foco input {
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+    }
+
+    .foco__content {
+        max-height: 0;
+        padding: 0 20px 0 20px;
+        overflow: hidden;
+        transition: all 0.35s;
+    }
+
+    .foco input:checked~.foco__content {
+        max-height: 10rem;
+    }
+
+    /* Visual styles */
+    .accordion {
+        color: var(--theme);
+        border: 2px solid;
+        border-radius: 0.5rem;
+        overflow: hidden;
+    }
+
+    .foco__label,
+    .foco__close {
+        display: flex;
+        color: white;
+        background: var(--theme);
+        cursor: pointer;
+    }
+
+    .foco__label {
+        justify-content: space-between;
+        padding: 1rem;
+    }
+
+    .foco__label::after {
+        content: "\276F";
+        width: 1em;
+        height: 1em;
+        text-align: center;
+        transform: rotate(90deg);
+        transition: all 0.35s;
+    }
+
+    .foco input:checked+.foco__label::after {
+        transform: rotate(270deg);
+    }
+
+    .foco__content p {
+        margin: 0;
+        padding: 1rem;
+    }
+
+    .foco__content.active {
+        margin: 0;
+        padding: 1rem;
+        max-height: 100%;
+        overflow: visible;
+    }
+
+    /* Estilo para esconder os campos de entrada por padrão */
+    .foco__content input[type="text"] {
+        display: none;
+    }
+
+    /* Quando o acordeão está aberto, mostre os campos de entrada */
+    .foco__content.active input[type="text"] {
+        display: block;
+    }
+
+
+    .foco__close {
+        justify-content: flex-end;
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+    }
+
+    .accordion--radio {
+        --theme: var(--secondary);
+    }
+
+    @keyframes bounce {
+        25% {
+            transform: rotate(90deg) translate(.25rem);
+        }
+
+        75% {
+            transform: rotate(90deg) translate(-.25rem);
+        }
+    }
+
+    .button-group {
+        display: flex;
+        gap: 20px;
+    }
+
+    .button {
+        background-color: #e74c3c;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .tonn {
+        background-color: #e74c3c;
+        margin-top: 30px;
+        color: #fff;
+        padding: 10px 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .button:hover {
+        background-color: #c0392b;
+    }
+
+    .logged-in-user {
+        color: #fff;
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .ddp {
+        padding: 35px 35px;
+        background: rgba(160, 161, 161, 0.055);
+        color: black;
+    }
+
+    .text {
+        padding: 45px 45px;
+        line-height: 30px;
+        text-align: justify;
+    }
+
+    .cabecalho {
+        display: inline;
+    }
+
+    .causas {
+        font-weight: 400;
+        line-height: 25px;
+        column-count: 2;
+    }
+
+    .amb {
+        font-weight: 400;
+        line-height: 25px;
+        column-count: 2;
+    }
+
+    .container {
+        max-height: 100%;
+        background-color: rgba(160, 161, 161, 0.055);
+        margin: 0px auto 40px auto;
+        padding: 40px;
+        border-radius: 5px;
+        height: auto;
+    }
+
+    .form {
+        padding: 30px;
+    }
+
+    .form label,
+    .form p {
+        line-height: 2rem;
+        /* font-weight: bold; */
+    }
+
+    .form-group input,
+    .form select {
+        border-radius: 5px;
+        padding: 8px;
+        border-color: rgba(218, 75, 44, 1);
+        border: 1px solid #ced4da;
+        margin-top: 13px;
+        margin-bottom: 13px;
+    }
+
+    .form select {
+        cursor: pointer;
+    }
+
+    .form-radio-checkbox {
+        margin-bottom: 15px;
+    }
+
+    form .form-radio-checkbox {
+        display: grid;
+    }
+
+    .form-radio-checkbox input {
+        margin-right: 10px;
+    }
+
+    .form-radio-checkbox label {
+        line-height: 2rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .form-radio-checkbox label:first-child {
+        margin-bottom: 10px;
+    }
+
+    .form-textarea {
+        display: grid;
+    }
+
+    .form-textarea textarea {
+        padding: 10px;
+    }
+
+    .radio-group {
+        display: flex;
+        align-items: center;
+    }
+
+    .radio-group input[type="radio"] {
+        margin-right: 5px;
+    }
+
+    .radio {
+        column-gap: 20px;
+        column-count: 3;
+        justify-content: center;
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .imgg {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .dsn {
+        column-gap: 20px;
+        column-count: 3;
+    }
+
+    .duo {
+        column-gap: 40px;
+        column-count: 2;
+    }
+
+    .c3 {
+        column-count: 3;
+    }
+
+    .table {
+        display: flex;
+        flex-direction: column;
+        border-collapse: collapse;
+        text-align: center;
+    }
+
+    .cell {
+        flex: 1;
+        padding: 5px;
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    .ss {
+        font-weight: 400;
+        line-height: 25px;
+        column-count: 2;
+    }
+
+    .four {
+        column-count: 4;
+    }
+
+    .le {
+        margin-left: 100px;
+        border-radius: 5px;
+        padding: 2px;
+        border-color: rgba(218, 75, 44, 1);
+        border: 1px solid #ced4da;
+        margin-top: 13px;
+        margin-bottom: 13px;
+        width: 230px;
+    }
+
+    .lf {
+        border-radius: 5px;
+        padding: 2px;
+        border-color: rgba(218, 75, 44, 1);
+        border: 1px solid #ced4da;
+        margin-top: 13px;
+        margin-bottom: 13px;
+    }
+
+    input.form-control {
+        width: 90%;
+    }
+
+    input.sv {
+        width: 18%;
+    }
+
+    .mi {
+        width: 35px;
+    }
+
+    .i {
+        width: 15px;
+        height: 10px;
+    }
+
+    .qt {
+        width: 75%;
+        align-items: center;
+    }
+
+    .cmpp {
+        column-count: 2;
+        column-gap: 60px;
+        margin-left: 15px;
+        font-size: 15px;
+    }
+
+    .pr {
+        font-size: 15px;
+    }
+
+    .oi {
+        width: 97%;
+        height: 100px;
+        background-color: #ced4da86;
+    }
+
+    .oa {
+        width: 90%;
+        max-height: 100%;
+    }
+
+    .qa {
+        line-height: 30px;
+        background-color: rgba(160, 161, 161, 0.055);
+    }
+
+    .qh {
+        width: 35px;
+        margin-left: 10px;
+    }
+
+    .eit {
+        display: inline-block;
+        column-count: 2;
+        width: 80%;
+    }
+
+    .c2 {
+        column-count: 2;
+    }
+
+    .centerr {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    .destaque {
+        background-color: #ced4da86;
+    }
+
+    .destaque2 {
+        background-color: #ced4da86;
+        border-radius: 5px;
+        margin-bottom: 5px;
+        padding-left: 20px;
+        color: black;
+    }
+
+    .signature-pad {
+        position: relative;
+        cursor: pointer;
+        text-decoration: underline;
+        width: 200px;
+        height: 90px;
+        text-decoration: none;
+    }
+
+    .input {
+        color: #8707ff;
+        border: 2px solid #8707ff;
+        border-radius: 10px;
+        padding: 10px 25px;
+        background: transparent;
+        max-width: 190px;
+    }
+
+    .input:active {
+        box-shadow: 2px 2px 15px #8707ff inset;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+    }
+
+    .form-textarea {
+        display: grid;
+    }
+
+    .form-textarea textarea {
+        padding: 10px;
+    }
+
+    /* Estilos específicos para telas menores (por exemplo, dispositivos móveis) */
+    @media screen and (max-width: 768px) {
+        body {
+            grid-template-columns: 1fr;
+            overflow-x: hidden;
+            /* Uma coluna em telas menores */
+            gap: 0.5rem;
+        }
+
+        .form {
+            padding: 0;
+        }
+    }
+</style>
+
+<body>
+    <div class="header">
+        <div class="imgg">
+            <img src="logos.png" width="35%">
+        </div>
+    </div>
+
+    <div class="qa">
+        <div class="ddp">
+            <h1>Bombeiros Voluntários</h1>
+            <h3>Assoc. de Serviços Sociais Voluntários de Guaramirim</h3>
+        </div>
+
+        <div class="container">
+            <form class="form">
+                <div class="form-group">
+
+                    <section class="accordion">
+                        <div class="foco">
+                            <input type="checkbox" name="accordion-1" id="foco1">
+                            <label for="foco1" class="foco__label">Anamnese da Emergência Médica</label>
+                            <div class="foco__content">
+                                <form>
+                                    <div class="destaque2">
+                                        <div class="duo">
+                                            <div>O que aconteceu (sinais e sintomas)</div>
+                                            <div class="foco__content"><input class="oa" type="text" id="oq-aconteceu"
+                                                    name="oq-aconteceu" placeholder="Digite o que aconteceu" required />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="destaque2">
+                                        <div class="duo">
+                                            <div>Aconteceu outras vezes</div>
+                                            <div>
+                                                <div class="maredes-group">
+                                                    <input class="maredes-input" name="maredes-group-1" id="maredes1"
+                                                        type="radio">
+                                                    <label class="maredes-label" for="maredes1">
+                                                        <span class="maredes-inner-circle"></span>
+                                                        Sim
+                                                    </label>
+
+                                                    <input class="maredes-input" name="maredes-group-1" id="maredes2"
+                                                        type="radio">
+                                                    <label class="maredes-label" for="maredes2">
+                                                        <span class="maredes-inner-circle"></span>
+                                                        Não
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="destaque2">
+                                        <div>A quanto tempo aconteceu?</div>
+                                        <div><input class="oa" type="text" id="tempo-aconteceu" name="tempo-aconteceu"
+                                                placeholder="Digite a quanto tempo aconteceu" required />
+                                        </div>
+                                    </div>
+
+                                    <div class="destaque2">
+                                        <div class="duo">
+                                            <div>Possui algum problema de saúde?</div>
+                                            <div class="maredes-group">
+                                                <input class="maredes-input" name="maredes-group-2" id="maredes3"
+                                                    type="radio">
+                                                <label class="maredes-label" for="maredes3">
+                                                    <span class="maredes-inner-circle"></span>
+                                                    Sim
+                                                </label>
+
+                                                <input class="maredes-input" name="maredes-group-2" id="maredes4"
+                                                    type="radio">
+                                                <label class="maredes-label" for="maredes4">
+                                                    <span class="maredes-inner-circle"></span>
+                                                    Não
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="destaque2">
+                                        <div>Quais?</div>
+                                        <div><input class="oa" type="text" id="p-quais" name="p-quais"
+                                                placeholder="Digite quais doenças" required />
+                                        </div>
+                                    </div>
+
+                                    <div class="destaque2">
+                                        <div class="duo">
+                                            <div>Faz uso de medicação</div>
+                                            <div class="maredes-group">
+                                                <input class="maredes-input" name="maredes-group-3" id="maredes5"
+                                                    type="radio">
+                                                <label class="maredes-label" for="maredes5">
+                                                    <span class="maredes-inner-circle"></span>
+                                                    Sim
+                                                </label>
+
+                                                <input class="maredes-input" name="maredes-group-3" id="maredes6"
+                                                    type="radio">
+                                                <label class="maredes-label" for="maredes6">
+                                                    <span class="maredes-inner-circle"></span>
+                                                    Não
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="destaque2">
+                                        <div class="duo">
+                                            <div>Horário da útima medicação:</div>
+                                            <input type="text" class="qh" id="h-medicacao" placeholder="00:00">
+                                        </div>
+                                    </div>
+
+                                    <div class="destaque2">
+                                        <div>Quais?</div>
+                                        <div><input class="oa" type="text" id="m-quais" name="m-quais"
+                                                placeholder="Digite quais medicações" required />
+                                        </div>
+                                    </div>
+
+                                    <div class="destaque2">
+                                        <div class="duo">
+                                            <div>Alérgico a alguma coisa?</div>
+                                            <div class="maredes-group">
+                                                <input class="maredes-input" name="maredes-group-4" id="maredes7"
+                                                    type="radio">
+                                                <label class="maredes-label" for="maredes7">
+                                                    <span class="maredes-inner-circle"></span>
+                                                    Sim
+                                                </label>
+
+                                                <input class="maredes-input" name="maredes-group-4" id="maredes8"
+                                                    type="radio">
+                                                <label class="maredes-label" for="maredes8">
+                                                    <span class="maredes-inner-circle"></span>
+                                                    Não
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="destaque2">
+                                        <div>Se sim especifique</div>
+                                        <div><input class="oa" type="text" id="ss-alergia" name="ss-alergia"
+                                                placeholder="Digite a alérgia" required />
+                                        </div>
+                                    </div>
+
+                                    <div class="destaque2">
+                                        <div class="duo">
+                                            <div>Ingeriu alimento ou líquido ≥6 horas:</div>
+                                            <div class="maredes-group">
+                                                <input class="maredes-input" name="maredes-group-5" id="maredes9"
+                                                    type="radio">
+                                                <label class="maredes-label" for="maredes9">
+                                                    <span class="maredes-inner-circle"></span>
+                                                    Sim
+                                                </label>
+
+                                                <input class="maredes-input" name="maredes-group-5" id="maredes10"
+                                                    type="radio">
+                                                <label class="maredes-label" for="maredes10">
+                                                    <span class="maredes-inner-circle"></span>
+                                                    Não
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="destaque2">
+                                        <div class="duo">
+                                            <div>Que horas?:</div>
+                                            <input type="text" id="i-horas" class="qh" placeholder="00:00">
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+
+                            <div class="foco">
+                                <input type="checkbox" name="accordion-1" id="foco2">
+                                <label for="foco2" class="foco__label">Dados Iniciais</label>
+                                <div class="foco__content">
+                                    <form>
+                                        <div class="destaque2">
+                                            <label for="data">Data:</label><br>
+                                            <input type="text" class="form-control" placeholder="dd/mm/aaaa"
+                                                data-mask="00/00/0000" maxlength="10" autocomplete="off">
+                                        </div>
+
+                                        <div class="destaque2">
+                                            <div class="duo">
+                                                <div class="radio">
+                                                    <label for="sexo">Sexo:</label>
+                                                    <input name="radios" class="b1" type="radio" id="s-f">F
+                                                    <input name="radios" type="radio" id="s-m">M
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="destaque2">
+                                            <label for="nome-hospital">Nome do Hospital:</label><br>
+                                            <input type="text" class="form-control" id="nome-hospital"
+                                                name="nome-hospital" placeholder="Digite o nome do Hospital" required />
+                                        </div>
+
+                                        <div class="destaque2">
+                                            <label for="nome-paciente">Nome:</label><br>
+                                            <input type="text" class="form-control" id="nome-paciente"
+                                                name="nome-paciente" placeholder="Digite o nome do paciente" required />
+                                        </div>
+
+                                        <div class="destaque2">
+                                            <label for="idade">Idade;</label><br>
+                                            <input type="text" class="form-control" id="idade" name="idade"
+                                                placeholder="Digite a idade do paciente" required />
+                                        </div>
+
+                                        <div class="destaque2">
+                                            <label for="fone">Fone:</label><br>
+                                            <input type="text" class="form-control phone-mask" placeholder="0000-0000">
+                                        </div>
+
+                                        <div class="destaque2">
+                                            <label for="cpf">RG/CPF Paciente:</label><br>
+                                            <input type="text" class="form-control cpf-mask"
+                                                placeholder="000.000.000-00">
+                                        </div>
+
+                                        <div class="destaque2">
+                                            <label for="nome-acompanhante">Acompanhante:</label><br>
+                                            <input type="text" class="form-control" id="nome-acompanhante"
+                                                name="nome-acompanhante" placeholder="Digite o nome do acompanhante"
+                                                required />
+                                        </div>
+
+                                        <div class="destaque2">
+                                            <label for="idade-acompanhante">Idade:</label><br>
+                                            <input type="text" class="form-control" id="idade-acompanhante"
+                                                name="idade-acompanhante" placeholder="Digite a idade do acompanhante"
+                                                required />
+                                        </div>
+
+                                        <div class="destaque2">
+                                            <label for="local-ocorrencia">Local da Ocorrência:</label><br>
+                                            <input type="text" class="form-control" id="local-ocorrencia"
+                                                name="local-ocorrencia" placeholder="Digite o local da ocorrência"
+                                                required />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="foco">
+                                <input type="checkbox" name="accordion-1" id="foco3">
+                                <label for="foco3" class="foco__label">Foco 2</label>
+                                <div class="foco__content">
+                                    <p>Você pode personalizar facilmente o nome e o estilo dos focos.</p>
+                                </div>
+                            </div>
+                    </section>
+                </div>
+            </form>
+        </div>
+        <script>
+            // Seletor para todos os elementos com a classe "foco__label"
+            const labels = document.querySelectorAll('.foco__label');
+
+            // Adicione um ouvinte de eventos de clique a cada rótulo
+            labels.forEach((label) => {
+                label.addEventListener('click', () => {
+                    // Alterne a classe "active" no rótulo
+                    label.classList.toggle('active');
+
+                    // Encontre o conteúdo associado
+                    const content = label.nextElementSibling;
+
+                    // Toggle a classe "active" no conteúdo
+                    content.classList.toggle('active');
+
+                    // Verifique se o conteúdo está ativo e ajuste o "max-height" conforme necessário
+                    if (content.classList.contains('active')) {
+                        content.style.maxHeight = '100%'; // Ou outro valor adequado para mostrar todo o conteúdo
+                    } else {
+                        content.style.maxHeight = '0';
+                    }
+                });
+            });
+
+        </script>
+        <script>// Seletor para todos os elementos com a classe "foco__label"
+            const labels = document.querySelectorAll('.foco__label');
+
+            // Adicione um ouvinte de eventos de clique a cada rótulo
+            labels.forEach((label) => {
+                label.addEventListener('click', () => {
+                    // Alterne a classe "active" no rótulo
+                    label.classList.toggle('active');
+
+                    // Encontre o conteúdo associado
+                    const content = label.nextElementSibling;
+
+                    // Toggle a classe "active" no conteúdo
+                    content.classList.toggle('active');
+
+                    // Encontre todos os campos de entrada dentro do conteúdo
+                    const inputs = content.querySelectorAll('input');
+
+                    // Se o conteúdo está ativo, ajuste a visibilidade dos campos de entrada
+                    if (content.classList.contains('active')) {
+                        inputs.forEach((input) => {
+                            input.style.display = 'block'; // Ou outro valor de estilo adequado
+                        });
+                    } else {
+                        inputs.forEach((input) => {
+                            input.style.display = 'none';
+                        });
+                    }
+                });
+            });
+
+        </script>
+        <script>
+            // Função para garantir que apenas uma opção seja selecionada em cada grupo
+            function handleRadioSelection(input) {
+                const groupName = input.getAttribute("name");
+                const allInputs = document.querySelectorAll(`.maredes-input[name="${groupName}"]`);
+
+                allInputs.forEach((otherInput) => {
+                    if (input !== otherInput) {
+                        otherInput.checked = false;
+                    }
+                });
+            }
+
+            // Adicionar um evento de clique a todos os elementos de entrada "maredes-input"
+            const maredesInputs = document.querySelectorAll('.maredes
+
+            // Função para garantir que apenas uma opção seja selecionada em cada grupo
+            function handleRadioSelection(input) {
+                    const groupName = input.getAttribute("name");
+                    const allInputs = document.querySelectorAll(`.maredes-input[name="${groupName}"]`);
+
+                    allInputs.forEach((otherInput) => {
+                        if (input !== otherInput) {
+                            otherInput.checked = false;
+                        }
+                    });
+                }
+
+            // Adicionar um evento de clique a todos os elementos de entrada "maredes-input"
+            const maredesInputs = document.querySelectorAll('.mared
+
+            // Função para garantir que apenas uma opção seja selecionada em cada grupo
+            function handleRadioSelection(input) {
+                        const groupName = input.getAttribute("name");
+                        const allInputs = document.querySelectorAll(`.maredes-input[name="${groupName}"]`);
+
+                        allInputs.forEach((otherInput) => {
+                            if (input !== otherInput) {
+                                otherInput.checked = false;
+                            }
+                        });
+                    }
+
+            // Adicionar um evento de clique a todos os elementos de entrada "maredes-input"
+            const maredesInputs = document.querySelectorAll('.
+
+            // Função para garantir que apenas uma opção seja selecionada em cada grupo
+            function handleRadioSelection(input) {
+                            const groupName = input.getAttribute("name");
+                            const allInputs = document.querySelectorAll(`.maredes-input[name="${groupName}"]`);
+
+                            allInputs.forEach((otherInput) => {
+                                if (input !== otherInput) {
+                                    otherInput.checked = false;
+                                }
+                            });
+                        }
+
+            // Adicionar um evento de clique a todos os elementos de entrada "maredes-input"
+            const maredesInputs = document.querySelectorAll('.maredes-input');
+
+            maredesInputs.forEach((input) => {
+                input.addEventListener('click', () => {
+                    handleRadioSelection(input);
+                });
+            });
+        </script>
+        <script>
+            // Função para aplicar a máscara de telefone
+            function applyPhoneMask(input) {
+                input.addEventListener('input', function (e) {
+                    let value = e.target.value.replace(/\D/g, '');
+                    if (value.length === 11) {
+                        e.target.value = value.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+                    } else {
+                        e.target.value = value.replace(/^(\d{2})(\d{4})(\d{4})$/, '($1) $2-$3');
+                    }
+                });
+            }
+
+            // Função para aplicar a máscara de CPF
+            function applyCPFMask(input) {
+                input.addEventListener('input', function (e) {
+                    let value = e.target.value.replace(/\D/g, '');
+                    e.target.value = value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+                });
+            }
+
+            // Selecione os campos de entrada de telefone e CPF pelo ID
+            const phoneInput = document.getElementById('fone');
+            const cpfInput = document.getElementById('cpf');
+
+            // Aplique as máscaras aos campos de entrada
+            if (phoneInput) {
+                applyPhoneMask(phoneInput);
+            }
+            if (cpfInput) {
+                applyCPFMask(cpfInput);
+            }
+
+        </script>
+</body>
+
+</html>
