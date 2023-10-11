@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="jquery-1.8.2.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            Listar('listar');
+        });
+
+        function Listar(acao) {
+
+            var dados = $('#form1').serialize();
+
+            $.ajax({
+                type: "POST",
+                url: "arquivo.php",
+                data: dados + "&acao=" + acao,
+                dataType: 'json',
+
+                success: function (meu_json) {
+                    var valores = meu_json;
+                    var lista = valores.empregados;
+
+                    var tabela = $('table tbody')
+                    tabela.empty();
+
+                    for (x = 0; x < lista.length; x++) {
+                        console.log(lista[x].nome_empregado);
+                        console.log(lista[x].idade_empregado);
+                        console.log(lista[x].sexo_empregado);
+                        console.log(" ");
+                        tabela.append('<tr><td>' + (lista[x].nome_empregado) + '</td><td>'
+                            + (lista[x].idade_empregado) + '</td><td>' + (lista[x].sexo_empregado) + '</td></tr>')
+
+                    }
+                },
+                error: function (xhr, status, error) {
+                    //executa a função se o ajax retornar um erro
+                    console.error("ocorreu um erro ao enviar os dados: " + error);
+                },
+                beforeSend: function () {
+                    //executa a função antes de enviar a solicitação
+                },
+                complete: function () {
+                    //função que pe executada após a solicitação, independente de sucesso ou erro
+                },
+                timeout: 5000 //define o tempo limite de 5 segundos
+
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <form action="" method="post" id="form1">
+
+        Nome: <input type="text" id="nome" name="nome" value="" />
+        Idade: <input type="text" id="idade" name="idade" value="" />
+        Sexo: <input type="text" id="sexo" name="sexo" value="" />
+
+        <input type="button" name="enviar" value="Enviar" onclick="Listar('enviar');" />
+        <input type="button" name="excluir" value="Excluir" onclick="Listar('excluir');" />
+
+    </form>
+    <br><br>
+    <table id="tabela1">
+        <thead>
+            <tr>
+                <th>NOME</th>
+                <TH>IDADE</TH>
+                <TH>SEXO</TH>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+</body>
+
+</html>

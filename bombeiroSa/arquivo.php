@@ -17,7 +17,9 @@
         $senha = $_POST["password"];
 
         // Evite injeção SQL usando instruções preparadas
-        $stmt = $conn->prepare("SELECT * FROM usuarios WHERE email = ? AND senha = ?");
+        $stmt = $conn->prepare("SELECT * FROM usuarios WHERE email = ? AND password = ?");
+        $query_json = json_encode($stmt);
+        echo($query_json);
         $stmt->bind_param("ss", $email, $senha);
         $stmt->execute();
         $result = $stmt->get_result();
