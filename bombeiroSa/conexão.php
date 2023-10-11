@@ -1,37 +1,46 @@
 <?php
-    // Conexão com o banco de dados (substitua as informações conforme sua configuração)
-    $servername = "localhost";
-    $username = "root";
-    $password = "root";
-    $dbname = "firefighters-gi";
+// Conexão com o banco de dados (substitua as informações conforme sua configuração)
+$servername = "localhost";
+$username = "root";
+$password = "root";
+$dbname = "firefighters-gi";
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-    // Verifica a conexão
-    if ($conn->connect_error) {
-        die("Erro na conexão com o banco de dados: " . $conn->connect_error);
-    }
+// Verifica a conexão
+if ($conn->connect_error) {
+    die("Erro na conexão com o banco de dados: " . $conn->connect_error);
+}
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $email = $_POST["email"];
-        $senha = $_POST["password"];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST["email"];
+    $senha = $_POST["senha"];
 
-        // Evite injeção SQL usando instruções preparadas
-        $stmt = $conn->prepare("SELECT * FROM usuarios WHERE email = ? AND senha = ?");
-        $stmt->bind_param("ss", $email, $senha);
+    if (isset($_POST["enviar"])) { // Verifique se o botão "enviar" foi pressionado
+        $stmt = $conn->prepare("INSERT INTO usuarios (email, senha) VALUES (?, ?)");
+        $stmt->bind_param('ss', $email, $senha);
         $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result->num_rows == 1) {
-            // Usuário autenticado com sucesso, redireciona para a página de perfil
-            header("Location: perfil.html");
-            exit();
-        } else {
-            // Exibe uma mensagem de erro
-            echo "Credenciais inválidas.";
-        }
-
-        $stmt->close();
-        $conn->close();
     }
+
+    if (isset($_POST["excluir"])) { // Verifique se o botão "excluir" foi pressionado
+        $stmt = $conn->prepare("DELETE FROM usuarios WHERE email = ?");
+        $stmt->bind_param('s', $email);
+        $stmt->execute();
+    }
+
+    // Recupere a lista de usuários após as operações
+    $usuarios = [];
+
+    $consulta = $conn->query("SELECT email, senha FROM usuarios");
+
+    while ($row = $consulta->fetch_assoc()) {
+        $usuarios[] = $row;
+    }
+
+    // Converta a lista de usuários em JSON
+    $json_texto = json_encode(["usuarios" => $usuarios]);
+
+    // Envie o JSON de volta para o JavaScript
+    echo $json_texto;
+}
 ?>
