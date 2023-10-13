@@ -1,0 +1,620 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 100%;
+    background-color: rgba(160, 161, 161, 0.055);
+    padding: 0;
+    margin: 0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.header {
+    background: linear-gradient(28deg, rgba(255, 239, 51, 0.8463760504201681) 0%, rgba(218, 75, 44, 1) 47%, rgba(94, 0, 0, 1) 100%);
+    color: rgba(160, 161, 161, 0.055);
+    text-align: center;
+}
+
+.button-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.button {
+    background-color: #e74c3c;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form .login-button {
+    display: block;
+    width: 50%;
+    font-weight: bold;
+    background: linear-gradient(28deg, rgba(255, 239, 51, 0.8463760504201681) 0%, rgba(218, 75, 44, 1) 47%, rgba(94, 0, 0, 1) 100%);
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: rgba(218, 76, 44, 0.582) 0px 10px 10px -5px;
+    border: none;
+    transition: all 0.2s ease-in-out;
+    justify-content: center;
+}
+
+.form .login-button:hover {
+    transform: scale(1.03);
+    box-shadow: rgba(218, 75, 44, 1) 0px 23px 10px -20px;
+}
+
+.form .login-button:active {
+    transform: scale(0.95);
+    box-shadow: rgba(218, 76, 44, 0.37) 0px 15px 10px -10px;
+}
+
+.form .login-button a {
+    color: white;
+    text-decoration: none;
+}
+
+.tonn {
+    background-color: #e74c3c;
+    margin-top: 30px;
+    color: #fff;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #c0392b;
+}
+
+.ddp {
+    padding: 35px 35px;
+    background: rgba(160, 161, 161, 0.055);
+}
+
+.text {
+    padding: 45px 45px;
+    line-height: 30px;
+    text-align: justify;
+}
+
+.cabecalho {
+    display: inline;
+}
+
+.causas {
+    font-weight: 400;
+    line-height: 25px;
+    column-count: 2;
+}
+
+.amb {
+    font-weight: 400;
+    line-height: 25px;
+    column-count: 2;
+}
+
+.container {
+    max-height: 100%;
+    background-color: rgba(160, 161, 161, 0.055);
+    margin: 0px auto 40px auto;
+    padding: 40px;
+    border-radius: 5px;
+    height: auto;
+}
+
+
+.input-radio {
+    width: 1.25rem;
+    height: 1.25rem;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.input-checkbox {
+    display: inline-block;
+    min-width: 1.25rem;
+    min-height: 1.25rem;
+    cursor: pointer;
+}
+
+.form {
+    padding: 30px;
+}
+
+.form label,
+.form p {
+    line-height: 2rem;
+    /* font-weight: bold; */
+}
+
+.form-group input,
+.form select {
+    border-radius: 5px;
+    padding: 8px;
+    border-color: rgba(218, 75, 44, 1);
+    border: 1px solid #ced4da;
+    margin-top: 13px;
+    margin-bottom: 13px;
+}
+
+.form select {
+    cursor: pointer;
+}
+
+.form-radio-checkbox {
+    margin-bottom: 15px;
+}
+
+form .form-radio-checkbox {
+    display: grid;
+}
+
+.form-radio-checkbox input {
+    margin-right: 10px;
+}
+
+.form-radio-checkbox label {
+    line-height: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.form-radio-checkbox label:first-child {
+    margin-bottom: 10px;
+}
+
+.form-textarea {
+    display: grid;
+}
+
+.form-textarea textarea {
+    padding: 10px;
+}
+
+.radio-group {
+    display: flex;
+    align-items: center;
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 5px;
+}
+
+.radio {
+    column-gap: 20px;
+    column-count: 3;
+    justify-content: center;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.imgg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dsn {
+    column-gap: 20px;
+    column-count: 3;
+}
+
+.duo {
+    column-gap: 40px;
+    column-count: 2;
+}
+
+.c3 {
+    column-count: 3;
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.cell {
+    flex: 1;
+    padding: 5px;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.ss {
+    font-weight: 400;
+    line-height: 25px;
+    column-count: 2;
+}
+
+.four {
+    column-count: 4;
+}
+
+.le {
+    margin-left: 100px;
+    border-radius: 5px;
+    padding: 2px;
+    border-color: rgba(218, 75, 44, 1);
+    border: 1px solid #ced4da;
+    margin-top: 13px;
+    margin-bottom: 13px;
+    width: 230px;
+}
+
+.lf {
+    border-radius: 5px;
+    padding: 2px;
+    border-color: rgba(218, 75, 44, 1);
+    border: 1px solid #ced4da;
+    margin-top: 13px;
+    margin-bottom: 13px;
+}
+
+input.form-control {
+    width: 90%;
+    border-radius: 5px;
+    padding: 8px;
+    border-color: rgba(218, 75, 44, 1);
+    border: 1px solid #ced4da;
+    margin-top: 13px;
+    margin-bottom: 13px;
+}
+
+input.sv {
+    width: 18%;
+    border-radius: 5px;
+    padding: 8px;
+    border-color: rgba(218, 75, 44, 1);
+    border: 1px solid #ced4da;
+    margin-top: 13px;
+    margin-bottom: 13px; 
+}
+
+.mi {
+    width: 35px;
+    border-radius: 5px;
+    padding: 8px;
+    border-color: rgba(218, 75, 44, 1);
+    border: 1px solid #ced4da;
+    margin-top: 13px;
+    margin-bottom: 13px;
+}
+
+.i {
+    width: 15px;
+    height: 10px;
+}
+
+.qt {
+    width: 75%;
+    align-items: center;
+    border-radius: 5px;
+    padding: 8px;
+    border-color: rgba(218, 75, 44, 1);
+    border: 1px solid #ced4da;
+    margin-top: 13px;
+    margin-bottom: 13px;
+}
+
+.cmpp {
+    column-count: 2;
+    column-gap: 60px;
+    margin-left: 15px;
+    font-size: 15px;
+}
+
+.pr {
+    font-size: 15px;
+}
+
+.oi {
+    width: 97%;
+    height: 100px;
+    background-color: #ced4da86;
+    border-radius: 5px;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    margin-top: 13px;
+    margin-bottom: 13px;
+}
+
+.oa {
+    width: 90%;
+    border-radius: 5px;
+    padding: 8px;
+    border-color: rgba(218, 75, 44, 1);
+    border: 1px solid #ced4da;
+    margin-top: 13px;
+    margin-bottom: 13px;
+}
+
+.qa {
+    line-height: 30px;
+    background-color: rgba(160, 161, 161, 0.055);
+}
+
+.qh {
+    width: 35px;
+    margin-left: 10px;
+}
+
+.eit {
+    display: inline-block;
+    column-count: 2;
+    width: 80%;
+}
+
+.c2 {
+    column-count: 2;
+}
+
+fieldset {
+    display: block;
+    margin-inline-start: 20px;
+    margin-inline-end: 20px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: rgba(218, 75, 44, 1);
+    border-image: initial;
+}
+
+legend {
+    font-size: 18px;
+}
+
+.centerr {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.destaque {
+    background-color: #ced4da86;
+}
+
+.destaque2 {
+    background-color: #ced4da86;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding-left: 20px;
+}
+
+.signature-pad {
+    position: relative;
+    cursor: pointer;
+    text-decoration: underline;
+    width: 200px;
+    height: 90px;
+    text-decoration: none;
+}
+
+/* CSS para esconder o rótulo padrão */
+.form-group input[type="radio"],
+.form-group input[type="checkbox"] {
+    visibility: hidden;
+}
+
+/* Estilização do componente maredes */
+.maredes-group {
+    display: flex;
+}
+
+.maredes-label {
+    display: flex;
+    align-items: center;
+    padding: 0 5px 0 5px;
+    margin-bottom: 0.5em;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: background-color 0.2s, border-color 0.2s;
+    margin: 3px 5px 3px 5px;
+}
+
+.maredes-label:hover {
+    background-color: #e6e6e6;
+}
+
+.maredes-input:checked + .maredes-label {
+    background-color: #ffc3c3;
+    border-color: #ff1111;
+}
+
+.maredes-input:focus + .maredes-label {
+    outline: 2px solid #ff1111;
+}
+
+.maredes-inner-circle {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border: 2px solid #888;
+    border-radius: 50%;
+    margin-right: 0.5em;
+    transition: border-color 0.2s;
+    position: relative;
+}
+
+.maredes-label:hover .maredes-inner-circle {
+    border-color: #555;
+}
+
+.maredes-input:checked + .maredes-label .maredes-inner-circle {
+    border-color: #ff1111;
+}
+
+.maredes-input:checked + .maredes-label .maredes-inner-circle::after {
+    content: '';
+    display: block;
+    width: 0.5em;
+    height: 0.5em;
+    background-color: #ff1111;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+@media screen and (max-width: 768px) {
+    body {
+        grid-template-columns: 1fr;
+        overflow-x: hidden;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 299px) {
+    @import url(tiny.css);
+
+    .form {
+        padding: 0;
+    }
+}
+
+@media (min-width: 300px) and (max-width: 699px) {
+    @import url(small.css);
+
+    .form {
+        padding: 0;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    .causas {
+        column-count: 1;
+    }
+
+    .table {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .row {
+        display: flex;
+        flex-basis: 50%;
+    }
+
+    .cell {
+        flex: 1;
+        padding: 5px;
+    }
+
+    input.form-control{
+        width: 70%;
+    }
+}
+
+@media (min-width: 700px) {
+    @import url(big.css);
+
+    .form {
+        padding: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .cmpp {
+        column-count: 1;
+    }
+
+    .c2 {
+        column-count: 1;
+    }
+
+    .four {
+        column-count: 2;
+    }
+
+    .le {
+        width: 80%;
+        margin-left: 20px;
+    }
+
+    .lf {
+        width: 100%;
+    }
+
+    .duo {
+        column-count: 1;
+    }
+
+    .form {
+        padding: 0;
+    }
+    .table {
+        margin: 0 auto; /* Adiciona margens automáticas para centralizar a tabela */
+    }
+
+    table {
+        width: 100%; /* Define a largura da tabela como 100% para ocupar a largura total do contêiner pai */
+    }
+}
+
+@media (min-width: 767px) and (max-width: 1024px) {
+    .duo {
+        column-count: 2;
+    }
+    .four {
+        column-count: 2;
+    }
+
+    .le {
+        width: 60%;
+        margin-left: 40px;
+    }
+
+    .lf {
+        width: 100%;
+    }
+
+    .form {
+        padding: 0;
+    }
+}
+
+@media (min-width: 1025px) {
+    .container {
+        padding: 80px;
+    }
+
+    .four {
+        column-count: 4;
+    }
+
+    .duo {
+        column-count: 3;
+    }
+
+    .form {
+        padding: 0;
+    }
+}
