@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -999,4 +999,132 @@ body     {
         </script>
 </body>
 
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha de Bombeiros</title>
+<style>
+    /* Estilos básicos para a ficha de bombeiros */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    position: relative;
+    width: 400px;
+}
+
+.imagem {
+    position: relative;
+    width: 100%;
+    /* Adicione o fundo da imagem ou configure uma imagem de fundo */
+    background: url('caminho_para_imagem_do_corpo.png') no-repeat center;
+    background-size: contain;
+    height: 400px; /* Ajuste a altura conforme necessário */
+}
+
+.marcador {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: red; /* Cor do marcador */
+    border-radius: 50%;
+    /* Use JavaScript para ajustar a posição do marcador */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+input, textarea {
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+button:active {
+    opacity: 0.6;
+}
+
+</style>
+</head>
+<body>
+    <h1>Ficha de Bombeiros</h1>
+
+    <div class="container">
+        <div class="imagem" id="corpo">
+            <img src="corpos.png">
+        </div>
+        <div class="marcador" id="marcador"></div>
+    </div>
+
+    <form id="bombeirosForm">
+        <div>
+            <label for="localizacaoTrauma">Localização do Trauma:</label>
+            <input type="text" id="localizacaoTrauma" name="localizacaoTrauma" required>
+        </div>
+        <div>
+            <label for="descricaoTrauma">Descrição do Trauma:</label>
+            <textarea id="descricaoTrauma" name="descricaoTrauma" required></textarea>
+        </div>
+        <button type="submit">Salvar</button>
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const marcador = document.getElementById('marcador');
+    const corpo = document.getElementById('corpo');
+
+    corpo.addEventListener('click', function(event) {
+        const posX = event.offsetX;
+        const posY = event.offsetY;
+
+        // Defina as coordenadas do marcador
+        marcador.style.left = posX + 'px';
+        marcador.style.top = posY + 'px';
+
+        // Atualize as coordenadas no campo de texto
+        document.getElementById('localizacaoTrauma').value = `X: ${posX}, Y: ${posY}`;
+    });
+
+    document.getElementById('bombeirosForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const localizacaoTrauma = document.getElementById('localizacaoTrauma').value;
+        const descricaoTrauma = document.getElementById('descricaoTrauma').value;
+
+        // Aqui você pode usar os valores de localizacaoTrauma e descricaoTrauma como desejar, como salvá-los em um banco de dados, exibi-los em algum lugar, etc.
+
+        // Por exemplo, exibindo no console para demonstração:
+        console.log('Localização do Trauma:', localizacaoTrauma);
+        console.log('Descrição do Trauma:', descricaoTrauma);
+
+        // Lógica adicional que você possa precisar.
+    });
+});
+
+    </script>
+</body>
 </html>
