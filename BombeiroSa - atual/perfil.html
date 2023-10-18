@@ -8,7 +8,6 @@
   <link rel="stylesheet" type="text/css" href="perfil.css" media="screen" />
   <link rel="icon" href="/../icon.png" type="image/png">
   <link rel="icon" type="image/x-icon" href="/../icon.png">
-  
 </head>
 
 <body>
@@ -35,10 +34,6 @@
         <input type="radio" id="value-2" name="value-radio" value="value-2">
         <span>Histórico</span>
       </label>
-      <label>
-        <input type="radio" id="value-3" name="value-radio" value="value-3">
-        <span>Pesquisar</span>
-      </label>
       <span class="selection"></span>
     </div>
   </div>
@@ -46,6 +41,20 @@
   <div class="ui">
     <img src="logos.png" width="60%" />
   </div>
-</body>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const searchButton = document.querySelector('.radio-input input[value="value-3"]');
+      const searchBar = document.querySelector('#searchForm');
+  
+      searchButton.addEventListener('click', function() {
+        if (searchBar.style.display === 'none' || searchBar.style.display === '') {
+          searchBar.style.display = 'block';
+        } else {
+          searchBar.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
 </html>
