@@ -169,6 +169,20 @@ CREATE TABLE `decisaotransporte` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `trauma`
+--
+
+CREATE TABLE trauma (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    tipo_paciente ENUM('Adulto', 'Criança'),
+    parte_corpo VARCHAR(255),
+    localizacao_frente VARCHAR(255),
+    localizacao_verso VARCHAR(255)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `equipeatendimento`
 --
 

@@ -33,6 +33,25 @@ body {
     cursor: pointer;
 }
 
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #frente, #verso {
+    width: 300px;
+    margin: 0 auto;
+  }
+  
+  #frente h1 {
+    text-align: center;
+  }
+  
+  #verso h1 {
+    text-align: center;
+  }
+
 .form .login-button {
     display: block;
     width: 50%;
@@ -275,6 +294,21 @@ a {
 }
 
 .imgg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+}
+
+.image-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -569,10 +603,20 @@ legend {
     .form {
         padding: 0;
     }
+    
+    .imgg{
+        width: 30%;
+        height: auto;
+    }
 }
 
 @media (min-width: 300px) and (max-width: 699px) {
     @import url(small.css);
+
+    .imgg{
+        width: 70%;
+        height: auto;
+    }
 
     .form {
         padding: 0;

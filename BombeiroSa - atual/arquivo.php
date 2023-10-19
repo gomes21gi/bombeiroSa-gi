@@ -32,11 +32,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Cadastro bem-sucedido, criar uma sessão
             $_SESSION['email'] = $email;
 
-            // Redirecionar para a página protegida (ficha.html)
-            header("Location: perfil.html");
+            header("Location: login.html");
         } else {
             // Erro no cadastro, redirecionar para a página de cadastro novamente
-            header("Location: cadastro.html");
+            header("Location: index.html");
         }
     }
 }

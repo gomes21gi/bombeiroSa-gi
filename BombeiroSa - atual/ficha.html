@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, maximum-scale=1.0">
     <title>Ficha</title>
     <link rel="stylesheet" type="text/css" href="ficha.css" media="screen" />
+    <link rel="stylesheet" type="text/js" href="ficha.js" media="screen" />
     <link rel="icon" href="/../icon.png" type="image/png">
     <link rel="icon" type="image/x-icon" href="/../icon.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -826,34 +827,82 @@
 
                 <fieldset>
                     <legend>Localização dos Traumas</legend>
-                    <div class="eita">
-                        <div class="radio-input">
-                            <label for="value-1">
-                                <input type="radio" id="value-1" name="value-radio" value="value-1" onclick="showImage('value-1')">
-                                <span>Adulto</span>
-                            </label>
-                            <label for="value-2">
-                                <input type="radio" id="value-2" name="value-radio" value="value-2" onclick="showImage('value-2')">
-                                <span>Criança</span>
-                            </label>
-                            <span class="selection"></span>
-                        </div>
-                    </div>
-                    <div>
-                        <label for="localizacaoTrauma">Localização do Trauma:</label>
-                        <input type="text" id="localizacaoTrauma" name="localizacaoTrauma" required>
-                    </div>
-                    <div>
-                        <label for="descricaoTrauma">Descrição do Trauma:</label>
-                        <textarea id="descricaoTrauma" name="descricaoTrauma" required></textarea>
-                    </div>
-                    <div>
-                        <img src="adulto.png" alt="Imagem Adulto" class="imgg" id="adulto-image" style="display: none;">
-                        <img src="criança.png" alt="Imagem Criança" class="imgg" id="crianca-image" style="display: none;">
+                    <div class="grid-container">
+                        <div class="left-column">
+                            <div class="eita">
+                                <div class="radio-input">
+                                    <label for="value-1">
+                                        <input type="radio" id="value-1" name="value-radio" value="value-1"
+                                            onclick="showImage('value-1')">
+                                        <span>Adulto</span>
+                                    </label>
+                                    <label for="value-2">
+                                        <input type="radio" id="value-2" name="value-radio" value="value-2"
+                                            onclick="showImage('value-2')">
+                                        <span>Criança</span>
+                                    </label>
+                                    <span class="selection"></span>
+                                </div>
+                            </div>
+                            <div class="eita">
+                                <div class="image-container">
+                                    <img src="adulto.png" alt="Imagem Adulto" class="imgg" id="adulto-image"
+                                        style="display: none;">
+                                    <img src="crianca.png" alt="Imagem Criança" class="imgg" id="crianca-image"
+                                        style="display: none;">
+                                </div>
+                            </div>
+                        </div>    
+                        <div class="right-column">
+                            <div id="parte-superior">
+                                <h1>Frente</h1>
+                                <div class="form-trauma">
+                                    <label for="localizacao-frente">Localização do trauma:</label>
+                                    <select id="localizacao-frente">
+                                        <option value="cabeça">Cabeça</option>
+                                        <option value="tronco">Tronco</option>
+                                        <option value="membros superiores">Membros superiores</option>
+                                        <option value="face">Face</option>
+                                        <option value="crânio">Crânio</option>
+                                        <option value="olhos">Olhos</option>
+                                        <option value="nariz">Nariz</option>
+                                        <option value="boca">Boca</option>
+                                        <option value="ouvidos">Ouvidos</option>
+                                        <option value="pescoço">Pescoço</option>
+                                        <option value="tórax">Tórax</option>
+                                        <option value="abdômen">Abdômen</option>
+                                        <option value="costas">Costas</option>
+                                        <option value="ombro">Ombro</option>
+                                        <option value="braço">Braço</option>
+                                        <option value="cotovelo">Cotovelo</option>
+                                        <option value="pulso">Pulso</option>
+                                        <option value="mão">Mão</option>
+                                    </select>
+                                    <input type="submit" value="Enviar">
+                                </div>
+                            </div>
+                            <div id="parte-inferior">
+                                <h1>Verso</h1>
+                                <div class="form-trauma">
+                                    <label for="localizacao-verso">Localização do trauma:</label>
+                                    <select id="localizacao-verso">
+                                        <option value="tronco">Tronco</option>
+                                        <option value="membros inferiores">Membros inferiores</option>
+                                        <option value="costas">Costas</option>
+                                        <option value="nádegas">Nádegas</option>
+                                        <option value="quadril">Quadril</option>
+                                        <option value="coxa">Coxa</option>
+                                        <option value="joelho">Joelho</option>
+                                        <option value="tornozelo">Tornozelo</option>
+                                        <option value="pé">Pé</option>
+                                    </select>
+                                    <input type="submit" value="Enviar">
+                                </div>
+                            </div>
+                        </div>    
                     </div>
                 </fieldset>
-               
-                
+
                 <br>
 
                 <fieldset>
@@ -2797,17 +2846,17 @@
             </form>
         </div>
         <script>
-        function showImage(id) {
-            var adultoImage = document.getElementById('adulto-image');
-            var criancaImage = document.getElementById('crianca-image');
-            if (id === 'value-1') {
-                adultoImage.style.display = 'block';
-                criancaImage.style.display = 'none';
-            } else if (id === 'value-2') {
-                adultoImage.style.display = 'none';
-                criancaImage.style.display = 'block';
+            function showImage(id) {
+                var adultoImage = document.getElementById('adulto-image');
+                var criancaImage = document.getElementById('crianca-image');
+                if (id === 'value-1') {
+                    adultoImage.style.display = 'block';
+                    criancaImage.style.display = 'none';
+                } else if (id === 'value-2') {
+                    adultoImage.style.display = 'none';
+                    criancaImage.style.display = 'block';
+                }
             }
-        }
         </script>
         <script>
             // Função para aplicar a máscara de telefone
@@ -2843,17 +2892,26 @@
             }
         </script>
         <script>
-            function showImage(id) {
-                var adultoImage = document.getElementById('adulto-image');
-                var criancaImage = document.getElementById('crianca-image');
-                if (id === 'value-1') {
-                    adultoImage.style.display = 'block';
-                    criancaImage.style.display = 'none';
-                } else if (id === 'value-2') {
-                    adultoImage.style.display = 'none';
-                    criancaImage.style.display = 'block';
-                }
-            }
+            function validarForm() {
+                var localizacaoFrente = document.getElementById("localizacao-frente").value;
+                var localizacaoVerso = document.getElementById("localizacao-verso").value;
+
+                if (localizacaoFrente == "" || localizacaoVerso == "") {
+                    alert("Por favor, selecione a localização do trauma para ambas as partes do corpo.");
+                }}
+        </script>
+        <script>
+                    function showImage(id) {
+                        var adultoImage = document.getElementById('adulto-image');
+                        var criancaImage = document.getElementById('crianca-image');
+                        if (id === 'value-1') {
+                            adultoImage.style.display = 'block';
+                            criancaImage.style.display = 'none';
+                        } else if (id === 'value-2') {
+                            adultoImage.style.display = 'none';
+                            criancaImage.style.display = 'block';
+                        }
+                    }
         </script>
 </body>
 
