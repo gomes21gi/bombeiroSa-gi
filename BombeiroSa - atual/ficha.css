@@ -694,6 +694,17 @@ legend {
     table {
         width: 100%; /* Define a largura da tabela como 100% para ocupar a largura total do contêiner pai */
     }
+
+    .responsive-table {
+        display: block;
+        width: 100%;
+    }
+    .responsive-table table, .responsive-table tr, .responsive-table td, .responsive-table th {
+        display: block;
+    }
+    .responsive-table th, .responsive-table td {
+        width: 100%;
+    }
 }
 
 @media (min-width: 767px) and (max-width: 1024px) {
