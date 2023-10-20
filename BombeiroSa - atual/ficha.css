@@ -1,4 +1,5 @@
 body {
+    font-family: sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -6,7 +7,7 @@ body {
 .container {
     max-width: 100%;
     background-color: rgba(160, 161, 161, 0.055);
-    margin: 0px auto 40px auto;
+    margin: 0 auto 40px auto;
     padding: 40px;
     border-radius: 5px;
     height: auto;
@@ -34,25 +35,6 @@ body {
     border-radius: 4px;
     cursor: pointer;
 }
-
-body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  
-  #frente, #verso {
-    width: 300px;
-    margin: 0 auto;
-  }
-  
-  #frente h1 {
-    text-align: center;
-  }
-  
-  #verso h1 {
-    text-align: center;
-  }
 
 .form .login-button {
     display: block;
@@ -140,12 +122,6 @@ body {
 
 .form {
     padding: 30px;
-}
-
-.form label,
-.form p {
-    line-height: 2rem;
-    /* font-weight: bold; */
 }
 
 .form-group input,
@@ -524,13 +500,20 @@ legend {
     text-decoration: none;
 }
 
-.form-group input[type="radio"],
-.form-group input[type="checkbox"] {
-    visibility: hidden;
+.form-control {
+    width: 100%;
 }
 
-.maredes-group {
-    display: flex;
+.maredes-radio {
+    display: none;
+}
+
+.maredes-group input[type="radio"] {
+    display: none;
+}
+
+.maredes-group input[type="checkbox"] {
+    visibility: visible;
 }
 
 .maredes-label {
@@ -597,6 +580,10 @@ legend {
     margin-bottom: 13px;
 }
 
+.aaa, .glas {
+    display: block; 
+  }
+
 @media screen and (max-width: 768px) {
     body {
         grid-template-columns: 1fr;
@@ -655,6 +642,9 @@ legend {
 
     input.form-control{
         width: 70%;
+    }
+    .eit {
+        column-count: 1;
     }
 }
 
