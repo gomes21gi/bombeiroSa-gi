@@ -6,8 +6,10 @@ body {
 .container {
     max-width: 100%;
     background-color: rgba(160, 161, 161, 0.055);
-    padding: 0;
-    margin: 0;
+    margin: 0px auto 40px auto;
+    padding: 40px;
+    border-radius: 5px;
+    height: auto;
     border-radius: 5px;
     overflow: hidden;
 }
@@ -121,16 +123,6 @@ body {
     line-height: 25px;
     column-count: 2;
 }
-
-.container {
-    max-height: 100%;
-    background-color: rgba(160, 161, 161, 0.055);
-    margin: 0px auto 40px auto;
-    padding: 40px;
-    border-radius: 5px;
-    height: auto;
-}
-
 
 .input-radio {
     width: 1.25rem;
@@ -291,6 +283,12 @@ a {
     justify-content: center;
     display: flex;
     align-items: center;
+}
+
+.img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .imgg {
@@ -463,6 +461,12 @@ input.sv {
 .qh {
     width: 35px;
     margin-left: 10px;
+    border-radius: 5px;
+    padding: 8px;
+    border-color: rgba(218, 75, 44, 1);
+    border: 1px solid #ced4da;
+    margin-top: 13px;
+    margin-bottom: 13px;
 }
 
 .eit {
@@ -520,13 +524,11 @@ legend {
     text-decoration: none;
 }
 
-/* CSS para esconder o rótulo padrão */
 .form-group input[type="radio"],
 .form-group input[type="checkbox"] {
     visibility: hidden;
 }
 
-/* Estilização do componente maredes */
 .maredes-group {
     display: flex;
 }
@@ -540,7 +542,7 @@ legend {
     border: 1px solid #ccc;
     border-radius: 4px;
     transition: background-color 0.2s, border-color 0.2s;
-    margin: 3px 5px 3px 5px;
+    margin: 1px 5px 1px 5px;
 }
 
 .maredes-label:hover {
@@ -550,6 +552,8 @@ legend {
 .maredes-input:checked + .maredes-label {
     background-color: #ffc3c3;
     border-color: #ff1111;
+    margin-top: 13px;
+    margin-bottom: 13px;
 }
 
 .maredes-input:focus + .maredes-label {
@@ -588,6 +592,10 @@ legend {
     transform: translate(-50%, -50%);
 }
 
+.maredes-input {
+    margin-top: 13px;
+    margin-bottom: 13px;
+}
 
 @media screen and (max-width: 768px) {
     body {
@@ -693,17 +701,6 @@ legend {
 
     table {
         width: 100%; /* Define a largura da tabela como 100% para ocupar a largura total do contêiner pai */
-    }
-
-    .responsive-table {
-        display: block;
-        width: 100%;
-    }
-    .responsive-table table, .responsive-table tr, .responsive-table td, .responsive-table th {
-        display: block;
-    }
-    .responsive-table th, .responsive-table td {
-        width: 100%;
     }
 }
 
