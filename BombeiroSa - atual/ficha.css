@@ -296,6 +296,7 @@ a {
 .duo {
     column-gap: 40px;
     column-count: 2;
+    margin: 13px 0 13px 0;
 }
 
 .c3 {
@@ -349,6 +350,10 @@ td {
     border: 1px solid #ced4da;
     margin-top: 13px;
     margin-bottom: 13px;
+}
+
+input .form-control cpf-mask{
+    width: 50px;
 }
 
 input.form-control {
@@ -487,9 +492,9 @@ legend {
 .destaque2 {
     background-color: #ced4da86;
     border-radius: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     padding-left: 20px;
-}
+  }
 
 .signature-pad {
     position: relative;
@@ -503,6 +508,14 @@ legend {
 .form-control {
     width: 100%;
 }
+
+.destaque2 > .duo > .maredes-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: -10px;
+
+  }
 
 .maredes-radio {
     display: none;
@@ -519,14 +532,19 @@ legend {
 .maredes-label {
     display: flex;
     align-items: center;
-    padding: 0 5px 0 5px;
-    margin-bottom: 0.5em;
+    padding: 0 8px 0 8px;
+    margin: 0 5px 0 5px;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 4px;
     transition: background-color 0.2s, border-color 0.2s;
-    margin: 1px 5px 1px 5px;
-}
+    max-width: 100px;
+    min-width: 80px;
+  }
+  
+  .maredes-group {
+    margin: 13px 6px 13px 6px;
+  }
 
 .maredes-label:hover {
     background-color: #e6e6e6;
@@ -535,8 +553,8 @@ legend {
 .maredes-input:checked + .maredes-label {
     background-color: #ffc3c3;
     border-color: #ff1111;
-    margin-top: 13px;
-    margin-bottom: 13px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .maredes-input:focus + .maredes-label {
@@ -580,9 +598,74 @@ legend {
     margin-bottom: 13px;
 }
 
-.aaa, .glas {
+.glas {
     display: block; 
   }
+  .glas {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .glas input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Style the custom checkbox */
+  .glas .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .glas:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .glas input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .glas .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .glas input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .glas .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
+  
 
 @media screen and (max-width: 768px) {
     body {
