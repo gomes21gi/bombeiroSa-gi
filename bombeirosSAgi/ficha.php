@@ -293,72 +293,89 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt_decisao_transporte->bind_param("iis", $id_decisao_transporte, $id_fichas_decisao_transporte, $decisao_transporte);
 
     $sql_equipe_atendimento = "INSERT INTO tabela_equipe_atendimento (id_equipe_atendimento, id_fichas_equipe_atendimento, nome_m, nome_s1, nome_s2, nome_s3, demandante, equipe) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-$stmt_equipe_atendimento = $conn->prepare($sql_equipe_atendimento);
-$stmt_equipe_atendimento->bind_param("iissssss", $id_equipe_atendimento, $id_fichas_equipe_atendimento, $nome_m, $nome_s1, $nome_s2, $nome_s3, $demandante, $equipe);
+    $stmt_equipe_atendimento = $conn->prepare($sql_equipe_atendimento);
+    $stmt_equipe_atendimento->bind_param("iissssss", $id_equipe_atendimento, $id_fichas_equipe_atendimento, $nome_m, $nome_s1, $nome_s2, $nome_s3, $demandante, $equipe);
 
-$sql_ferimentos = "INSERT INTO tabela_ferimentos (id_ferimentos, id_fichas_ferimentos, local, lado, face, tipo) VALUES (?, ?, ?, ?, ?, ?)";
-$stmt_ferimentos = $conn->prepare($sql_ferimentos);
-$stmt_ferimentos->bind_param("iissss", $id_ferimentos, $id_fichas_ferimentos, $local, $lado, $face, $tipo);
+    $sql_ferimentos = "INSERT INTO tabela_ferimentos (id_ferimentos, id_fichas_ferimentos, local, lado, face, tipo) VALUES (?, ?, ?, ?, ?, ?)";
+    $stmt_ferimentos = $conn->prepare($sql_ferimentos);
+    $stmt_ferimentos->bind_param("iissss", $id_ferimentos, $id_fichas_ferimentos, $local, $lado, $face, $tipo);
 
-$sql_pessoa = "INSERT INTO tabela_pessoa (id_pessoa, id_fichas_pessoa, pessoa_nome, matricula, data_criacao) VALUES (?, ?, ?, ?, ?)";
-$stmt_pessoa = $conn->prepare($sql_pessoa);
-$stmt_pessoa->bind_param("iisss", $id_pessoa, $id_fichas_pessoa, $pessoa_nome, $matricula, $data_criacao);
+    $sql_pessoa = "INSERT INTO tabela_pessoa (id_pessoa, id_fichas_pessoa, pessoa_nome, matricula, data_criacao) VALUES (?, ?, ?, ?, ?)";
+    $stmt_pessoa = $conn->prepare($sql_pessoa);
+    $stmt_pessoa->bind_param("iisss", $id_pessoa, $id_fichas_pessoa, $pessoa_nome, $matricula, $data_criacao);
 
-$sql_forma_conducao = "INSERT INTO tabela_forma_conducao (id_forma_conducao, id_fichas_forma_conducao, forma_conducao) VALUES (?, ?, ?)";
-$stmt_forma_conducao = $conn->prepare($sql_forma_conducao);
-$stmt_forma_conducao->bind_param("iis", $id_forma_conducao, $id_fichas_forma_conducao, $forma_conducao);
+    $sql_forma_conducao = "INSERT INTO tabela_forma_conducao (id_forma_conducao, id_fichas_forma_conducao, forma_conducao) VALUES (?, ?, ?)";
+    $stmt_forma_conducao = $conn->prepare($sql_forma_conducao);
+    $stmt_forma_conducao->bind_param("iis", $id_forma_conducao, $id_fichas_forma_conducao, $forma_conducao);
 
-$sql_historico_fichas = "INSERT INTO tabela_historico_fichas (id_historico_fichas, id_fichas_historico_fichas, acao, data_modificacao) VALUES (?, ?, ?, ?)";
-$stmt_historico_fichas = $conn->prepare($sql_historico_fichas);
-$stmt_historico_fichas->bind_param("iiss", $id_historico_fichas, $id_fichas_historico_fichas, $acao, $data_modificacao);
+    $sql_historico_fichas = "INSERT INTO tabela_historico_fichas (id_historico_fichas, id_fichas_historico_fichas, acao, data_modificacao) VALUES (?, ?, ?, ?)";
+    $stmt_historico_fichas = $conn->prepare($sql_historico_fichas);
+    $stmt_historico_fichas->bind_param("iiss", $id_historico_fichas, $id_fichas_historico_fichas, $acao, $data_modificacao);
 
     $sql_materiais_deixados_hospital = "INSERT INTO tabela_materiais_deixados_hospital (id_materiais_deixados_hospital, id_fichas_materiais_deixados_hospital, base_estabilizacao_qt, ttf_qt, colar_qt, tirante_aranha_qt, colar_custom_qt, tirante_cabeca_qt, coxins_estabilizacao_qt, canula_qt, ked_qt, maca_rigida_qt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-$stmt_materiais_deixados_hospital = $conn->prepare($sql_materiais_deixados_hospital);
-$stmt_materiais_deixados_hospital->bind_param("iisiiiiiiiii", $id_materiais_deixados_hospital, $id_fichas_materiais_deixados_hospital, $base_estabilizacao_qt, $ttf_qt, $colar_qt, $tirante_aranha_qt, $colar_custom_qt, $tirante_cabeca_qt, $coxins_estabilizacao_qt, $canula_qt, $ked_qt, $maca_rigida_qt);
+    $stmt_materiais_deixados_hospital = $conn->prepare($sql_materiais_deixados_hospital);
+    $stmt_materiais_deixados_hospital->bind_param("iisiiiiiiiii", $id_materiais_deixados_hospital, $id_fichas_materiais_deixados_hospital, $base_estabilizacao_qt, $ttf_qt, $colar_qt, $tirante_aranha_qt, $colar_custom_qt, $tirante_cabeca_qt, $coxins_estabilizacao_qt, $canula_qt, $ked_qt, $maca_rigida_qt);
 
-$sql_materiais_utilizados_descartaveis = "INSERT INTO tabela_materiais_utilizados_descartaveis (id_materiais_utilizados_descartaveis, id_fichas_materiais_utilizados_descartaveis, ataduras_qt, manta_aluminizada_qt, cateter_tp_oculos_qt, pas_dea_qt, compressa_comum_qt, sonda_aspiracao_qt, kits_qt, soro_fisiologico_qt, luvas_desc_pares_qt, talas_pap_qt, mascara_desc_qt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-$stmt_materiais_utilizados_descartaveis = $conn->prepare($sql_materiais_utilizados_descartaveis);
-$stmt_materiais_utilizados_descartaveis->bind_param("iisiiiiiiiiii", $id_materiais_utilizados_descartaveis, $id_fichas_materiais_utilizados_descartaveis, $ataduras_qt, $manta_aluminizada_qt, $cateter_tp_oculos_qt, $pas_dea_qt, $compressa_comum_qt, $sonda_aspiracao_qt, $kits_qt, $soro_fisiologico_qt, $luvas_desc_pares_qt, $talas_pap_qt, $mascara_desc_qt);
+    $sql_materiais_utilizados_descartaveis = "INSERT INTO tabela_materiais_utilizados_descartaveis (id_materiais_utilizados_descartaveis, id_fichas_materiais_utilizados_descartaveis, ataduras_qt, manta_aluminizada_qt, cateter_tp_oculos_qt, pas_dea_qt, compressa_comum_qt, sonda_aspiracao_qt, kits_qt, soro_fisiologico_qt, luvas_desc_pares_qt, talas_pap_qt, mascara_desc_qt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt_materiais_utilizados_descartaveis = $conn->prepare($sql_materiais_utilizados_descartaveis);
+    $stmt_materiais_utilizados_descartaveis->bind_param("iisiiiiiiiiii", $id_materiais_utilizados_descartaveis, $id_fichas_materiais_utilizados_descartaveis, $ataduras_qt, $manta_aluminizada_qt, $cateter_tp_oculos_qt, $pas_dea_qt, $compressa_comum_qt, $sonda_aspiracao_qt, $kits_qt, $soro_fisiologico_qt, $luvas_desc_pares_qt, $talas_pap_qt, $mascara_desc_qt);
 
     $sql_objetos_recolhidos = "INSERT INTO tabela_objetos_recolhidos (id_objetos_recolhidos, id_fichas_objetos_recolhidos, objetos_recolhidos) VALUES (?, ?, ?)";
-$stmt_objetos_recolhidos = $conn->prepare($sql_objetos_recolhidos);
-$stmt_objetos_recolhidos->bind_param("iis", $id_objetos_recolhidos, $id_fichas_objetos_recolhidos, $objetos_recolhidos);
+    $stmt_objetos_recolhidos = $conn->prepare($sql_objetos_recolhidos);
+    $stmt_objetos_recolhidos->bind_param("iis", $id_objetos_recolhidos, $id_fichas_objetos_recolhidos, $objetos_recolhidos);
 
-$sql_observacoes_importantes = "INSERT INTO tabela_observacoes_importantes (id_observacoes_importantes, id_fichas_observacoes_importantes, observacoes) VALUES (?, ?, ?)";
-$stmt_observacoes_importantes = $conn->prepare($sql_observacoes_importantes);
-$stmt_observacoes_importantes->bind_param("iis", $id_observacoes_importantes, $id_fichas_observacoes_importantes, $observacoes);
+    $sql_observacoes_importantes = "INSERT INTO tabela_observacoes_importantes (id_observacoes_importantes, id_fichas_observacoes_importantes, observacoes) VALUES (?, ?, ?)";
+    $stmt_observacoes_importantes = $conn->prepare($sql_observacoes_importantes);
+    $stmt_observacoes_importantes->bind_param("iis", $id_observacoes_importantes, $id_fichas_observacoes_importantes, $observacoes);
 
-$sql_problemas_suspeitos = "INSERT INTO tabela_problemas_suspeitos (id_problemas_suspeitos, id_fichas_problemas_suspeitos, psiquiatrico, respiratorio, diabetes, obstetrico, transporte, outros) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-$stmt_problemas_suspeitos = $conn->prepare($sql_problemas_suspeitos);
-$stmt_problemas_suspeitos->bind_param("iissssss", $id_problemas_suspeitos, $id_fichas_problemas_suspeitos, $psiquiatrico, $respiratorio, $diabetes, $obstetrico, $transporte, $outros);
+    $sql_problemas_suspeitos = "INSERT INTO tabela_problemas_suspeitos (id_problemas_suspeitos, id_fichas_problemas_suspeitos, psiquiatrico, respiratorio, diabetes, obstetrico, transporte, outros) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt_problemas_suspeitos = $conn->prepare($sql_problemas_suspeitos);
+    $stmt_problemas_suspeitos->bind_param("iissssss", $id_problemas_suspeitos, $id_fichas_problemas_suspeitos, $psiquiatrico, $respiratorio, $diabetes, $obstetrico, $transporte, $outros);
 
     $sql_procedimentos_efetuados = "INSERT INTO tabela_procedimentos_efetuados (id_procedimentos_efetuados, id_fichas_procedimentos_efetuados, aspiracao, avaliacao_inicial, avaliacao_dirigida, avaliacao_continuada, chave_rautek, canula_guedel, desobstrucao_va, emprego_dea, gerenciamento_riscos, limpeza_ferimento, curativos_compressivo, encravamento_ocular, queimadura_simples, tres_pontas, imobilizacoes_membros, quadril, cervical, maca_sobre_rodas, maca_rigida, ponte, retirado_capacete, rcp, rolamento, tomada_decisao, tratado_choque, uso_canula, uso_colar, tam_colar, uso_ked, uso_ttf, ventilacao_suporte, oxigenioterapia, lpm_vent_sup, reanimador, lpm_reanimador, meio_auxiliares, outro_procedimento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-$stmt_procedimentos_efetuados = $conn->prepare($sql_procedimentos_efetuados);
-$stmt_procedimentos_efetuados->bind_param("iissssssssssssssssssssssssssssssssss", $id_procedimentos_efetuados, $id_fichas_procedimentos_efetuados, $aspiracao, $avaliacao_inicial, $avaliacao_dirigida, $avaliacao_continuada, $chave_rautek, $canula_guedel, $desobstrucao_va, $emprego_dea, $gerenciamento_riscos, $limpeza_ferimento, $curativos_compressivo, $encravamento_ocular, $queimadura_simples, $tres_pontas, $imobilizacoes_membros, $quadril, $cervical, $maca_sobre_rodas, $maca_rigida, $ponte, $retirado_capacete, $rcp, $rolamento, $tomada_decisao, $tratado_choque, $uso_canula, $uso_colar, $tam_colar, $uso_ked, $uso_ttf, $ventilacao_suporte, $oxigenioterapia, $lpm_vent_sup, $reanimador, $lpm_reanimador, $meio_auxiliares, $outro_procedimento);
+    $stmt_procedimentos_efetuados = $conn->prepare($sql_procedimentos_efetuados);
+    $stmt_procedimentos_efetuados->bind_param("iissssssssssssssssssssssssssssssssss", $id_procedimentos_efetuados, $id_fichas_procedimentos_efetuados, $aspiracao, $avaliacao_inicial, $avaliacao_dirigida, $avaliacao_continuada, $chave_rautek, $canula_guedel, $desobstrucao_va, $emprego_dea, $gerenciamento_riscos, $limpeza_ferimento, $curativos_compressivo, $encravamento_ocular, $queimadura_simples, $tres_pontas, $imobilizacoes_membros, $quadril, $cervical, $maca_sobre_rodas, $maca_rigida, $ponte, $retirado_capacete, $rcp, $rolamento, $tomada_decisao, $tratado_choque, $uso_canula, $uso_colar, $tam_colar, $uso_ked, $uso_ttf, $ventilacao_suporte, $oxigenioterapia, $lpm_vent_sup, $reanimador, $lpm_reanimador, $meio_auxiliares, $outro_procedimento);
 
     $sql_queimaduras = "INSERT INTO tabela_queimaduras (id_queimaduras, id_fichas_queimaduras, localizacao, grau_queimadura) VALUES (?, ?, ?, ?)";
-$stmt_queimaduras = $conn->prepare($sql_queimaduras);
-$stmt_queimaduras->bind_param("iiss", $id_queimaduras, $id_fichas_queimaduras, $localizacao, $grau_queimadura);
+    $stmt_queimaduras = $conn->prepare($sql_queimaduras);
+    $stmt_queimaduras->bind_param("iiss", $id_queimaduras, $id_fichas_queimaduras, $localizacao, $grau_queimadura);
 
     $sql_sinais_sintomas = "INSERT INTO tabela_sinais_sintomas (id_sinais_sintomas, id_fichas_sinais_sintomas, abdomem_sensivel, afundamento_de_cranio, agitacao, apneia, bradicardia, bradipneia, bronco_aspirando, cefaleia, cianose_labios, cianose_extremidade, convulsao, decorticacao, deformidade, descerebracao, desmaio, desvio_de_traqueia, dispneia, dor_local, edma_generalizados, edma_localizados, enfisema_subcutaneo, estase_de_jugular, face_palida, hemorragia_interna, hemorragia_externa, hipertensao, hipotensao, nauseas_vomitos, nasoragia, obito, otorreia, ovace, parada_cardiaca, parada_respiratoria, priaprismo, prurido_na_pele, pupilas_anisocoria, pupilas_isocoria, pupilas_midriase, pupilas_miose, pupilas_reagente, pupilas_nao_reagente, sede, sinal_de_battle, sinal_de_guaxinim, sudorese, taquipneia, taquicardia, tontura, outros_sintomas) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-$stmt_sinais_sintomas = $conn->prepare($sql_sinais_sintomas);
-$stmt_sinais_sintomas->bind        _param("iisssssssssssssssssssssssssssssssssssssssssssssssssssssssss", $id_sinais_sintomas, $id_fichas_sinais_sintomas, $abdomem_sensivel, $afundamento_de_cranio, $agitacao, $apneia, $bradicardia, $bradipneia, $bronco_aspirando, $cefaleia, $cianose_labios, $cianose_extremidade, $convulsao, $decorticacao, $deformidade, $descerebracao, $desmaio, $desvio_de_traqueia, $dispneia, $dor_local, $edma_generalizados, $edma_localizados, $enfisema_subcutaneo, $estase_de_jugular, $face_palida, $hemorragia_interna, $hemorragia_externa, $hipertensao, $hipotensao, $nauseas_vomitos, $nasoragia, $obito, $otorreia, $ovace, $parada_cardiaca, $parada_respiratoria, $priaprismo, $prurido_na_pele, $pupilas_anisocoria, $pupilas_isocoria, $pupilas_midriase, $pupilas_miose, $pupilas_reagente, $pupilas_nao_reagente, $sede, $sinal_de_battle, $sinal_de_guaxinim, $sudorese, $taquipneia, $taquicardia, $tontura, $outros_sintomas);
+    $stmt_sinais_sintomas = $conn->prepare($sql_sinais_sintomas);
+    $stmt_sinais_sintomas->bind        _param("iisssssssssssssssssssssssssssssssssssssssssssssssssssssssss", $id_sinais_sintomas, $id_fichas_sinais_sintomas, $abdomem_sensivel, $afundamento_de_cranio, $agitacao, $apneia, $bradicardia, $bradipneia, $bronco_aspirando, $cefaleia, $cianose_labios, $cianose_extremidade, $convulsao, $decorticacao, $deformidade, $descerebracao, $desmaio, $desvio_de_traqueia, $dispneia, $dor_local, $edma_generalizados, $edma_localizados, $enfisema_subcutaneo, $estase_de_jugular, $face_palida, $hemorragia_interna, $hemorragia_externa, $hipertensao, $hipotensao, $nauseas_vomitos, $nasoragia, $obito, $otorreia, $ovace, $parada_cardiaca, $parada_respiratoria, $priaprismo, $prurido_na_pele, $pupilas_anisocoria, $pupilas_isocoria, $pupilas_midriase, $pupilas_miose, $pupilas_reagente, $pupilas_nao_reagente, $sede, $sinal_de_battle, $sinal_de_guaxinim, $sudorese, $taquipneia, $taquicardia, $tontura, $outros_sintomas);
+
+    $sql_sinais_sintomas = "INSERT INTO tabela_sinais_vitais (id_sinais_vitais, id_fichas_sinais_sintomas, abdomem_sensivel, afundamento_de_cranio, agitacao, apneia, bradicardia, bradipneia, bronco_aspirando, cefaleia, cianose_labios, cianose_extremidade, convulsao, decorticacao, deformidade, descerebracao, desmaio, desvio_de_traqueia, dispneia, dor_local, edma_generalizados, edma_localizados, enfisema_subcutaneo, estase_de_jugular, face_palida, hemorragia_interna, hemorragia_externa, hipertensao, hipotensao, nauseas_vomitos, nasoragia, obito, otorreia, ovace, parada_cardiaca, parada_respiratoria, priaprismo, prurido_na_pele, pupilas_anisocoria, pupilas_isocoria, pupilas_midriase, pupilas_miose, pupilas_reagente, pupilas_nao_reagente, sede, sinal_de_battle, sinal_de_guaxinim, sudorese, taquipneia, taquicardia, tontura, outros_sintomas) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt_sinais_sintomas = $conn->prepare($sql_sinais_sintomas);
+    $stmt_sinais_sintomas->bind        _param("iisssssssssssssssssssssssssssssssssssssssssssssssssssssssss", $id_sinais_sintomas, $id_fichas_sinais_sintomas, $abdomem_sensivel, $afundamento_de_cranio, $agitacao, $apneia, $bradicardia, $bradipneia, $bronco_aspirando, $cefaleia, $cianose_labios, $cianose_extremidade, $convulsao, $decorticacao, $deformidade, $descerebracao, $desmaio, $desvio_de_traqueia, $dispneia, $dor_local, $edma_generalizados, $edma_localizados, $enfisema_subcutaneo, $estase_de_jugular, $face_palida, $hemorragia_interna, $hemorragia_externa, $hipertensao, $hipotensao, $nauseas_vomitos, $nasoragia, $obito, $otorreia, $ovace, $parada_cardiaca, $parada_respiratoria, $priaprismo, $prurido_na_pele, $pupilas_anisocoria, $pupilas_isocoria, $pupilas_midriase, $pupilas_miose, $pupilas_reagente, $pupilas_nao_reagente, $sede, $sinal_de_battle, $sinal_de_guaxinim, $sudorese, $taquipneia, $taquicardia, $tontura, $outros_sintomas);
 
     if ($stmt_gestacional->execute() === TRUE && $stmt_emergencia->execute() === TRUE && $stmt_cinematica->execute() === TRUE && $stmt_glasgow->execute() === TRUE && $stmt_dados_ambulancia->execute() === TRUE && $stmt_dados_iniciais->execute() === TRUE && $stmt_decisao_transporte->execute() === TRUE && $stmt_equipe_atendimento->execute() === TRUE && $stmt_ferimentos->execute() === TRUE && $stmt_pessoa->execute() === TRUE && $stmt_forma_conducao->execute() === TRUE && $stmt_historico_fichas->execute() === TRUE && $stmt_materiais_deixados_hospital->execute() === TRUE && $stmt_materiais_utilizados_descartaveis->execute() === TRUE && $stmt_objetos_recolhidos->execute() === TRUE && $stmt_observacoes_importantes->execute() === TRUE && $stmt_problemas_suspeitos->execute() === TRUE && $stmt_procedimentos_efetuados->execute() === TRUE && $stmt_queimaduras->execute() === TRUE && $stmt_sinais_sintomas->execute() === TRUE) {
     echo "Cadastro realizado com sucesso! <a href='index.html'>Voltar para o login</a>";
 } else {
     echo "Erro: " . $sql_gestacional . "<br>" . $conn->error;
     echo "Erro: " . $sql_emergencia . "<br>" . $conn->error;
-    echo "Erro: " . $sql_cinematica . "<br>";
-        echo "Erro: " . $sql_glasgow . "<br>" . $conn->error;
+    echo "Erro: " . $sql_cinematica . "<br>" . $conn->error;
+    echo "Erro: " . $sql_glasgow . "<br>" . $conn->error;
     echo "Erro: " . $sql_ambulancia . "<br>" . $conn->error;
-    echo "Erro: " . $sql_dados_iniciais . "<br>";
-        echo "Erro: " . $sql_decisao_transporte . "<br>" . $conn->error;
-    echo "Erro: " . $sql_ . "<br>" . $conn->error;
-    echo "Erro: " . $sql_cinematica . "<br>";
-        echo "Erro: " . $sql_gestacional . "<br>" . $conn->error;
-    echo "Erro: " . $sql_emergencia . "<br>" . $conn->error;
-    echo "Erro: " . $sql_cinematica . "<br>";
+    echo "Erro: " . $sql_dados_iniciais . "<br>" . $conn->error;
+    echo "Erro: " . $sql_decisao_transporte . "<br>" . $conn->error;
+    echo "Erro: " . $sql_equipe_atendimento . "<br>" . $conn->error;
+    echo "Erro: " . $sql_ferimento . "<br>" . $conn->error;
+    echo "Erro: " . $sql_pessoa . "<br>" . $conn->error;
+    echo "Erro: " . $sql_forma_conducao . "<br>" . $conn->error;
+    echo "Erro: " . $sql_historico_fichas . "<br>" . $conn->error;
+    echo "Erro: " . $sql_materiais_deixados_hospital . "<br>" . $conn->error;
+    echo "Erro: " . $sql_materiais_utilizados_descartaveis . "<br>" . $conn->error;
+    echo "Erro: " . $sql_objetos_recolhidos . "<br>" . $conn->error;
+    echo "Erro: " . $sql_observacoes_importantes . "<br>" . $conn->error;
+    echo "Erro: " . $sql_problemas_suspeitos . "<br>" . $conn->error;
+    echo "Erro: " . $sql_procedimentos_efetuados . "<br>" . $conn->error;
+    echo "Erro: " . $sql_queimaduras . "<br>" . $conn->error;
+    echo "Erro: " . $sql_sinais_sintomas . "<br>" . $conn->error;
+    echo "Erro: " . $sql_sinais_vitais . "<br>" . $conn->error;
+    echo "Erro: " . $sql_termo_recusa_atendimento . "<br>" . $conn->error;
+    echo "Erro: " . $sql_tipo_ocorrencia . "<br>" . $conn->error;
+    echo "Erro: " . $sql_trauma . "<br>" . $conn->error;
+    echo "Erro: " . $sql_vitima_era . "<br>" . $conn->error;
     
 }
     
