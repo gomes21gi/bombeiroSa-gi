@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil</title>
+  <link rel="stylesheet" type="text/css" href="perfil.css" media="screen" />
+  <link rel="icon" href="/../icon.png" type="image/png">
+  <link rel="icon" type="image/x-icon" href="/../icon.png">
+</head>
+
+<body>
+
+  <div class="header">
+    <div class="logged-in-user">
+      <!-- <?php
+      $servername = "localhost";
+      $username = "root";
+      $password = "root";
+      $dbname = "bombeiros-gi";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        // Verifica a conexão
+        if ($conn->connect_error) {
+            die("Erro de conexão: " . $conn->connect_error);
+        }
+
+        // Consulta para obter informações do usuário
+        $sql = "SELECT nome, matricula FROM tabela_usuarios WHERE id = 1";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            echo '<div id="nome-usuario">' . $row["nome"] . '</div>';
+            echo '<div id="matricula-usuario">Matrícula: ' . $row["matricula"] . '</div>';
+        } else {
+            echo "Nenhum resultado encontrado";
+        }
+        $conn->close();
+      ?>
+    </div> -->
+    <a href="#">
+      <img class="gif"
+        src="https://www.imagensanimadas.com/data/media/1193/caminhao-de-bombeiro-imagem-animada-0009.gif"
+        alt="caminhao-de-bombeiro-imagem-animada-0009" />
+    </a>
+  </div>
+
+  <div class="eita">
+    <div class="radio-input">
+      <label>
+        <input type="radio" id="value-1" name="value-radio" value="value-1">
+        <a href="ficha.html"><span>Nova Ficha</span></a>
+      </label>
+      <label>
+        <input type="radio" id="value-2" name="value-radio" value="value-2">
+        <span>Histórico</span>
+        <div id="historico" class="historico">
+          <!-- Histórico de fichas será exibido aqui -->
+        </div>
+      </label>
+      <span class="selection"></span>
+    </div>
+  </div>
+
+  <div class="ui">
+    <img src="logos.png" width="60%" />
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const searchButton = document.querySelector('.radio-input input[value="value-3"]');
+      const searchBar = document.querySelector('#searchForm');
+
+      searchButton.addEventListener('click', function () {
+        if (searchBar.style.display === 'none' || searchBar.style.display === '') {
+          searchBar.style.display = 'block';
+        } else {
+          searchBar.style.display = 'none';
+        }
+      });
+    });
+  </script>
+  <script>
+    let fichas = []; // Array para armazenar as fichas
+
+    function adicionarFicha() {
+      // Lógica para adicionar uma nova ficha ao array de fichas
+      let novaFicha = document.getElementById('ficha').value;
+      fichas.push(novaFicha);
+    }
+
+    function mostrarHistorico() {
+      let historicoDiv = document.getElementById('historico');
+      historicoDiv.innerHTML = ''; // Limpar conteúdo anterior
+
+      // Iterar sobre as fichas e adicioná-las ao elemento do histórico
+      for (let i = 0; i < fichas.length; i++) {
+        let fichaDiv = document.createElement('div');
+        fichaDiv.textContent = fichas[i];
+        historicoDiv.appendChild(fichaDiv);
+      }
+    }
+  </script>
+</body>
+
+</html>

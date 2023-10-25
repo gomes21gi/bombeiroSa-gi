@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="icon" href="/../icon.png" type="image/png">
+    <link rel="icon" type="image/x-icon" href="/../icon.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-        crossorigin="anonymous">
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <style>
         body {
@@ -18,16 +19,18 @@
             align-items: center;
             height: 100vh;
             margin-top: -90px;
-            margin-bottom: 91px;
+            margin-bottom: 90px;
         }
 
         .container {
             max-width: 350px;
             background: #F8F9FD;
-            border-radius: 20px;
-            padding: 20px;
             box-shadow: rgba(218, 76, 44, 0.37) 0px 10px 10px -5px;
             text-align: center;
+            background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(244, 247, 251) 100%);
+            border-radius: 40px;
+            padding: 25px 35px;
+            border: 5px solid rgb(255, 255, 255);
         }
 
         .logo img {
@@ -71,7 +74,7 @@
         }
 
         .form .forgot-password a {
-            font-size: 11px;
+            font-size: 14px;
             color: rgba(218, 75, 44, 1);
             text-decoration: none;
         }
@@ -99,11 +102,10 @@
             box-shadow: rgba(218, 76, 44, 0.37) 0px 15px 10px -10px;
         }
 
-        a {
+        .form .login-button a {
             color: white;
             text-decoration: none;
-        }
-
+        } 
     </style>
 </head>
 
@@ -113,16 +115,19 @@
     </div>
     <div class="container">
         <div class="heading">Login</div>
-        <form action="" class="form">
-            <input required="" class="input" type="email" name="email" id="email" placeholder="E-mail">
-            <input required="" class="input" type="password" name="password" id="password" placeholder="Senha">
-            <span class="forgot-password"><a href="#">Esqueceu a senha?</a></span>
-            <button class="login-button" type="submit" value="Entrar"><a href="perfil.html">Entrar</a></button>
+        <form action="login.php" method="POST" class="form">
+            <input required class="input" type="email" name="email" id="email" placeholder="E-mail">
+            <input required class="input" type="senha" name="senha" id="senha" placeholder="Senha">
+            <span class="forgot-password"><a href="cadastro.html">Esqueceu a senha?</a></span>
+            <button class="login-button" type="submit" name="enviar">Entrar</a></button>
         </form>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </body>
 
 </html>

@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "root";
-$dbname = "firefighters-gi";
+$dbname = "bombeirosa-gi";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -11,7 +11,5 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Erro na conexão com o banco de dados: " . $conn->connect_error);
 }
-
-return $conexao; // Retorna a conexão para ser usada em outros scripts
 
 ?>
