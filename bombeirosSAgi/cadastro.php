@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    $sql = "INSERT INTO id_usuarios (email, senha) VALUES (email, senha)";
+    $sql = "INSERT INTO usuarios (email, senha) VALUES (email, senha)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ss", $email, $senha);
 
