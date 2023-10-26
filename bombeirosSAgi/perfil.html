@@ -14,38 +14,16 @@
 
   <div class="header">
     <div class="logged-in-user">
-      <!-- <?php
-      $servername = "localhost";
-      $username = "root";
-      $password = "root";
-      $dbname = "bombeiros-gi";
-
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
-        // Verifica a conexão
-        if ($conn->connect_error) {
-            die("Erro de conexão: " . $conn->connect_error);
-        }
-
-        // Consulta para obter informações do usuário
-        $sql = "SELECT nome, matricula FROM tabela_usuarios WHERE id = 1";
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            echo '<div id="nome-usuario">' . $row["nome"] . '</div>';
-            echo '<div id="matricula-usuario">Matrícula: ' . $row["matricula"] . '</div>';
-        } else {
-            echo "Nenhum resultado encontrado";
-        }
-        $conn->close();
-      ?>
-    </div> -->
+      <h2>
+        Matricula:
+        Nome:
+      </h2>
     <a href="#">
       <img class="gif"
         src="https://www.imagensanimadas.com/data/media/1193/caminhao-de-bombeiro-imagem-animada-0009.gif"
         alt="caminhao-de-bombeiro-imagem-animada-0009" />
     </a>
+    </div>
   </div>
 
   <div class="eita">
@@ -58,7 +36,6 @@
         <input type="radio" id="value-2" name="value-radio" value="value-2">
         <span>Histórico</span>
         <div id="historico" class="historico">
-          <!-- Histórico de fichas será exibido aqui -->
         </div>
       </label>
       <span class="selection"></span>
