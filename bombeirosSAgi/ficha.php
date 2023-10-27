@@ -385,62 +385,103 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt_sinaissintomas = $conn->prepare($sql_sinaissintomas);
     $stmt_sinaissintomas->bind_param("iisssssssssssssssssssssssssssssssssssssssssssssssssssssssss", $id_sinaissintomas, $id_fichas_sinaissintomas, $abdomem_sensivel, $afundamento_de_cranio, $agitacao, $apneia, $bradicardia, $bradipneia, $bronco_aspirando, $cefaleia, $cianose_labios, $cianose_extremidade, $convulsao, $decorticacao, $deformidade, $descerebracao, $desmaio, $desvio_de_traqueia, $dispneia, $dor_local, $edma_generalizados, $edma_localizados, $enfisema_subcutaneo, $estase_de_jugular, $face_palida, $hemorragia_interna, $hemorragia_externa, $hipertensao, $hipotensao, $nauseas_vomitos, $nasoragia, $obito, $otorreia, $ovace, $parada_cardiaca, $parada_respiratoria, $priaprismo, $prurido_na_pele, $pupilas_anisocoria, $pupilas_isocoria, $pupilas_midriase, $pupilas_miose, $pupilas_reagente, $pupilas_nao_reagente, $sede, $sinal_de_battle, $sinal_de_guaxinim, $sudorese, $taquipneia, $taquicardia, $tontura, $outros_sintomas);
 
-     if ($stmt_gestacional->execute() === TRUE && $stmt_emergencia->execute() === TRUE && $stmt_cinematica->execute() === TRUE && $stmt_glasgow->execute() === TRUE && $stmt_dados_ambulancia->execute() === TRUE && $stmt_dados_iniciais->execute() === TRUE && $stmt_decisao_transporte->execute() === TRUE && $stmt_equipe_atendimento->execute() === TRUE && $stmt_ferimentos->execute() === TRUE && $stmt_pessoa->execute() === TRUE && $stmt_forma_conducao->execute() === TRUE && $stmt_historico_fichas->execute() === TRUE && $stmt_materiais_deixados_hospital->execute() === TRUE && $stmt_materiais_utilizados_descartaveis->execute() === TRUE && $stmt_objetos_recolhidos->execute() === TRUE && $stmt_observacoes_importantes->execute() === TRUE && $stmt_problemas_suspeitos->execute() === TRUE && $stmt_procedimentos_efetuados->execute() === TRUE && $stmt_queimaduras->execute() === TRUE && $stmt_sinais_sintomas->execute() === TRUE) {
-    echo "Cadastro realizado com sucesso! <a href='index.html'>Voltar para o login</a>";
+    $sql_sinaisvitais = "INSERT INTO sinaisvitais (id_sinaisvitais, id_ficha_sinaisvitais, id_pressao_arterial, id_pulso, id_respiracao, id_pulsacao_percentual, id_hgt, id_temperatura, id_perfusao, id_sinais) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt_sinaisvitais = $conn->prepare($sql_sinaisvitais);
+    $stmt_sinaisvitais->bind_param("iiiiiiiiii", $id_sinaisvitais, $id_ficha_sinaisvitais, $id_pressao_arterial, $id_pulso, $id_respiracao, $id_pulsacao_percentual, $id_hgt, $id_temperatura, $id_perfusao, $id_sinais);
+
+    $sql_termorecusaatendimento = "INSERT INTO termorecusaatendimento (id_termorecusaatendimento, id_ficha_termorecusaatendimento, id_nome_paciente, id_rg_paciente, id_cpf_paciente, id_nome_testemunha_1, id_rg_testemunha_1, id_nome_testemunha_2, id_rg_testemunha_2) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt_termorecusaatendimento = $conn->prepare($sql_termorecusaatendimento);
+    $stmt_termorecusaatendimento->bind_param("iiiiiiiii", $id_termorecusaatendimento, $id_ficha_termorecusaatendimento, $id_nome_paciente, $id_rg_paciente, $id_cpf_paciente, $id_nome_testemunha_1, $id_rg_testemunha_1, $id_nome_testemunha_2, $id_rg_testemunha_2);
+
+    $sql_tipo_ocorrencia = "INSERT INTO tipo_ocorrencia (id_tipo_ocorrencia, id_ficha_tipo_ocorrencia, id_causas, id_outros) VALUES (?, ?, ?, ?)";
+    $stmt_tipo_ocorrencia = $conn->prepare($sql_tipo_ocorrencia);
+    $stmt_tipo_ocorrencia->bind_param("iiis", $id_tipo_ocorrencia, $id_ficha_tipo_ocorrencia, $id_causas, $id_outros);
+
+    $sql_trauma = "INSERT INTO trauma (id_trauma, id_ficha_trauma, id_tipo_paciente, id_parte_corpo, id_localizacao_frente, id_localizacao_verso) VALUES (?, ?, ?, ?, ?, ?)";
+    $stmt_trauma = $conn->prepare($sql_trauma);
+    $stmt_trauma->bind_param("iiiiii", $id_trauma, $id_ficha_trauma, $id_tipo_paciente, $id_parte_corpo, $id_localizacao_frente, $id_localizacao_verso);
+
+    $sql_vitimaera = "INSERT INTO vitimaera (id_vitimaera, id_fichas_vitimaera, id_ciclista, id_condutor_moto, id_gestante, id_pass_ban_frente, id_pass_moto, id_condutor_carro, id_clinico, id_trauma, id_pass_bco_tras, id_pedestre) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt_vitimaera = $conn->prepare($sql_vitimaera);
+    $stmt_vitimaera->bind_param("iiiiiiiiiiii", $id_vitimaera, $id_fichas_vitimaera, $id_ciclista, $id_condutor_moto, $id_gestante, $id_pass_ban_frente, $id_pass_moto, $id_condutor_carro, $id_clinico, $id_trauma, $id_pass_bco_tras, $id_pedestre);
+
+     if ($stmt_anamnesegestacional->execute() === 
+     TRUE && $stmt_anamnese_emergencia->execute() === 
+     TRUE && $stmt_avaliacaocinematica->execute() === 
+     TRUE && $stmt_avaliacaoglasgow->execute() === 
+     TRUE && $stmt_dadosambulancia->execute() === 
+     TRUE && $stmt_dados_iniciais->execute() ===
+     TRUE && $stmt_decisaotransporte->execute() === 
+     TRUE && $stmt_equipeatendimento->execute() === 
+     TRUE && $stmt_ferimentos->execute() === 
+     TRUE && $stmt_fichas->execute() === 
+     TRUE && $stmt_formaconducao->execute() === 
+     TRUE && $stmt_materiaisdeixadoshospital->execute() === 
+     TRUE && $stmt_materiaisutilizadosdescartaveis->execute() === 
+     TRUE && $stmt_objetosrecolhidos->execute() === 
+     TRUE && $stmt_observacoesimportantes->execute() === 
+     TRUE && $stmt_problemas_suspeitos->execute() === 
+     TRUE && $stmt_procedimentosefetuados->execute() === 
+     TRUE && $stmt_queimaduras->execute() === 
+     TRUE && $stmt_sinaissintomas->execute() === 
+     TRUE && $stmt_sinaisvitais->execute() ===
+     TRUE && $stmt_termorecusaatendimento->execute() ===
+     TRUE && $stmt_tipo_ocorrencia->execute() ===
+     TRUE && $stmt_trauma->execute() ===
+     TRUE && $stmt_vitimaera->execute() === TRUE) {
+    echo "Ficha realizada com sucesso! <a href='perfil.html'>Voltar para o perfil</a>";
 } else {
-    echo "Erro: " . $sql_gestacional . "<br>" . $conn->error;
-    echo "Erro: " . $sql_emergencia . "<br>" . $conn->error;
-    echo "Erro: " . $sql_cinematica . "<br>" . $conn->error;
-    echo "Erro: " . $sql_glasgow . "<br>" . $conn->error;
-    echo "Erro: " . $sql_ambulancia . "<br>" . $conn->error;
+    echo "Erro: " . $sql_anamnesegestacional . "<br>" . $conn->error;
+    echo "Erro: " . $sql_anamnese_emergencia . "<br>" . $conn->error;
+    echo "Erro: " . $sql_avaliacaocinematica . "<br>" . $conn->error;
+    echo "Erro: " . $sql_avaliacaoglasgow . "<br>" . $conn->error;
+    echo "Erro: " . $sql_dadosambulancia . "<br>" . $conn->error;
     echo "Erro: " . $sql_dados_iniciais . "<br>" . $conn->error;
-    echo "Erro: " . $sql_decisao_transporte . "<br>" . $conn->error;
-    echo "Erro: " . $sql_equipe_atendimento . "<br>" . $conn->error;
-    echo "Erro: " . $sql_ferimento . "<br>" . $conn->error;
-    echo "Erro: " . $sql_pessoa . "<br>" . $conn->error;
-    echo "Erro: " . $sql_forma_conducao . "<br>" . $conn->error;
-    echo "Erro: " . $sql_historico_fichas . "<br>" . $conn->error;
-    echo "Erro: " . $sql_materiais_deixados_hospital . "<br>" . $conn->error;
-    echo "Erro: " . $sql_materiais_utilizados_descartaveis . "<br>" . $conn->error;
-    echo "Erro: " . $sql_objetos_recolhidos . "<br>" . $conn->error;
-    echo "Erro: " . $sql_observacoes_importantes . "<br>" . $conn->error;
+    echo "Erro: " . $sql_decisaotransporte . "<br>" . $conn->error;
+    echo "Erro: " . $sql_equipeatendimento . "<br>" . $conn->error;
+    echo "Erro: " . $sql_ferimentos . "<br>" . $conn->error;
+    echo "Erro: " . $sql_fichas . "<br>" . $conn->error;
+    echo "Erro: " . $sql_formaconducao . "<br>" . $conn->error;
+    echo "Erro: " . $sql_materiaisdeixadoshospital . "<br>" . $conn->error;
+    echo "Erro: " . $sql_materiaisutilizadosdescartaveis . "<br>" . $conn->error;
+    echo "Erro: " . $sql_objetosrecolhidos . "<br>" . $conn->error;
+    echo "Erro: " . $sql_observacoesimportantes . "<br>" . $conn->error;
     echo "Erro: " . $sql_problemas_suspeitos . "<br>" . $conn->error;
-    echo "Erro: " . $sql_procedimentos_efetuados . "<br>" . $conn->error;
+    echo "Erro: " . $sql_procedimentosefetuados . "<br>" . $conn->error;
     echo "Erro: " . $sql_queimaduras . "<br>" . $conn->error;
-    echo "Erro: " . $sql_sinais_sintomas . "<br>" . $conn->error;
-    echo "Erro: " . $sql_sinais_vitais . "<br>" . $conn->error;
-    echo "Erro: " . $sql_termo_recusa_atendimento . "<br>" . $conn->error;
+    echo "Erro: " . $sql_sinaissintomas . "<br>" . $conn->error;
+    echo "Erro: " . $sql_sinaisvitais . "<br>" . $conn->error;
+    echo "Erro: " . $sql_termorecusaatendimento . "<br>" . $conn->error;
     echo "Erro: " . $sql_tipo_ocorrencia . "<br>" . $conn->error;
     echo "Erro: " . $sql_trauma . "<br>" . $conn->error;
-    echo "Erro: " . $sql_vitima_era . "<br>" . $conn->error;
+    echo "Erro: " . $sql_vitimaera . "<br>" . $conn->error;
     
 }
     
-    $stmt_gestacional->close();
-    $stmt_emergencia->close();
-    $stmt_cinematica->close();
-    $stmt_glasgow->close();
-    $stmt_ambulancia->close();
+    $stmt_anamnesegestacional->close();
+    $stmt_anamnese_emergencia->close();
+    $stmt_avaliacaocinematica->close();
+    $stmt_avaliacaoglasgow->close();
+    $stmt_dadosambulancia->close();
     $stmt_dados_iniciais->close();
-    $stmt_decisao_transporte->close();
-    $stmt_equipe_atendimento->close();
+    $stmt_decisaotransporte->close();
+    $stmt_equipeatendimento->close();
     $stmt_ferimentos->close();
-    $stmt_pessoa->close();
-    $stmt_forma_conducao->close();
-    $stmt_historico_fichas->close();
-    $stmt_materiais_deixados_hospital->close();
-    $stmt_materiais_utilizados_descartaveis->close();
-    $stmt_objetos_recolhidos->close();
-    $stmt_observacoes_importantes->close();
+    $stmt_fichas->close();
+    $stmt_formaconducao->close();
+    $stmt_materiaisdeixadoshospital->close();
+    $stmt_materiaisutilizadosdescartaveis->close();
+    $stmt_objetosrecolhidos->close();
+    $stmt_observacoesimportantes->close();
     $stmt_problemas_suspeitos->close();
-    $stmt_procedimentos_efetuados->close();
+    $stmt_procedimentosefetuados->close();
     $stmt_queimaduras->close();
-    $stmt_sinais_sintomas->close();
-    $stmt_sinais_vitais->close();
-    $stmt_termo_recusa_atendimento->close();
+    $stmt_sinaissintomas->close();
+    $stmt_sinaisvitais->close();
+    $stmt_termorecusaatendimento->close();
     $stmt_tipo_ocorrencia->close();
     $stmt_trauma->close();
-    $stmt_vitima_era->close();
+    $stmt_vitimaera->close();
 }
 $conn->close();
 ?>

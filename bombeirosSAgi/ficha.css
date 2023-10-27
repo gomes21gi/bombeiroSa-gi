@@ -450,12 +450,6 @@ input.sv {
     margin-bottom: 13px;
 }
 
-.eit {
-    display: inline-block;
-    column-count: 2;
-    width: 80%;
-}
-
 .c2 {
     column-count: 2;
 }
@@ -509,11 +503,11 @@ legend {
     width: 100%;
 }
 
-.destaque2 > .duo > .maredes-group {
+.destaque2 > .maredes-group {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    margin-bottom: -10px;
+    margin-bottom: 10px;
+    column-count: 2;
 
   }
 
@@ -533,17 +527,13 @@ legend {
     display: flex;
     align-items: center;
     padding: 0 8px 0 8px;
-    margin: 0 5px 0 5px;
+    margin: 13px 5px 13px 5px;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 4px;
     transition: background-color 0.2s, border-color 0.2s;
     max-width: 100px;
     min-width: 80px;
-  }
-  
-  .maredes-group {
-    margin: 13px 6px 13px 6px;
   }
 
 .maredes-label:hover {
@@ -553,8 +543,6 @@ legend {
 .maredes-input:checked + .maredes-label {
     background-color: #ffc3c3;
     border-color: #ff1111;
-    margin-top: 5px;
-    margin-bottom: 5px;
 }
 
 .maredes-input:focus + .maredes-label {
@@ -686,14 +674,27 @@ legend {
         width: 30%;
         height: auto;
     }
+    .grid-container {
+        display: grid;
+        grid-template-columns: none;
+        grid-column-gap: 20px;
+    }
 }
 
 @media (min-width: 300px) and (max-width: 699px) {
     @import url(small.css);
 
-    .imgg{
+    .image-container{
         width: 70%;
         height: auto;
+    }
+
+    .four{
+        column-count: 1;
+    }
+
+    .radio-input{
+        --container_width: 230px;
     }
 
     .form {
@@ -729,6 +730,11 @@ legend {
     .eit {
         column-count: 1;
     }
+    .grid-container {
+        display: grid;
+        grid-template-columns: none;
+        grid-column-gap: 20px;
+    }
 }
 
 @media (min-width: 700px) {
@@ -749,7 +755,7 @@ legend {
     }
 
     .four {
-        column-count: 2;
+        column-count: 1;
     }
 
     .le {
