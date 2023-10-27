@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04-Out-2023 às 13:10
+-- Tempo de geração: 26-Out-2023 às 16:04
 -- Versão do servidor: 8.0.21
 -- versão do PHP: 8.1.2
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `firefighters-gi`
+-- Banco de dados: `bombeirosa-gi`
 --
 
 -- --------------------------------------------------------
@@ -28,24 +28,24 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `anamnesegestacional` (
-  `id` int NOT NULL,
+  `id_anamnesegestacional` int NOT NULL,
   `id_fichas` int NOT NULL,
-  `periodo_gestacao` varchar(255) DEFAULT NULL,
-  `faz_uso_medicacao` tinyint DEFAULT NULL,
-  `nome_medico` varchar(255) DEFAULT NULL,
-  `possibilidade_complicacoes` tinyint DEFAULT NULL,
-  `primeiro_filho` tinyint DEFAULT NULL,
-  `quantidade_filhos` tinyint DEFAULT NULL,
-  `inicio_contracoes` time DEFAULT NULL,
-  `duracao_contracoes` time DEFAULT NULL,
-  `intervalo_contracoes` time DEFAULT NULL,
-  `pressao_evacuar` tinyint DEFAULT NULL,
-  `ruptura_bolsa` tinyint DEFAULT NULL,
-  `inspecao_visual` tinyint DEFAULT NULL,
-  `parto_realizado` tinyint DEFAULT NULL,
-  `hora_nascimento` time DEFAULT NULL,
-  `sexo_bebe` tinytext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `nome_bebe` varchar(255) DEFAULT NULL
+  `periodo_gestacao` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `faz_uso_medicacao` tinyint NOT NULL,
+  `nome_medico` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `possibilidade_complicacoes` tinyint NOT NULL,
+  `primeiro_filho` tinyint NOT NULL,
+  `quantidade_filhos` tinyint NOT NULL,
+  `inicio_contracoes` time NOT NULL,
+  `duracao_contracoes` time NOT NULL,
+  `intervalo_contracoes` time NOT NULL,
+  `pressao_evacuar` tinyint NOT NULL,
+  `ruptura_bolsa` tinyint NOT NULL,
+  `inspecao_visual` tinyint NOT NULL,
+  `parto_realizado` tinyint NOT NULL,
+  `hora_nascimento` time NOT NULL,
+  `sexo_bebe` tinytext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `nome_bebe` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -169,20 +169,6 @@ CREATE TABLE `decisaotransporte` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `trauma`
---
-
-CREATE TABLE trauma (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    tipo_paciente ENUM('Adulto', 'Criança'),
-    parte_corpo VARCHAR(255),
-    localizacao_frente VARCHAR(255),
-    localizacao_verso VARCHAR(255)
-);
-
--- --------------------------------------------------------
-
---
 -- Estrutura da tabela `equipeatendimento`
 --
 
@@ -244,10 +230,10 @@ CREATE TABLE `formaconducao` (
 --
 
 CREATE TABLE `historicofichas` (
-  `id` int NOT NULL,
-  `id_fichas` int DEFAULT NULL,
-  `acao` varchar(100) DEFAULT NULL,
-  `data_modificacao` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `id_historicofichas` int NOT NULL,
+  `id_fichas` int NOT NULL,
+  `acao` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `data_modificacao` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -513,16 +499,35 @@ CREATE TABLE `tipo_ocorrencia` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `trauma`
+--
+
+CREATE TABLE `trauma` (
+  `id_trauma` int NOT NULL,
+  `tipo_paciente` enum('Adulto','Criança') DEFAULT NULL,
+  `parte_corpo` varchar(255) DEFAULT NULL,
+  `localizacao_frente` varchar(255) DEFAULT NULL,
+  `localizacao_verso` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `usuarios`
 --
 
 CREATE TABLE `usuarios` (
   `id_usuarios` int NOT NULL,
-  `nome` varchar(255) DEFAULT NULL,
-  `matricula` varchar(255) DEFAULT NULL,
-  `email` int NOT NULL,
-  `senha` varchar(255) DEFAULT NULL
+  `email` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `senha` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Extraindo dados da tabela `usuarios`
+--
+
+INSERT INTO `usuarios` (`id_usuarios`, `email`, `senha`) VALUES
+(1, 'giovana_l_gomes@estudante.org.br', '12345678');
 
 -- --------------------------------------------------------
 
@@ -553,7 +558,7 @@ CREATE TABLE `vitimaera` (
 -- Índices para tabela `anamnesegestacional`
 --
 ALTER TABLE `anamnesegestacional`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`id_anamnesegestacional`),
   ADD KEY `id_fichas_anamnesegestacional` (`id_fichas`);
 
 --
@@ -629,7 +634,7 @@ ALTER TABLE `formaconducao`
 -- Índices para tabela `historicofichas`
 --
 ALTER TABLE `historicofichas`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`id_historicofichas`),
   ADD KEY `id_fichas_historicofichas` (`id_fichas`);
 
 --
@@ -710,6 +715,12 @@ ALTER TABLE `tipo_ocorrencia`
   ADD KEY `id_fichas_tipo_ocorrencia` (`id_fichas`);
 
 --
+-- Índices para tabela `trauma`
+--
+ALTER TABLE `trauma`
+  ADD PRIMARY KEY (`id_trauma`);
+
+--
 -- Índices para tabela `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -730,7 +741,7 @@ ALTER TABLE `vitimaera`
 -- AUTO_INCREMENT de tabela `anamnesegestacional`
 --
 ALTER TABLE `anamnesegestacional`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_anamnesegestacional` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `anamnese_emergencia`
@@ -796,7 +807,7 @@ ALTER TABLE `formaconducao`
 -- AUTO_INCREMENT de tabela `historicofichas`
 --
 ALTER TABLE `historicofichas`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_historicofichas` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `materiaisdeixadoshospital`
@@ -865,10 +876,16 @@ ALTER TABLE `tipo_ocorrencia`
   MODIFY `id_tipo_ocorrencia` int NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de tabela `trauma`
+--
+ALTER TABLE `trauma`
+  MODIFY `id_trauma` int NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuarios` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id_usuarios` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `vitimaera`
