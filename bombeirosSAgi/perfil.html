@@ -35,8 +35,8 @@
       <label>
         <input type="radio" id="value-2" name="value-radio" value="value-2">
         <span>Histórico</span>
-        <div id="historico" class="historico">
-        </div>
+        <div id="historico" class="historico"></div>
+        
       </label>
       <span class="selection"></span>
     </div>
@@ -46,6 +46,28 @@
     <img src="logos.png" width="60%" />
   </div>
 
+  <script>
+    function carregarDadosDoPHP() {
+      $.ajax({
+        url: 'historico.php',
+        type: 'POST',
+        dataType: 'html',
+        success: function (data) {
+          $('#dados-php').html(data);
+        },
+        error: function () {
+          alert('Ocorreu um erro ao carregar os dados do PHP.');
+        }
+      });
+    }
+  
+    $(document).ready(function () {
+      $('#historico').click(function () {
+        carregarDadosDoPHP();
+      });
+    });
+  
+  </script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const searchButton = document.querySelector('.radio-input input[value="value-3"]');

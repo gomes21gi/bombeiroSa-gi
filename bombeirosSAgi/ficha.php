@@ -1,5 +1,5 @@
 <?php
-include 'conexão.php';
+include 'conexao.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_anamnesegestacional = $_POST['id_anamnesegestacional'];
@@ -268,7 +268,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_pressao_arterial = $_POST['id_pressao_arterial'];
     $id_pulso = $_POST['id_pulso'];
     $id_respiracao = $_POST['id_respiracao'];
-    $id_pulsacao_percentual	 = $_POST['id_pulsacao_percentual	'];
+    $id_pulsacao_percentual = $_POST['id_pulsacao_percentual	'];
     $id_hgt = $_POST['id_hgt'];
     $id_temperatura = $_POST['id_temperatura'];
     $id_perfusao = $_POST['id_perfusao'];
@@ -308,7 +308,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_trauma = $_POST['id_trauma'];
     $id_pass_bco_tras = $_POST['id_pass_bco_tras'];
     $id_pedestre = $_POST['id_pedestre'];
-    
+
     $sql_anamnesegestacional = "INSERT INTO anamnesegestacional (id_anamnesegestacional, id_fichas_gestacional, periodo_gestacao, faz_uso_medicacao, nome_medico, possibilidade_complicacoes, primeiro_filho, quantidade_filhos, inicio_contracoes, duracao_contracoes, intervalo_contracoes, pressao_evacuar, ruptura_bolsa, inspecao_visual, parto_realizado, hora_nascimento, sexo_bebe, nome_bebe) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt_anamnesegestacional = $conn->prepare($sql_gestacional);
     $stmtl_anamnesegestacional->bind_param("iissssssssssssssss", $id_anamnesegestacional, $id_fichas_gestacional, $periodo_gestacao, $faz_uso_medicacao, $nome_medico, $possibilidade_complicacoes, $primeiro_filho, $quantidade_filhos, $inicio_contracoes, $duracao_contracoes, $intervalo_contracoes, $pressao_evacuar, $ruptura_bolsa, $inspecao_visual, $parto_realizado, $hora_nascimento, $sexo_bebe, $nome_bebe);
@@ -405,59 +405,61 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt_vitimaera = $conn->prepare($sql_vitimaera);
     $stmt_vitimaera->bind_param("iiiiiiiiiiii", $id_vitimaera, $id_fichas_vitimaera, $id_ciclista, $id_condutor_moto, $id_gestante, $id_pass_ban_frente, $id_pass_moto, $id_condutor_carro, $id_clinico, $id_trauma, $id_pass_bco_tras, $id_pedestre);
 
-     if ($stmt_anamnesegestacional->execute() === 
-     TRUE && $stmt_anamnese_emergencia->execute() === 
-     TRUE && $stmt_avaliacaocinematica->execute() === 
-     TRUE && $stmt_avaliacaoglasgow->execute() === 
-     TRUE && $stmt_dadosambulancia->execute() === 
-     TRUE && $stmt_dados_iniciais->execute() ===
-     TRUE && $stmt_decisaotransporte->execute() === 
-     TRUE && $stmt_equipeatendimento->execute() === 
-     TRUE && $stmt_ferimentos->execute() === 
-     TRUE && $stmt_fichas->execute() === 
-     TRUE && $stmt_formaconducao->execute() === 
-     TRUE && $stmt_materiaisdeixadoshospital->execute() === 
-     TRUE && $stmt_materiaisutilizadosdescartaveis->execute() === 
-     TRUE && $stmt_objetosrecolhidos->execute() === 
-     TRUE && $stmt_observacoesimportantes->execute() === 
-     TRUE && $stmt_problemas_suspeitos->execute() === 
-     TRUE && $stmt_procedimentosefetuados->execute() === 
-     TRUE && $stmt_queimaduras->execute() === 
-     TRUE && $stmt_sinaissintomas->execute() === 
-     TRUE && $stmt_sinaisvitais->execute() ===
-     TRUE && $stmt_termorecusaatendimento->execute() ===
-     TRUE && $stmt_tipo_ocorrencia->execute() ===
-     TRUE && $stmt_trauma->execute() ===
-     TRUE && $stmt_vitimaera->execute() === TRUE) {
-    echo "Ficha realizada com sucesso! <a href='perfil.html'>Voltar para o perfil</a>";
-} else {
-    echo "Erro: " . $sql_anamnesegestacional . "<br>" . $conn->error;
-    echo "Erro: " . $sql_anamnese_emergencia . "<br>" . $conn->error;
-    echo "Erro: " . $sql_avaliacaocinematica . "<br>" . $conn->error;
-    echo "Erro: " . $sql_avaliacaoglasgow . "<br>" . $conn->error;
-    echo "Erro: " . $sql_dadosambulancia . "<br>" . $conn->error;
-    echo "Erro: " . $sql_dados_iniciais . "<br>" . $conn->error;
-    echo "Erro: " . $sql_decisaotransporte . "<br>" . $conn->error;
-    echo "Erro: " . $sql_equipeatendimento . "<br>" . $conn->error;
-    echo "Erro: " . $sql_ferimentos . "<br>" . $conn->error;
-    echo "Erro: " . $sql_fichas . "<br>" . $conn->error;
-    echo "Erro: " . $sql_formaconducao . "<br>" . $conn->error;
-    echo "Erro: " . $sql_materiaisdeixadoshospital . "<br>" . $conn->error;
-    echo "Erro: " . $sql_materiaisutilizadosdescartaveis . "<br>" . $conn->error;
-    echo "Erro: " . $sql_objetosrecolhidos . "<br>" . $conn->error;
-    echo "Erro: " . $sql_observacoesimportantes . "<br>" . $conn->error;
-    echo "Erro: " . $sql_problemas_suspeitos . "<br>" . $conn->error;
-    echo "Erro: " . $sql_procedimentosefetuados . "<br>" . $conn->error;
-    echo "Erro: " . $sql_queimaduras . "<br>" . $conn->error;
-    echo "Erro: " . $sql_sinaissintomas . "<br>" . $conn->error;
-    echo "Erro: " . $sql_sinaisvitais . "<br>" . $conn->error;
-    echo "Erro: " . $sql_termorecusaatendimento . "<br>" . $conn->error;
-    echo "Erro: " . $sql_tipo_ocorrencia . "<br>" . $conn->error;
-    echo "Erro: " . $sql_trauma . "<br>" . $conn->error;
-    echo "Erro: " . $sql_vitimaera . "<br>" . $conn->error;
-    
-}
-    
+    if (
+        $stmt_anamnesegestacional->execute() ===
+        TRUE && $stmt_anamnese_emergencia->execute() ===
+        TRUE && $stmt_avaliacaocinematica->execute() ===
+        TRUE && $stmt_avaliacaoglasgow->execute() ===
+        TRUE && $stmt_dadosambulancia->execute() ===
+        TRUE && $stmt_dados_iniciais->execute() ===
+        TRUE && $stmt_decisaotransporte->execute() ===
+        TRUE && $stmt_equipeatendimento->execute() ===
+        TRUE && $stmt_ferimentos->execute() ===
+        TRUE && $stmt_fichas->execute() ===
+        TRUE && $stmt_formaconducao->execute() ===
+        TRUE && $stmt_materiaisdeixadoshospital->execute() ===
+        TRUE && $stmt_materiaisutilizadosdescartaveis->execute() ===
+        TRUE && $stmt_objetosrecolhidos->execute() ===
+        TRUE && $stmt_observacoesimportantes->execute() ===
+        TRUE && $stmt_problemas_suspeitos->execute() ===
+        TRUE && $stmt_procedimentosefetuados->execute() ===
+        TRUE && $stmt_queimaduras->execute() ===
+        TRUE && $stmt_sinaissintomas->execute() ===
+        TRUE && $stmt_sinaisvitais->execute() ===
+        TRUE && $stmt_termorecusaatendimento->execute() ===
+        TRUE && $stmt_tipo_ocorrencia->execute() ===
+        TRUE && $stmt_trauma->execute() ===
+        TRUE && $stmt_vitimaera->execute() === TRUE
+    ) {
+        echo "Ficha realizada com sucesso! <a href='perfil.html'>Voltar para o perfil</a>";
+    } else {
+        echo "Erro: " . $sql_anamnesegestacional . "<br>" . $conn->error;
+        echo "Erro: " . $sql_anamnese_emergencia . "<br>" . $conn->error;
+        echo "Erro: " . $sql_avaliacaocinematica . "<br>" . $conn->error;
+        echo "Erro: " . $sql_avaliacaoglasgow . "<br>" . $conn->error;
+        echo "Erro: " . $sql_dadosambulancia . "<br>" . $conn->error;
+        echo "Erro: " . $sql_dados_iniciais . "<br>" . $conn->error;
+        echo "Erro: " . $sql_decisaotransporte . "<br>" . $conn->error;
+        echo "Erro: " . $sql_equipeatendimento . "<br>" . $conn->error;
+        echo "Erro: " . $sql_ferimentos . "<br>" . $conn->error;
+        echo "Erro: " . $sql_fichas . "<br>" . $conn->error;
+        echo "Erro: " . $sql_formaconducao . "<br>" . $conn->error;
+        echo "Erro: " . $sql_materiaisdeixadoshospital . "<br>" . $conn->error;
+        echo "Erro: " . $sql_materiaisutilizadosdescartaveis . "<br>" . $conn->error;
+        echo "Erro: " . $sql_objetosrecolhidos . "<br>" . $conn->error;
+        echo "Erro: " . $sql_observacoesimportantes . "<br>" . $conn->error;
+        echo "Erro: " . $sql_problemas_suspeitos . "<br>" . $conn->error;
+        echo "Erro: " . $sql_procedimentosefetuados . "<br>" . $conn->error;
+        echo "Erro: " . $sql_queimaduras . "<br>" . $conn->error;
+        echo "Erro: " . $sql_sinaissintomas . "<br>" . $conn->error;
+        echo "Erro: " . $sql_sinaisvitais . "<br>" . $conn->error;
+        echo "Erro: " . $sql_termorecusaatendimento . "<br>" . $conn->error;
+        echo "Erro: " . $sql_tipo_ocorrencia . "<br>" . $conn->error;
+        echo "Erro: " . $sql_trauma . "<br>" . $conn->error;
+        echo "Erro: " . $sql_vitimaera . "<br>" . $conn->error;
+
+    }
+
     $stmt_anamnesegestacional->close();
     $stmt_anamnese_emergencia->close();
     $stmt_avaliacaocinematica->close();
