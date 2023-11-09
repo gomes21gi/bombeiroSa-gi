@@ -268,10 +268,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_pressao_arterial = $_POST['id_pressao_arterial'];
     $id_pulso = $_POST['id_pulso'];
     $id_respiracao = $_POST['id_respiracao'];
-    $id_pulsacao_percentual = $_POST['id_pulsacao_percentual	'];
+    $id_pulsacao_percentual = $_POST['id_pulsacao_percentual'];
     $id_hgt = $_POST['id_hgt'];
     $id_temperatura = $_POST['id_temperatura'];
-    $id_perfusao = $_POST['id_perfusao'];
+    $id_perfusao = isset($_POST['id_perfusão']) ? '>2 seg' : '+=2 seg';
     $id_sinais = $_POST['id_sinais'];
 
     $id_termorecusaatendimento = $_POST['id_termorecusaatendimento'];
