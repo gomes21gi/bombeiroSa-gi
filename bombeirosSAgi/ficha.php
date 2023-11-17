@@ -133,6 +133,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $canula_qt = $_POST['canula_qt'];
     $ked_qt = $_POST['ked_qt'];
     $maca_rigida_qt = $_POST['maca_rigida_qt'];
+    $digite_mdh = $_POST['digite_mdh'];
 
     $id_materiaisutilizadosdescartaveis = $_POST['id_materiaisutilizadosdescartaveis'];
     $id_fichas_materiaisutilizadosdescartaveis = $_POST['id_fichas_materiaisutilizadosdescartaveis'];
@@ -147,6 +148,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $luvas_desc_pares_qt = $_POST['luvas_desc_pares_qt'];
     $talas_pap_qt = $_POST['talas_pap_qt'];
     $mascara_desc_qt = $_POST['mascara_desc_qt'];
+    $digite_mud = $_POST['digite_mud'];
 
     $id_objetosrecolhidos = $_POST['id_objetosrecolhidos'];
     $id_fichas_objetosrecolhidos = $_POST['id_fichasobjetosrecolhidos'];
@@ -177,11 +179,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $emprego_dea = $_POST['emprego_dea'];
     $gerenciamento_riscos = $_POST['gerenciamento_riscos'];
     $limpeza_ferimento = $_POST['limpeza_ferimento'];
-    $curativos_compressivo = $_POST['curativos_compressivo'];
-    $encravamento_ocular = $_POST['encravamento_ocular'];
-    $queimadura_simples = $_POST['queimadura_simples'];
+    $curativos = $_POST['curativos'];
+    $compressivo = $_POST['compressivo'];
+    $encravamento = $_POST['encravamento'];
+    $ocular = $_POST['ocular'];
+    $queimadura = $_POST['queimadura'];
+    $simples = $_POST['simples'];
     $tres_pontas = $_POST['tres_pontas'];
-    $imobilizacoes_membros = $_POST['imobilizacoes_membros'];
+    $imobilizacoes = $_POST['imobilizacoes'];
+    $mid = $_POST['mid'];
+    $mie = $_POST['mie'];
+    $msd = $_POST['msd'];
+    $mse = $_POST['mse'];
     $quadril = $_POST['quadril'];
     $cervical = $_POST['cervical'];
     $maca_sobre_rodas = $_POST['maca_sobre_rodas'];
@@ -189,7 +198,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $ponte = $_POST['ponte'];
     $retirado_capacete = $_POST['retirado_capacete'];
     $rcp = $_POST['rcp'];
-    $rolamento = $_POST['rolamento'];
+    $rolamento_90 = $_POST['rolamento_90'];
+    $rolamento_180 = $_POST['rolamento_180'];
     $tomada_decisao = $_POST['tomada_decisao'];
     $tratado_choque = $_POST['tratado_choque'];
     $uso_canula = $_POST['uso_canula'];
@@ -212,7 +222,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $id_sinaissintomas = $_POST['id_sinaissintomas'];
     $id_fichas_sinaissintomas = $_POST['id_fichas_sinaissintomas'];
+    $abdomem = $_POST['abdomem'];
     $abdomem_sensivel = $_POST['abdomem_sensivel'];
+    $abdomem_rigido = $_POST['abdomem_rigido'];
     $afundamento_de_cranio = $_POST['afundamento_de_cranio'];
     $agitacao = $_POST['agitacao'];
     $apneia = $_POST['apneia'];
@@ -220,6 +232,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $bradipneia = $_POST['bradipneia'];
     $bronco_aspirando = $_POST['bronco_aspirando'];
     $cefaleia = $_POST['cefaleia'];
+    $cianose = $_POST['cianose'];
     $cianose_labios = $_POST['cianose_labios'];
     $cianose_extremidade = $_POST['cianose_extremidade'];
     $convulsao = $_POST['convulsao'];
@@ -230,11 +243,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $desvio_de_traqueia = $_POST['desvio_de_traqueia'];
     $dispneia = $_POST['dispneia'];
     $dor_local = $_POST['dor_local'];
+    $edma = $_POST['edma'];
     $edma_generalizados = $_POST['edma_generalizados'];
     $edma_localizados = $_POST['edma_localizados'];
     $enfisema_subcutaneo = $_POST['enfisema_subcutaneo'];
     $estase_de_jugular = $_POST['estase_de_jugular'];
     $face_palida = $_POST['face_palida'];
+    $hemorragia = $_POST['hemorragia'];
     $hemorragia_interna = $_POST['hemorragia_interna'];
     $hemorragia_externa = $_POST['hemorragia_externa'];
     $hipertensao = $_POST['hipertensao'];
@@ -244,10 +259,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $obito = $_POST['obito'];
     $otorreia = $_POST['otorreia'];
     $ovace = $_POST['ovace'];
+    $parada = $_POST
+    ['parada'];
     $parada_cardiaca = $_POST['parada_cardiaca'];
     $parada_respiratoria = $_POST['parada_respiratoria'];
     $priaprismo = $_POST['priaprismo'];
     $prurido_na_pele = $_POST['prurido_na_pele'];
+    $pupilas = $_POST['pupilas'];
     $pupilas_anisocoria = $_POST['pupilas_anisocoria'];
     $pupilas_isocoria = $_POST['pupilas_isocoria'];
     $pupilas_midriase = $_POST['pupilas_midriase'];
@@ -279,6 +297,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_nome_paciente = $_POST['id_nome_paciente'];
     $id_rg_paciente = $_POST['id_rg_paciente'];
     $id_cpf_paciente = $_POST['id_cpf_paciente'];
+    $id_ass = $_POST['id_ass'];
     $id_nome_testemunha_1 = $_POST['id_nome_testemunha_1'];
     $id_rg_testemunha_1 = $_POST['id_rg_testemunha_1'];
     $id_nome_testemunha_2 = $_POST['id_nome_testemunha_2'];
