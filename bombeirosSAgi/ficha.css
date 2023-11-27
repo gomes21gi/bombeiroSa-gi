@@ -440,7 +440,7 @@ input.sv {
 }
 
 .qh {
-    width: 35px;
+    width: 65px;
     margin-left: 10px;
     border-radius: 5px;
     padding: 8px;
@@ -664,7 +664,7 @@ legend {
 }
 
 @media (max-width: 299px) {
-    @import url(tiny.css);
+    @import url('path/to/your/file.css');
 
     .form {
         padding: 0;
@@ -682,7 +682,7 @@ legend {
 }
 
 @media (min-width: 300px) and (max-width: 699px) {
-    @import url(small.css);
+    @import url('path/to/your/file.css');
 
     .image-container{
         width: 70%;
@@ -738,7 +738,7 @@ legend {
 }
 
 @media (min-width: 700px) {
-    @import url(big.css);
+    @import url('path/to/your/file.css');
 
     .form {
         padding: 0;
