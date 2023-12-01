@@ -518,5 +518,3 @@ echo "<script type='text/javascript'>
     window.location.href = 'ficha.html';
 </script>";
 ?>
-ficha.php
-Exibindo ficha.php.
