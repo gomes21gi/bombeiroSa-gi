@@ -120,7 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome_acompanhante = isset($_POST['nome_acompanhante']) ? $_POST['nome_acompanhante'] : "";
     $idade_acompanhante = isset($_POST['idade_acompanhante']) ? $_POST['idade_acompanhante'] : "";
     $local_ocorrencia = isset($_POST['local_ocorrencia']) ? $_POST['local_ocorrencia'] : "";
-    $sql_dados_iniciais = "INSERT INTO dados_iniciais (id_dados_iniciais, data, sexo, nome_hospital, nome_paciente, idade, fone, cpf, nome_acompanhante, idade_acompanhante, local_ocorrencia) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql_dados_iniciais = "INSERT INTO dados_iniciais (id_dados_iniciais, ddi_data, sexo, nome_hospital, nome_paciente, idade, fone, cpf, nome_acompanhante, idade_acompanhante, local_ocorrencia) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt_dados_iniciais = $conn->prepare($sql_dados_iniciais);
     $stmt_dados_iniciais->bind_param("issssssssss", $id_dados_iniciais, $data, $sexo, $nome_hospital, $nome_paciente, $idade, $fone, $cpf, $nome_acompanhante, $idade_acompanhante, $local_ocorrencia);
     if ($stmt_dados_iniciais->execute()) {
@@ -131,7 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
      $id_decisaotransporte = isset($_POST['id_decisaotransporte']) ? $_POST['id_decisaotransporte'] : null;
      $decisao_transporte = isset($_POST['decisao_transporte']) ? 1 : 0;
-     $sql_decisaotransporte = "INSERT INTO decisaotransporte (id_decisaotransporte, id_fichas_decisaotransporte, decisao_transporte) VALUES (?, ?, ?)";
+     $sql_decisaotransporte = "INSERT INTO decisaotransporte (id_decisaotransporte, id_fichas, decisao_transporte) VALUES (?, ?, ?)";
      $stmt_decisaotransporte = $conn->prepare($sql_decisaotransporte);
      $stmt_decisaotransporte->bind_param("iis", $id_decisaotransporte, $id_fichas_decisaotransporte, $decisao_transporte);
      if ($stmt_decisaotransporte->execute()) {
@@ -147,7 +147,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $nome_s3 = isset($_POST['nome_s3']) ? $_POST['nome_s3'] : "";
      $demandante = isset($_POST['demandante']) ? $_POST['demandante'] : "";
      $equipe = isset($_POST['equipe']) ? $_POST['equipe'] : "";
-     $sql_equipeatendimento = "INSERT INTO equipeatendimento (id_equipeatendimento, id_fichas_equipeatendimento, nome_m, nome_s1, nome_s2, nome_s3, demandante, equipe) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+     $sql_equipeatendimento = "INSERT INTO equipeatendimento (id_equipeatendimento, id_fichas, nome_m, nome_s1, nome_s2, nome_s3, demandante, equipe) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
      $stmt_equipeatendimento = $conn->prepare($sql_equipeatendimento);
      $stmt_equipeatendimento->bind_param("iissssss", $id_equipeatendimento, $id_fichas_equipeatendimento, $nome_m, $nome_s1, $nome_s2, $nome_s3, $demandante, $equipe);
      if ($stmt_equipeatendimento->execute()) {
@@ -161,7 +161,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $lado = isset($_POST['lado']) ? 1 : 0;
      $face = isset($_POST['face']) ? 1 : 0;
      $tipo = isset($_POST['tipo']) ? 1 : 0;
-     $sql_ferimentos = "INSERT INTO ferimentos (id_ferimentos, id_fichas_ferimentos, local, lado, face, tipo) VALUES (?, ?, ?, ?, ?, ?)";
+     $sql_ferimentos = "INSERT INTO ferimentos (id_ferimentos, id_fichas, local, lado, face, tipo) VALUES (?, ?, ?, ?, ?, ?)";
      $stmt_ferimentos = $conn->prepare($sql_ferimentos);
      $stmt_ferimentos->bind_param("iissss", $id_ferimentos, $id_fichas_ferimentos, $local, $lado, $face, $tipo);
      if ($stmt_ferimentos->execute()) {
@@ -172,7 +172,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
      $id_formaconducao = isset($_POST['id_formaconducao']) ? $_POST['id_formaconducao'] : null;
      $forma_conducao = isset($_POST['forma_conducao']) ? 1 : 0;
-     $sql_formaconducao = "INSERT INTO formaconducao (id_formaconducao, id_fichas_formaconducao, forma_conducao) VALUES (?, ?, ?)";
+     $sql_formaconducao = "INSERT INTO formaconducao (id_formaconducao, id_fichas, forma_conducao) VALUES (?, ?, ?)";
      $stmt_formaconducao = $conn->prepare($sql_formaconducao);
      $stmt_formaconducao->bind_param("iis", $id_formaconducao, $id_fichas_formaconducao, $forma_conducao);
      if ($stmt_formaconducao->execute()) {
@@ -194,7 +194,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $maca_rigida_qt = isset($_POST['maca_rigida_qt']) ? 1 : 0;
      $digite_mdh = isset($_POST['digite_mdh']) ? $_POST['digite_mdh'] : "";
      $quantidade_mdh = isset($_POST['quantidade_mdh']) ? $_POST['quantidade_mdh'] : "";
-     $sql_materiaisdeixadoshospital = "INSERT INTO materiaisdeixadoshospital (id_materiaisdeixadoshospital, id_fichas_materiaisdeixadoshospital, base_estabilizacao_qt, ttf_qt, colar_qt, tirante_aranha_qt, colar_custom_qt, tirante_cabeca_qt, coxins_estabilizacao_qt, canula_qt, ked_qt, maca_rigida_qt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+     $sql_materiaisdeixadoshospital = "INSERT INTO materiaisdeixadoshospital (id_materiaisdeixadoshospital, id_fichas, base_estabilizacao_qt, ttf_qt, colar_qt, tirante_aranha_qt, colar_custom_qt, tirante_cabeca_qt, coxins_estabilizacao_qt, canula_qt, ked_qt, maca_rigida_qt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
      $stmt_materiaisdeixadoshospital = $conn->prepare($sql_materiaisdeixadoshospital);
      $stmt_materiaisdeixadoshospital->bind_param("iisiiiiiiiii", $id_materiaisdeixadoshospital, $id_fichas_materiaisdeixadoshospital, $base_estabilizacao_qt, $ttf_qt, $colar_qt, $tirante_aranha_qt, $colar_custom_qt, $tirante_cabeca_qt, $coxins_estabilizacao_qt, $canula_qt, $ked_qt, $maca_rigida_qt);
      if ($stmt_materiaisdeixadoshospital->execute()) {
@@ -211,15 +211,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $compressa_comum_qt = isset($_POST['compressa_comum_qt']) ? 1 : 0;
      $sonda_aspiracao_qt = isset($_POST['sonda_aspiracao_qt']) ? 1 : 0;
      $kits_qt = isset($_POST['kits_qt']) ? 1 : 0;
-     $soro_fisiologico_qt = isset($_POST['soro_fisiologico_qt']) ? 1 : 0;
+    $soro_fisiologico_qt = isset($_POST['soro_fisiologico_qt']) ? 1 : 0;
      $luvas_desc_pares_qt = isset($_POST['luvas_desc_pares_qt']) ? 1 : 0;
      $talas_pap_qt = isset($_POST['talas_pap_qt']) ? 1 : 0;
      $mascara_desc_qt = isset($_POST['mascara_desc_qt']) ? 1 : 0;
      $digite_mud = isset($_POST['digite_mud']) ? $_POST['digite_mud'] : "";
      $quantidade_mud = isset($_POST['quantidade_mud']) ? $_POST['quantidade_mud'] : "";
-     $sql_materiaisutilizadosdescartaveis = "INSERT INTO materiaisutilizadosdescartaveis (id_materiaisutilizadosdescartaveis, id_fichas_materiaisutilizadosdescartaveis, ataduras_qt, manta_aluminizada_qt, cateter_tp_oculos_qt, pas_dea_qt, compressa_comum_qt, sonda_aspiracao_qt, kits_qt, soro_fisiologico_qt, luvas_desc_pares_qt, talas_pap_qt, mascara_desc_qt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+     $sql_materiaisutilizadosdescartaveis = "INSERT INTO materiaisutilizadosdescartavel (id_materiaisutilizadosdescartaveis, id_fichas, ataduras_qt, manta_aluminizada_qt, cateter_tp_oculos_qt, pas_dea_qt, compressa_comum_qt, sonda_aspiracao_qt, kits_qt, soro_fisiologico_qt, luvas_desc_pares_qt, talas_pap_qt, mascara_desc_qt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
      $stmt_materiais_utilizadosdescartaveis = $conn->prepare($sql_materiaisutilizadosdescartaveis);
-     $stmt_materiaisutilizadosdescartaveis->bind_param("iisiiiiiiiiii", $id_materiaisutilizadosdescartaveis, $id_fichas_materiaisutilizadosdescartaveis, $ataduras_qt, $manta_aluminizada_qt, $cateter_tp_oculos_qt, $pas_dea_qt, $compressa_comum_qt, $sonda_aspiracao_qt, $kits_qt, $soro_fisiologico_qt, $luvas_desc_pares_qt, $talas_pap_qt, $mascara_desc_qt);
+     $stmt_materiais_utilizadosdescartaveis->bind_param("iisiiiiiiiiii", $id_materiaisutilizadosdescartaveis, $id_fichas_materiaisutilizadosdescartaveis, $ataduras_qt, $manta_aluminizada_qt, $cateter_tp_oculos_qt, $pas_dea_qt, $compressa_comum_qt, $sonda_aspiracao_qt, $kits_qt, $soro_fisiologico_qt, $luvas_desc_pares_qt, $talas_pap_qt, $mascara_desc_qt);
      if ($stmt_materiais_utilizadosdescartaveis->execute()) {
         echo "Dados inseridos com sucesso.";
     } else {
@@ -228,7 +228,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
      $id_objetosrecolhidos = isset($_POST['id_objetosrecolhidos']) ? $_POST['id_objetosrecolhidos'] : null;
      $objetos_recolhidos = isset($_POST['objetos_recolhidos']) ? $_POST['objetos_recolhidos'] : "";
-     $sql_objetosrecolhidos = "INSERT INTO objetosrecolhidos (id_objetosrecolhidos, id_fichas_objetosrecolhidos, objetos_recolhidos) VALUES (?, ?, ?)";
+     $sql_objetosrecolhidos = "INSERT INTO objetosrecolhidos (id_objetosrecolhidos, id_fichas, objetos_recolhidos) VALUES (?, ?, ?)";
      $stmt_objetosrecolhidos = $conn->prepare($sql_objetosrecolhidos);
      $stmt_objetosrecolhidos->bind_param("iis", $id_objetosrecolhidos, $id_fichas_objetosrecolhidos, $objetos_recolhidos);
      if ($stmt_objetosrecolhidos->execute()) {
@@ -239,8 +239,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
      $id_observacoesimportantes = isset($_POST['id_observacoesimportantes']) ? $_POST['id_observacoesimportantes'] : null;
      $observacoes = isset($_POST['observacoes']) ? $_POST['observacoes'] : "";
-     $sql_observacoesimportantes = "INSERT INTO observacoesimportantes (id_observacoesimportantes, id_fichas_observacoesimportantes, observacoes) VALUES (?, ?, ?)";
-     $stmt_observacoesimportantes = $conn->prepare($sql_observacoes_importantes);
+     $sql_observacoesimportantes = "INSERT INTO observacoesimportantes (id_observacoesimportantes, id_fichas, observacoes) VALUES (?, ?, ?)";
+     $stmt_observacoesimportantes = $conn->prepare($sql_observacoesimportantes);
      $stmt_observacoesimportantes->bind_param("iis", $id_observacoesimportantes, $id_fichas_observacoesimportantes, $observacoes);
      if ($stmt_observacoesimportantes->execute()) {
         echo "Dados inseridos com sucesso.";
@@ -255,7 +255,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $obstetrico = isset($_POST['obstetrico']) ? 2 : 0;
      $transporte = isset($_POST['transporte']) ? 2 : 0;
      $outros = isset($_POST['outros']) ? $_POST['outros'] : "";
-     $sql_problemas_suspeitos = "INSERT INTO problemas_suspeitos (id_problemas_suspeitos, id_fichas_problemas_suspeitos, psiquiatrico, respiratorio, diabetes, obstetrico, transporte, outros) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+     $sql_problemas_suspeitos = "INSERT INTO problemas_suspeitos (id_problemas_suspeitos, id_fichas, psiquiatrico, respiratorio, diabetes, obstetrico, transporte, outros) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
      $stmt_problemas_suspeitos = $conn->prepare($sql_problemas_suspeitos);
      $stmt_problemas_suspeitos->bind_param("iissssss", $id_problemas_suspeitos, $id_fichas_problemas_suspeitos, $psiquiatrico, $respiratorio, $diabetes, $obstetrico, $transporte, $outros);
      if ($stmt_problemas_suspeitos->execute()) {
@@ -265,6 +265,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
      $id_procedimentosefetuados = isset($_POST['id_procedimentosefetuados']) ? $_POST['id_procedimentosefetuados'] : null;
+    $id_fichas_procedimentosefetuados = isset($_POST['id_fichas']) ? $_POST['id_fichas'] : null;
      $aspiracao = isset($_POST['aspiracao']) ? 1 : 0;
      $avaliacao_inicial = isset($_POST['avaliacao_inicial']) ? 1 : 0;
      $avaliacao_dirigida = isset($_POST['avaliacao_dirigida']) ? 1 : 0;
@@ -300,7 +301,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $tratado_choque = isset($_POST['tratado_choque']) ? 1 : 0;
      $uso_canula = isset($_POST['uso_canula']) ? 1 : 0;
      $uso_colar = isset($_POST['uso_colar']) ? 1 : 0;
-     $tam_colar = isset($_POST['tam_colar']) ? $_POST['tam_colar'] : "";
+     $tam_colar = isset($_POST['tam_colar']) ? $_POST['tam_colar'] : "0";
      $uso_ked = isset($_POST['uso_ked']) ? 1 : 0;
      $uso_ttf = isset($_POST['uso_ttf']) ? 1 : 0;
      $ventilacao_suporte = isset($_POST['ventilacao_suporte']) ? 1 : 0;
@@ -309,10 +310,53 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $reanimador = isset($_POST['reanimador']) ? 1 : 0;
      $lpm_reanimador = isset($_POST['lpm_reanimador']) ? 1 : 0;
      $meio_auxiliares = isset($_POST['meio_auxiliares']) ? 5 : 0;
-     $outro_procedimento = isset($_POST['outro_procedimento']) ? $_POST['outro_procedimento'] : "";
-     $sql_procedimentosefetuados = "INSERT INTO procedimentosefetuados (id_procedimentosefetuados, id_fichas_procedimentosefetuados, aspiracao, avaliacao_inicial, avaliacao_dirigida, avaliacao_continuada, chave_rautek, canula_guedel, desobstrucao_va, emprego_dea, gerenciamento_riscos, limpeza_ferimento, curativos_compressivo, encravamento_ocular, queimadura_simples, tres_pontas, imobilizacoes_membros, quadril, cervical, maca_sobre_rodas, maca_rigida, ponte, retirado_capacete, rcp, rolamento, tomada_decisao, tratado_choque, uso_canula, uso_colar, tam_colar, uso_ked, uso_ttf, ventilacao_suporte, oxigenioterapia, lpm_vent_sup, reanimador, lpm_reanimador, meio_auxiliares, outro_procedimento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-     $stmt_procedimentosefetuados = $conn->prepare($sql_procedimentosefetuados);
-     $stmt_procedimentosefetuados->bind_param("iissssssssssssssssssssssssssssssssss", $id_procedimentosefetuados, $id_fichas_procedimentosefetuados, $aspiracao, $avaliacao_inicial, $avaliacao_dirigida, $avaliacao_continuada, $chave_rautek, $canula_guedel, $desobstrucao_va, $emprego_dea, $gerenciamento_riscos, $limpeza_ferimento, $curativos_compressivo, $encravamento_ocular, $queimadura_simples, $tres_pontas, $imobilizacoes_membros, $quadril, $cervical, $maca_sobre_rodas, $maca_rigida, $ponte, $retirado_capacete, $rcp, $rolamento, $tomada_decisao, $tratado_choque, $uso_canula, $uso_colar, $tam_colar, $uso_ked, $uso_ttf, $ventilacao_suporte, $oxigenioterapia, $lpm_vent_sup, $reanimador, $lpm_reanimador, $meio_auxiliares, $outro_procedimento);
+     $outro_procedimento = isset($_POST['outro_procedimento']) ? $_POST['outro_procedimento'] : "0";
+    $sql_procedimentosefetuados = "INSERT INTO procedimentosefetuados (id_procedimentosefetuados, id_fichas, aspiracao, avaliacao_inicial, avaliacao_dirigida, avaliacao_continuada, chave_rautek, canula_guedel, desobstrucao_va, emprego_dea, gerenciamento_riscos, limpeza_ferimento, curativos, compressivo, encravamento, ocular, queimadura, simples, tres_pontas, imobilizacoes, quadril, cervical, maca_sobre_rodas, maca_rigida, ponte, retirado_capacete, rcp, rolamento, tomada_decisao, tratado_choque, uso_canula, uso_colar, tam_colar, uso_ked, uso_ttf, ventilacao_suporte, oxigenioterapia, lpm_vent_sup, reanimador, lpm_reanimador, meio_auxiliares, outro_procedimento)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt_procedimentosefetuados = $conn->prepare($sql_procedimentosefetuados);
+    $stmt_procedimentosefetuados->bind_param("iissssssssssssssssssssssssssssssssssssssss",
+        $id_procedimentosefetuados,
+        $id_fichas_procedimentosefetuados,
+        $aspiracao,
+        $avaliacao_inicial,
+        $avaliacao_dirigida,
+        $avaliacao_continuada,
+        $chave_rautek,
+        $canula_guedel,
+        $desobstrucao_va,
+        $emprego_dea,
+        $gerenciamento_riscos,
+        $limpeza_ferimento,
+        $curativos,
+        $compressivo,
+        $encravamento,
+        $ocular,
+        $queimadura,
+        $simples,
+        $tres_pontas,
+        $imobilizacoes,
+        $quadril,
+        $cervical,
+        $maca_sobre_rodas,
+        $maca_rigida,
+        $ponte,
+        $retirado_capacete,
+        $rcp,
+        $rolamento,
+        $tomada_decisao,
+        $tratado_choque,
+        $uso_canula,
+        $uso_colar,
+        $tam_colar,
+        $uso_ked,
+        $uso_ttf,
+        $ventilacao_suporte,
+        $oxigenioterapia,
+        $lpm_vent_sup,
+        $reanimador,
+        $lpm_reanimador,
+        $meio_auxiliares,
+        $outro_procedimento);
      if ($stmt_procedimentosefetuados->execute()) {
         echo "Dados inseridos com sucesso.";
     } else {
@@ -322,7 +366,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $id_queimaduras = isset($_POST['id_queimaduras']) ? $_POST['id_queimaduras'] : null;
      $localizacao = isset($_POST['localizacao']) ? 1 : 0;
      $grau_queimadura = isset($_POST['grau_queimadura']) ? 1 : 0;
-     $sql_queimaduras = "INSERT INTO queimaduras (id_queimaduras, id_fichas_queimaduras, localizacao, grau_queimadura) VALUES (?, ?, ?, ?)";
+     $sql_queimaduras = "INSERT INTO queimaduras (id_queimaduras, id_fichas, localizacao, grau_queimadura) VALUES (?, ?, ?, ?)";
      $stmt_queimaduras = $conn->prepare($sql_queimaduras);
      $stmt_queimaduras->bind_param("isss", $id_queimaduras, $id_fichas_queimaduras, $localizacao, $grau_queimadura);
      if ($stmt_queimaduras->execute()) {
@@ -387,10 +431,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $taquipneia = isset($_POST['taquipneia']) ? 1 : 0;
      $taquicardia = isset($_POST['taquicardia']) ? 1 : 0;
      $tontura = isset($_POST['tontura']) ? 1 : 0;
-     $outros_sintomas = isset($_POST['outros_sintomas']) ? $_POST['outros_sintomas'] : "";
-     $sql_sinaissintomas = "INSERT INTO sinaissintomas (id_sinaissintomas, id_fichas_sinaissintomas, abdomem, abdomem_rigido, afundamento_de_cranio, agitacao, apneia, bradicardia, bradipneia, bronco_aspirando, cefaleia, cianose, cianose_labios, cianose_extremidade, convulsao, decorticacao, deformidade, descerebracao, desmaio, desvio_de_traqueia, dispneia, dor_local, edma, edma_generalizados, edma_localizados, enfisema_subcutaneo, estase_de_jugular, face_palida, hemorragia, hemorragia_interna, hemorragia_externa, hipertensao, hipotensao, nauseas_vomitos, nasoragia, obito, otorreia, ovace, parada, parada_cardiaca, parada_respiratoria, priaprismo, prurido_na_pele, pupilas, pupilas_anisocoria, pupilas_isocoria, pupilas_midriase, pupilas_miose, pupilas_reagente, pupilas_nao_reagente, sede, sinal_de_battle, sinal_de_guaxinim, sudorese, taquipneia, taquicardia, tontura, outros_sintomas) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+     $outros_sintomas = isset($_POST['outros_sintomas']) ? $_POST['outros_sintomas'] : "0";
+     $sql_sinaissintomas = "INSERT INTO sinaissintomas (id_sinaissintomas, id_fichas, abdomem_sensivel, afundamento_de_cranio, agitacao, apneia, bradicardia, bradipneia, bronco_aspirando, cefaleia, cianose_labios, cianose_extremidade, convulsao, decorticacao, deformidade, descerebracao, desmaio, desvio_de_traqueia, dispneia, dor_local, edma_generalizados, edma_localizados, enfisema_subcutaneo, estase_de_jugular, face_palida, hemorragia_interna, hemorragia_externa, hipertensao, hipotensao, nauseas_vomitos, nasoragia, obito, otorreia, ovace, parada_cardiaca, parada_respiratoria, priaprismo, prurido_na_pele, pupilas_anisocoria, pupilas_isocoria, pupilas_midriase, pupilas_miose, pupilas_reagente, pupilas_nao_reagente, sede, sinal_de_battle, sinal_de_guaxinim, sudorese, taquipneia, taquicardia, tontura, outros_sintomas) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
      $stmt_sinaissintomas = $conn->prepare($sql_sinaissintomas);
-     $stmt_sinaissintomas->bind_param("iissssssssssssssssssssssssssssssssssssssssssssssssssssss", $id_sinaissintomas, $id_fichas_sinaissintomas, $abdomem, $abdomem_rigido, $afundamento_de_cranio, $agitacao, $apneia, $bradicardia, $bradipneia, $bronco_aspirando, $cefaleia, $cianose, $cianose_labios, $cianose_extremidade, $convulsao, $decorticacao, $deformidade, $descerebracao, $desmaio, $desvio_de_traqueia, $dispneia, $dor_local, $edma, $edma_generalizados, $edma_localizados, $enfisema_subcutaneo, $estase_de_jugular, $face_palida, $hemorragia, $hemorragia_interna, $hemorragia_externa, $hipertensao, $hipotensao, $nauseas_vomitos, $nasoragia, $obito, $otorreia, $ovace, $parada, $parada_cardiaca, $parada_respiratoria, $priaprismo, $prurido_na_pele, $pupilas, $pupilas_anisocoria, $pupilas_isocoria, $pupilas_midriase, $pupilas_miose, $pupilas_reagente, $pupilas_nao_reagente, $sede, $sinal_de_battle, $sinal_de_guaxinim, $sudorese, $taquipneia, $taquicardia, $tontura, $outros_sintomas);
+     $stmt_sinaissintomas->bind_param("iissssssssssssssssssssssssssssssssssssssssssssssssss", $id_sinaissintomas, $id_fichas_sinaissintomas, $abdomem, $afundamento_de_cranio, $agitacao, $apneia, $bradicardia, $bradipneia, $bronco_aspirando, $cefaleia, $cianose_labios, $cianose_extremidade, $convulsao, $decorticacao, $deformidade, $descerebracao, $desmaio, $desvio_de_traqueia, $dispneia, $dor_local, $edma_generalizados, $edma_localizados, $enfisema_subcutaneo, $estase_de_jugular, $face_palida, $hemorragia_interna, $hemorragia_externa, $hipertensao, $hipotensao, $nauseas_vomitos, $nasoragia, $obito, $otorreia, $ovace, $parada_cardiaca, $parada_respiratoria, $priaprismo, $prurido_na_pele, $pupilas_anisocoria, $pupilas_isocoria, $pupilas_midriase, $pupilas_miose, $pupilas_reagente, $pupilas_nao_reagente, $sede, $sinal_de_battle, $sinal_de_guaxinim, $sudorese, $taquipneia, $taquicardia, $tontura, $outros_sintomas);
      if ($stmt_sinaissintomas->execute()) {
         echo "Dados inseridos com sucesso.";
     } else {
@@ -406,7 +450,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $id_temperatura = isset($_POST['id_temperatura'])? $_POST['id_temperatura'] : "";
      $id_perfusao = isset($_POST['id_perfusão']) ? '>2 seg' : '+=2 seg';
      $id_sinais = isset($_POST['id_sinais']) ? 'Anormal' : 'Normal';
-     $sql_sinaisvitais = "INSERT INTO sinaisvitais (id_sinaisvitais, id_fichas_sinaisvitais, id_pressao_arterial, pulso, id_respiracao, id_pulsacao_percentual, id_hgt, id_temperatura, id_perfusao, id_sinais) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+     $sql_sinaisvitais = "INSERT INTO sinaisvitais (id_sinaisvitais, id_fichas, pressao_arterial, pulso, respiracao, pulsacao_percentual, hgt, temperatura, perfusao, sinais) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
      $stmt_sinaisvitais = $conn->prepare($sql_sinaisvitais);
      $stmt_sinaisvitais->bind_param("iissssssss", $id_sinaisvitais, $id_fichas_sinaisvitais, $id_pressao_arterial, $pulso, $id_respiracao, $id_pulsacao_percentual, $id_hgt, $id_temperatura, $id_perfusao, $id_sinais);
      if ($stmt_sinaisvitais->execute()) {
@@ -424,9 +468,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $id_rg_testemunha_1 = isset($_POST['id_rg_testemunha_1']) ? $_POST['id_rg_testemunha_1'] : "";
      $id_nome_testemunha_2 = isset($_POST['id_nome_testemunha_2']) ? $_POST['id_nome_testemunha_2'] : "";
      $id_rg_testemunha_2 = isset($_POST['id_rg_testemunha_2']) ? $_POST['id_rg_testemunha_2'] : "";
-     $sql_termorecusaatendimento = "INSERT INTO termorecusaatendimento (id_termorecusaatendimento, id_ficha_termorecusaatendimento, id_nome_paciente, id_rg_paciente, id_cpf_paciente, id_ass, id_nome_testemunha_1, id_rg_testemunha_1, id_nome_testemunha_2, id_rg_testemunha_2) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+     $sql_termorecusaatendimento = "INSERT INTO termorecusaatendimento (id_termorecusaatendimento, id_fichas, nome_paciente, rg_paciente, cpf_paciente, nome_testemunha_1, rg_testemunha_1, nome_testemunha_2, rg_testemunha_2) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
      $stmt_termorecusaatendimento = $conn->prepare($sql_termorecusaatendimento);
-     $stmt_termorecusaatendimento->bind_param("iissssssss", $id_termorecusaatendimento, $id_ficha_termorecusaatendimento, $id_nome_paciente, $id_rg_paciente, $id_cpf_paciente, $id_ass, $id_nome_testemunha_1, $id_rg_testemunha_1, $id_nome_testemunha_2, $id_rg_testemunha_2);
+     $stmt_termorecusaatendimento->bind_param("iisssssss", $id_termorecusaatendimento, $id_ficha_termorecusaatendimento, $id_nome_paciente, $id_rg_paciente, $id_cpf_paciente, $id_nome_testemunha_1, $id_rg_testemunha_1, $id_nome_testemunha_2, $id_rg_testemunha_2);
      if ($stmt_termorecusaatendimento->execute()) {
         echo "Dados inseridos com sucesso.";
     } else {
@@ -438,9 +482,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $id_parte_corpo = isset($_POST['id_parte_corpo']) ? 1 : 0;
      $id_localizacao_frente = isset($_POST['id_localizacao_frente']) ? 1 : 0;
      $id_localizacao_verso = isset($_POST['id_localizacao_verso']) ? 1 : 0;
-     $sql_trauma = "INSERT INTO trauma (id_trauma, id_ficha_trauma, id_tipo_paciente, id_parte_corpo, id_localizacao_frente, id_localizacao_verso) VALUES (?, ?, ?, ?, ?, ?)";
+     $sql_trauma = "INSERT INTO trauma (id_trauma, tipo_paciente, parte_corpo, localizacao_frente, localizacao_verso) VALUES (?, ?, ?, ?, ?)";
      $stmt_trauma = $conn->prepare($sql_trauma);
-     $stmt_trauma->bind_param("iissssssss", $id_trauma, $id_ficha_trauma, $id_tipo_paciente, $id_parte_corpo, $id_localizacao_frente, $id_localizacao_verso);
+     $stmt_trauma->bind_param("iisss", $id_trauma,$id_tipo_paciente, $id_parte_corpo, $id_localizacao_frente, $id_localizacao_verso);
      if ($stmt_trauma->execute()) {
         echo "Dados inseridos com sucesso.";
     } else {
@@ -458,7 +502,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $id_trauma = isset($_POST['id_trauma']) ? 1 : 0;
      $id_pass_bco_tras = isset($_POST['id_pass_bco_tras']) ? 1 : 0;
      $id_pedestre = isset($_POST['id_pedestre']) ? 1 : 0;
-     $sql_vitimaera = "INSERT INTO vitimaera (id_vitimaera, id_ciclista, id_condutor_moto, id_gestante, id_pass_ban_frente, id_pass_moto, id_condutor_carro, id_clinico, id_pass_bco_tras, id_pedestre) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+     $sql_vitimaera = "INSERT INTO vitimaera (id_vitimaera, ciclista, condutor_moto, gestante, pass_ban_frente, pass_moto, condutor_carro, clinico, pass_bco_tras, pedestre) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
      $stmt_vitimaera = $conn->prepare($sql_vitimaera);
      $stmt_vitimaera->bind_param("isssssssss", $id_vitimaera, $id_ciclista, $id_condutor_moto, $id_gestante, $id_pass_ban_frente, $id_pass_moto, $id_condutor_carro, $id_clinico, $id_pass_bco_tras, $id_pedestre);
      if ($stmt_vitimaera->execute()) {
@@ -466,6 +510,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "Erro: " . $stmt_vitimaera->error;
     }
-
     }
-    ?>
+
+// Inserção bem-sucedida
+echo "<script type='text/javascript'>
+    alert('Inserção bem-sucedida no banco de dados.');
+    window.location.href = 'ficha.html';
+</script>";
+?>
+ficha.php
+Exibindo ficha.php.
